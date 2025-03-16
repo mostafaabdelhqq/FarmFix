@@ -32,6 +32,8 @@ class SignUpCubit extends Cubit<SignUpState> {
         password: password,
       );
 
+      await userCredential.user?.sendEmailVerification();
+
       // Update user profile with firstName and lastName
       await userCredential.user?.updateDisplayName("$firstName $lastName");
 

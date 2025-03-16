@@ -12,14 +12,22 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> login(String email, String password) async {
     emit(LoginLoading());
+
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-      emit(LoginSuccess(userCredential.user!));
-    } on FirebaseAuthException catch (ex) {
-      emit(LoginFailure(ex.message ?? 'An error occurred'));
+
+      // Check if email is verified
+      if (userCredential.user!.emailVerified) {
+        emit(LoginSuccess(userCredential.user!));
+      } else {
+        await _auth.signOut(); // Sign out the user if email is not verified
+        emit(LoginFailure("Please verify your email before logging in."));
+      }
+    } on FirebaseAuthException catch (e) {
+      emit(LoginFailure(e.message ?? "An error occurred"));
     }
   }
 }
