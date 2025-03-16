@@ -1,4 +1,5 @@
 import 'package:farmfix/features/forget%20password/presentation/views/forget_password_view.dart';
+import 'package:farmfix/features/forget%20password/presentation/views/widgets/check_your_email_view.dart';
 import 'package:farmfix/features/home/presentation/views/home_view.dart';
 import 'package:farmfix/features/sign%20in/presentation/views/sign_in_view.dart';
 import 'package:farmfix/features/sign%20up/presentation/views/sign_up_view.dart';
@@ -10,6 +11,7 @@ abstract class AppRoutes {
   static const KSignUpView = '/signUpView';
   static const KForgetPasswordView = '/forgetPasswordView';
   static const KHomeView = '/homeView';
+  static const KCheckYourEmailView = '/checkYourEmailView';
 
   static final router = GoRouter(routes: [
     GoRoute(
@@ -31,6 +33,10 @@ abstract class AppRoutes {
     GoRoute(
       path: KHomeView,
       builder: (context, state) => const HomeView(),
+    ),
+    GoRoute(
+      path: KCheckYourEmailView,
+      builder: (context, state) => const CheckYourEmailView(),
     )
   ]);
 }

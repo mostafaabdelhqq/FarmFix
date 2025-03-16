@@ -15,11 +15,7 @@ class ForgetPasswordView extends StatelessWidget {
           create: (context) => ResetPasswordCubit(),
           child: BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
             listener: (context, state) {
-              if (state is ResetPasswordEmailNotFound) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(state.message)),
-                );
-              } else if (state is ResetPasswordSuccess) {
+              if (state is ResetPasswordSuccess) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Password reset email sent!')),
                 );
