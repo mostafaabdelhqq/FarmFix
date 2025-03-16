@@ -14,3 +14,9 @@ class ResetPasswordFailure extends ResetPasswordState {
 
   ResetPasswordFailure(this.errorMessage);
 }
+
+class ResetPasswordEmailNotFound extends ResetPasswordState {
+  final String message;
+
+  ResetPasswordEmailNotFound(this.message);
+}

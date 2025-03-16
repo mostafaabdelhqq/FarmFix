@@ -1,9 +1,11 @@
 import 'package:farmfix/core/custom_button.dart';
 import 'package:farmfix/core/custom_text_field.dart';
 import 'package:farmfix/core/utils/assets_data.dart';
+import 'package:farmfix/features/forget%20password/cubit/reset_password_cubit.dart';
 import 'package:farmfix/features/forget%20password/presentation/views/widgets/logo_and_name.dart';
 import 'package:farmfix/features/forget%20password/presentation/views/widgets/two_text_define_this_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ForgetPasswordViewBody extends StatelessWidget {
   ForgetPasswordViewBody({super.key});
@@ -40,6 +42,17 @@ class ForgetPasswordViewBody extends StatelessWidget {
               height: 32,
             ),
             CustomButton(
+              onPressed: () {
+                final email = _emailController.text.trim();
+                if (email.isNotEmpty) {
+                  context.read<ResetPasswordCubit>().resetPassword(email);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                        content: Text('Please enter your email address.')),
+                  );
+                }
+              },
               textButton: 'Send',
               borderRadius: BorderRadius.circular(20),
             )
