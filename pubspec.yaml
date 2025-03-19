@@ -34,6 +34,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.0
+  flutter_native_splash: ^2.4.4
+  flutter_screenutil: ^5.9.3
   go_router: ^14.8.0
   google_fonts: ^6.2.1
 
