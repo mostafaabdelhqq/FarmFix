@@ -1,7 +1,7 @@
-import 'package:farmfix/core/custom_button.dart';
-import 'package:farmfix/core/custom_text_field.dart';
 import 'package:farmfix/core/utils/app_routes.dart';
 import 'package:farmfix/core/utils/assets_data.dart';
+import 'package:farmfix/core/widgets/custom_button.dart';
+import 'package:farmfix/core/widgets/custom_text_field.dart';
 import 'package:farmfix/features/forget%20password/cubit/reset_password_cubit.dart';
 import 'package:farmfix/features/forget%20password/presentation/views/widgets/logo_and_name.dart';
 import 'package:farmfix/features/forget%20password/presentation/views/widgets/two_text_define_this_view.dart';

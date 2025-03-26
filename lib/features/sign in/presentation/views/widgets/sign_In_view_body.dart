@@ -1,4 +1,4 @@
-import 'package:farmfix/core/auth_logo.dart';
+import 'package:farmfix/core/widgets/auth_logo.dart';
 import 'package:farmfix/features/sign%20in/presentation/views/widgets/sign_in_details.dart';
 import 'package:flutter/material.dart';
 
