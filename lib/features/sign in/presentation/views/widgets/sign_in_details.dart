@@ -3,7 +3,7 @@ import 'package:farmfix/core/utils/app_routes.dart';
 import 'package:farmfix/core/widgets/custom_button.dart';
 import 'package:farmfix/core/widgets/custom_password_text_field.dart';
 import 'package:farmfix/core/widgets/custom_text_field.dart';
-import 'package:farmfix/core/widgets/snack_bar.dart';
+import 'package:farmfix/core/widgets/show_snack_bar.dart';
 import 'package:farmfix/features/sign%20in/cubit/login_cubit.dart';
 import 'package:farmfix/features/sign%20in/presentation/views/widgets/blur_layer.dart';
 import 'package:flutter/material.dart';
@@ -28,68 +28,68 @@ class _SignInDetailsState extends State<SignInDetails> {
   Widget build(BuildContext context) {
     return Opacity(
       opacity: .9,
-      child: Stack(
-        alignment: AlignmentDirectional.topCenter,
-        children: [
-          const BlurLayer(),
-          const Positioned(
-            top: 50,
-            child: Text(
-              'sign in to your account',
-              style: TextStyle(
-                  fontFamily: KJersey25,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600),
-            ),
-          ),
-          const Positioned(
-            top: 135,
-            left: 22,
-            child: Text(
-              'Email Address',
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 165),
-            child: CustomTextField(
-              controller: _emailController,
-              hintText: 'Enter Your Email',
-            ),
-          ),
-          const Positioned(
-            top: 245,
-            left: 22,
-            child: Text(
-              'Password',
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 275),
-            child: CustomPasswordTextField(
-              controller: _passwordController,
-              ObscureText: true,
-              hintText: 'Enter Your Password',
-            ),
-          ),
-          Positioned(
-            top: 328,
-            right: 25,
-            child: GestureDetector(
-              onTap: () {
-                GoRouter.of(context).push(AppRoutes.KForgetPasswordView);
-              },
-              child: const Text(
-                'Forget Password?',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+      child: Form(
+        key: _formKey,
+        child: Stack(
+          alignment: AlignmentDirectional.topCenter,
+          children: [
+            const BlurLayer(),
+            const Positioned(
+              top: 50,
+              child: Text(
+                'sign in to your account',
+                style: TextStyle(
+                    fontFamily: KJersey25,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
               ),
             ),
-          ),
-          Positioned(
-              top: 370,
-              child: Form(
-                key: _formKey,
+            const Positioned(
+              top: 135,
+              left: 22,
+              child: Text(
+                'Email Address',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 165),
+              child: CustomTextField(
+                controller: _emailController,
+                hintText: 'Enter Your Email',
+              ),
+            ),
+            const Positioned(
+              top: 245,
+              left: 22,
+              child: Text(
+                'Password',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 275),
+              child: CustomPasswordTextField(
+                controller: _passwordController,
+                ObscureText: true,
+                hintText: 'Enter Your Password',
+              ),
+            ),
+            Positioned(
+              top: 328,
+              right: 25,
+              child: GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).push(AppRoutes.KForgetPasswordView);
+                },
+                child: const Text(
+                  'Forget Password?',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
+            Positioned(
+                top: 370,
                 child: CustomButton(
                   textButton: 'Sign In',
                   onPressed: () {
@@ -98,24 +98,25 @@ class _SignInDetailsState extends State<SignInDetails> {
                       final password = _passwordController.text;
                       context.read<LoginCubit>().login(email, password);
                     } else {
-                      showSnackBar('Please enter your email and password');
+                      showSnackBar(
+                          context, 'Please enter your email and password');
                     }
                   },
+                )),
+            Positioned(
+              top: 430,
+              child: GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).push(AppRoutes.KSignUpView);
+                },
+                child: const Text(
+                  'Don\'t have an account?',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
-              )),
-          Positioned(
-            top: 430,
-            child: GestureDetector(
-              onTap: () {
-                GoRouter.of(context).push(AppRoutes.KSignUpView);
-              },
-              child: const Text(
-                'Don\'t have an account?',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

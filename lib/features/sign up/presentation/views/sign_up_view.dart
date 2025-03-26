@@ -12,22 +12,29 @@ class SignUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: KPrimaryColor,
-        body: BlocProvider(
-            create: (context) => SignUpCubit(),
-            child: BlocConsumer<SignUpCubit, SignUpState>(
-                listener: (context, state) {
-              if (state is SignUpSuccess) {
-                GoRouter.of(context).push(AppRoutes.KSignInView);
-              } else if (state is SignUpFailure) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(state.error)),
-                );
-              } else if (state is SignUpLoading) {
-                const CircularProgressIndicator();
-              }
-            }, builder: (context, state) {
-              return SignUpViewBody();
-            })));
+      backgroundColor: KPrimaryColor,
+      body: BlocProvider(
+        create: (context) => SignUpCubit(),
+        child: BlocConsumer<SignUpCubit, SignUpState>(
+          listener: (context, state) {
+            if (state is SignUpSuccess) {
+              GoRouter.of(context).push(AppRoutes.KSignInView);
+            } else if (state is SignUpFailure) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(state.error)),
+              );
+            } else if (state is SignUpLoading) {
+              const CircularProgressIndicator();
+            }
+          },
+          builder: (context, state) {
+            return const SingleChildScrollView(
+              child: SignUpViewBody(),
+              physics: NeverScrollableScrollPhysics(),
+            );
+          },
+        ),
+      ),
+    );
   }
 }

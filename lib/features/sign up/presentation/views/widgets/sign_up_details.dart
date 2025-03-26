@@ -27,104 +27,104 @@ class _SignUpDetailsState extends State<SignUpDetails> {
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 
-  final formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Opacity(
       opacity: .9,
-      child: Stack(
-        alignment: AlignmentDirectional.topCenter,
-        children: [
-          const BlurLayer(),
-          const Positioned(
-            top: 50,
-            child: Text(
-              'Create new account',
-              style: TextStyle(
-                  fontFamily: KJersey25,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600),
+      child: Form(
+        key: _formKey,
+        child: Stack(
+          alignment: AlignmentDirectional.topCenter,
+          children: [
+            const BlurLayer(),
+            const Positioned(
+              top: 50,
+              child: Text(
+                'Create new account',
+                style: TextStyle(
+                    fontFamily: KJersey25,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
+              ),
             ),
-          ),
-          Positioned(
-            child: Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 105,
+            Positioned(
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 105,
+                    ),
+                    child: CustomTextField(
+                      width: .39,
+                      hintText: 'First name',
+                      controller: _firstNameController,
+                    ),
                   ),
-                  child: CustomTextField(
-                    width: .39,
-                    hintText: 'First name',
-                    controller: _firstNameController,
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 105,
+                    ),
+                    child: CustomTextField(
+                      width: .39,
+                      hintText: 'Last name',
+                      controller: _lastNameController,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 105,
-                  ),
-                  child: CustomTextField(
-                    width: .39,
-                    hintText: 'Last name',
-                    controller: _lastNameController,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          const Positioned(
-            top: 165,
-            left: 22,
-            child: Text(
-              'Email Address',
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+            const Positioned(
+              top: 165,
+              left: 22,
+              child: Text(
+                'Email Address',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 195),
-            child: CustomTextField(
-              hintText: 'Enter Your Email',
-              controller: _emailController,
+            Padding(
+              padding: EdgeInsets.only(top: 195),
+              child: CustomTextField(
+                hintText: 'Enter Your Email',
+                controller: _emailController,
+              ),
             ),
-          ),
-          const Positioned(
-            top: 255,
-            left: 22,
-            child: Text(
-              'Password',
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+            const Positioned(
+              top: 255,
+              left: 22,
+              child: Text(
+                'Password',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 285),
-            child: CustomPasswordTextField(
-                controller: _passwordController,
-                hintText: 'Enter Your password'),
-          ),
-          const Positioned(
-            top: 350,
-            left: 22,
-            child: Text(
-              'Confirm Password',
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+            Padding(
+              padding: EdgeInsets.only(top: 285),
+              child: CustomPasswordTextField(
+                  controller: _passwordController,
+                  hintText: 'Enter Your password'),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 380),
-            child: CustomPasswordTextField(
-              controller: _confirmPasswordController,
-              hintText: 'Enter Your confirm password',
+            const Positioned(
+              top: 350,
+              left: 22,
+              child: Text(
+                'Confirm Password',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+              ),
             ),
-          ),
-          Positioned(
-              top: 450,
-              child: Form(
-                key: formKey,
+            Padding(
+              padding: EdgeInsets.only(top: 380),
+              child: CustomPasswordTextField(
+                controller: _confirmPasswordController,
+                hintText: 'Enter Your confirm password',
+              ),
+            ),
+            Positioned(
+                top: 450,
                 child: CustomButton(
                   textButton: 'Sign Up',
                   onPressed: () {
-                    if (formKey.currentState!.validate()) {
+                    if (_formKey.currentState!.validate()) {
                       final firstName = _firstNameController.text;
                       final lastName = _lastNameController.text;
                       final email = _emailController.text;
@@ -140,21 +140,21 @@ class _SignUpDetailsState extends State<SignUpDetails> {
                           );
                     }
                   },
+                )),
+            Positioned(
+              top: 500,
+              child: GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).pop();
+                },
+                child: const Text(
+                  'Already have an account?',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
-              )),
-          Positioned(
-            top: 500,
-            child: GestureDetector(
-              onTap: () {
-                GoRouter.of(context).pop();
-              },
-              child: const Text(
-                'Already have an account?',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

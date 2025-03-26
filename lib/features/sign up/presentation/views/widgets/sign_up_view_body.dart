@@ -8,14 +8,16 @@ class SignUpViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView(
-        children: [
-          AuthLogo(),
-          const SizedBox(
-            height: 20,
-          ),
-          SignUpDetails(),
-        ],
+      child: Expanded(
+        child: Column(
+          children: [
+            AuthLogo(),
+            const SizedBox(
+              height: 20,
+            ),
+            SignUpDetails(),
+          ],
+        ),
       ),
     );
   }

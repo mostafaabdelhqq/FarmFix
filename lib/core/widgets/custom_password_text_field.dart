@@ -1,22 +1,23 @@
+import 'package:farmfix/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomPasswordTextField extends StatefulWidget {
-  CustomPasswordTextField(
-      {super.key,
-      required this.hintText,
-      this.ObscureText = true,
-      this.icon,
-      this.width = .9,
-      this.borderRadius = const BorderRadius.all(Radius.circular(8)),
-      this.validator,
-      required this.controller});
+  CustomPasswordTextField({
+    super.key,
+    required this.hintText,
+    this.ObscureText = true,
+    this.icon,
+    this.width = .9,
+    this.borderRadius = const BorderRadius.all(Radius.circular(8)),
+    required this.controller,
+  });
+
   final TextEditingController controller;
   final String hintText;
   final bool ObscureText;
   final Widget? icon;
   final double width;
   final BorderRadius borderRadius;
-  final String? Function(String?)? validator;
 
   @override
   State<CustomPasswordTextField> createState() =>
@@ -24,61 +25,71 @@ class CustomPasswordTextField extends StatefulWidget {
 }
 
 class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
-  final _formKey = GlobalKey<FormState>();
+  late bool _isObscured;
 
-  var _isObscured;
-
+  @override
   void initState() {
     super.initState();
-
-    _isObscured = true;
+    _isObscured = widget.ObscureText;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Container(
-          height: 40,
-          width: MediaQuery.of(context).size.width * widget.width,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: widget.borderRadius),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            child: Form(
-              key: _formKey,
-              child: TextFormField(
-                controller: widget.controller,
-                validator: widget.validator,
-                obscureText: _isObscured!,
-                decoration: InputDecoration(
-                  hintText: widget.hintText,
-                  hintStyle: const TextStyle(
-                      color: Color(0xffB3B3B3), overflow: TextOverflow.visible),
-                  border: InputBorder.none,
-                ),
-              ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: SizedBox(
+        height: 60,
+        width: MediaQuery.of(context).size.width * widget.width,
+        child: TextFormField(
+          controller: widget.controller,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'This field is required';
+            }
+            return null;
+          },
+          obscureText: _isObscured,
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            contentPadding: const EdgeInsets.all(10),
+            hintText: widget.hintText,
+            hintStyle: TextStyle(
+              color: Color(0xffB3B3B3),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: widget.borderRadius,
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: KPrimaryColor),
+              borderRadius: widget.borderRadius,
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.red),
+              borderRadius: widget.borderRadius,
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.red),
+              borderRadius: widget.borderRadius,
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.white),
+              borderRadius: widget.borderRadius,
+            ),
+            suffixIcon: IconButton(
+              onPressed: () {
+                setState(() {
+                  _isObscured = !_isObscured;
+                });
+              },
+              icon: _isObscured
+                  ? const Icon(Icons.visibility)
+                  : const Icon(Icons.visibility_off),
+              color: Colors.black,
             ),
           ),
         ),
       ),
-      Positioned(
-        left: 320,
-        top: 1,
-        bottom: 1,
-        child: IconButton(
-          onPressed: () {
-            setState(() {
-              _isObscured = !_isObscured;
-            });
-          },
-          icon: _isObscured!
-              ? const Icon(Icons.visibility)
-              : const Icon(Icons.visibility_off),
-          color: Colors.black,
-        ),
-      )
-    ]);
+    );
   }
 }
