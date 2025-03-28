@@ -3,14 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TwoTextDefineThisView extends StatelessWidget {
   const TwoTextDefineThisView(
-      {super.key, required this.Text1, required this.Text2});
-  final String Text1;
-  final String Text2;
+      {super.key, required this.text1, required this.text2});
+  final String text1;
+  final String text2;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(Text1,
+        Text(text1,
             style: GoogleFonts.inter(
                 fontSize: 22,
                 fontWeight: FontWeight.w600,
@@ -18,7 +18,7 @@ class TwoTextDefineThisView extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        Text(Text2,
+        Text(text2,
             maxLines: 2,
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(

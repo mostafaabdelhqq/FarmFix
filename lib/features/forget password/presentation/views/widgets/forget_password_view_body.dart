@@ -29,8 +29,8 @@ class ForgetPasswordViewBody extends StatelessWidget {
               height: 40,
             ),
             const TwoTextDefineThisView(
-                Text1: 'Forget password ?',
-                Text2:
+                text1: 'Forget password ?',
+                text2:
                     'A link will be resend to your email to help\n reset password'),
             const SizedBox(
               height: 27,
@@ -48,7 +48,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
                 final email = _emailController.text.trim();
                 if (email.isNotEmpty) {
                   context.read<ResetPasswordCubit>().resetPassword(email);
-                  GoRouter.of(context).push(AppRoutes.KCheckYourEmailView);
+                  GoRouter.of(context).push(AppRoutes.kCheckYourEmailView);
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(

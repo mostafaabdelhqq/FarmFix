@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class SignUpDetails extends StatefulWidget {
-  SignUpDetails({super.key});
+  const SignUpDetails({super.key});
 
   @override
   State<SignUpDetails> createState() => _SignUpDetailsState();
@@ -44,7 +44,7 @@ class _SignUpDetailsState extends State<SignUpDetails> {
               child: Text(
                 'Create new account',
                 style: TextStyle(
-                    fontFamily: KJersey25,
+                    fontFamily: kJersey25,
                     fontSize: 20,
                     fontWeight: FontWeight.w600),
               ),
@@ -53,7 +53,7 @@ class _SignUpDetailsState extends State<SignUpDetails> {
               child: Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       top: 105,
                     ),
                     child: CustomTextField(
@@ -84,7 +84,7 @@ class _SignUpDetailsState extends State<SignUpDetails> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 195),
+              padding: const EdgeInsets.only(top: 195),
               child: CustomTextField(
                 hintText: 'Enter Your Email',
                 controller: _emailController,
@@ -99,7 +99,7 @@ class _SignUpDetailsState extends State<SignUpDetails> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 285),
+              padding: const EdgeInsets.only(top: 285),
               child: CustomPasswordTextField(
                   controller: _passwordController,
                   hintText: 'Enter Your password'),
@@ -113,7 +113,7 @@ class _SignUpDetailsState extends State<SignUpDetails> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 380),
+              padding: const EdgeInsets.only(top: 380),
               child: CustomPasswordTextField(
                 controller: _confirmPasswordController,
                 hintText: 'Enter Your confirm password',

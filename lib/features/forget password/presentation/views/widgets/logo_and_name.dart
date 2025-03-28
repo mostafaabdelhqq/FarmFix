@@ -7,7 +7,7 @@ class LogoAndName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var image = Image.asset(
-      AssetsData.Logo,
+      AssetsData.logo,
       width: MediaQuery.of(context).size.width * .23,
     );
     return Column(
@@ -20,7 +20,7 @@ class LogoAndName extends StatelessWidget {
           height: 10,
         ),
         Image.asset(
-          AssetsData.FarmFixText,
+          AssetsData.farmFixText,
           width: MediaQuery.of(context).size.width * .34,
         ),
       ],

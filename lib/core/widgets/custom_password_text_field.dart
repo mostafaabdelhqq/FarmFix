@@ -2,10 +2,10 @@ import 'package:farmfix/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomPasswordTextField extends StatefulWidget {
-  CustomPasswordTextField({
+  const CustomPasswordTextField({
     super.key,
     required this.hintText,
-    this.ObscureText = true,
+    this.obscureText = true,
     this.icon,
     this.width = .9,
     this.borderRadius = const BorderRadius.all(Radius.circular(8)),
@@ -14,7 +14,7 @@ class CustomPasswordTextField extends StatefulWidget {
 
   final TextEditingController controller;
   final String hintText;
-  final bool ObscureText;
+  final bool obscureText;
   final Widget? icon;
   final double width;
   final BorderRadius borderRadius;
@@ -30,7 +30,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
   @override
   void initState() {
     super.initState();
-    _isObscured = widget.ObscureText;
+    _isObscured = widget.obscureText;
   }
 
   @override
@@ -41,6 +41,7 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
         height: 60,
         width: MediaQuery.of(context).size.width * widget.width,
         child: TextFormField(
+          textInputAction: TextInputAction.done,
           controller: widget.controller,
           validator: (value) {
             if (value!.isEmpty) {
@@ -54,14 +55,14 @@ class _CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
             fillColor: Colors.white,
             contentPadding: const EdgeInsets.all(10),
             hintText: widget.hintText,
-            hintStyle: TextStyle(
+            hintStyle: const TextStyle(
               color: Color(0xffB3B3B3),
             ),
             border: OutlineInputBorder(
               borderRadius: widget.borderRadius,
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: KPrimaryColor),
+              borderSide: const BorderSide(color: kPrimaryColor),
               borderRadius: widget.borderRadius,
             ),
             errorBorder: OutlineInputBorder(

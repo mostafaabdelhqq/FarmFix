@@ -25,8 +25,8 @@ class CheckYourEmailBody extends StatelessWidget {
               height: 40,
             ),
             const TwoTextDefineThisView(
-                Text1: 'Check Your Email',
-                Text2:
+                text1: 'Check Your Email',
+                text2:
                     'Reset password from link in your email and \nlog in with your new pasword'),
             const SizedBox(
               height: 27,
@@ -36,7 +36,7 @@ class CheckYourEmailBody extends StatelessWidget {
             ),
             CustomButton(
               onPressed: () {
-                GoRouter.of(context).pushReplacement(AppRoutes.KSignInView);
+                GoRouter.of(context).pushReplacement(AppRoutes.kSignInView);
               },
               textButton: 'Log in',
               borderRadius: BorderRadius.circular(20),

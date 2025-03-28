@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class SignInDetails extends StatefulWidget {
-  SignInDetails({super.key});
+  const SignInDetails({super.key});
 
   @override
   State<SignInDetails> createState() => _SignInDetailsState();
@@ -39,7 +39,7 @@ class _SignInDetailsState extends State<SignInDetails> {
               child: Text(
                 'sign in to your account',
                 style: TextStyle(
-                    fontFamily: KJersey25,
+                    fontFamily: kJersey25,
                     fontSize: 20,
                     fontWeight: FontWeight.w600),
               ),
@@ -53,7 +53,7 @@ class _SignInDetailsState extends State<SignInDetails> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 165),
+              padding: const EdgeInsets.only(top: 165),
               child: CustomTextField(
                 controller: _emailController,
                 hintText: 'Enter Your Email',
@@ -68,10 +68,10 @@ class _SignInDetailsState extends State<SignInDetails> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 275),
+              padding: const EdgeInsets.only(top: 275),
               child: CustomPasswordTextField(
                 controller: _passwordController,
-                ObscureText: true,
+                obscureText: true,
                 hintText: 'Enter Your Password',
               ),
             ),
@@ -80,7 +80,7 @@ class _SignInDetailsState extends State<SignInDetails> {
               right: 25,
               child: GestureDetector(
                 onTap: () {
-                  GoRouter.of(context).push(AppRoutes.KForgetPasswordView);
+                  GoRouter.of(context).push(AppRoutes.kForgetPasswordView);
                 },
                 child: const Text(
                   'Forget Password?',
@@ -107,7 +107,7 @@ class _SignInDetailsState extends State<SignInDetails> {
               top: 430,
               child: GestureDetector(
                 onTap: () {
-                  GoRouter.of(context).push(AppRoutes.KSignUpView);
+                  GoRouter.of(context).push(AppRoutes.kSignUpView);
                 },
                 child: const Text(
                   'Don\'t have an account?',

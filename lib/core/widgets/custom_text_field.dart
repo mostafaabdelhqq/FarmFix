@@ -2,17 +2,17 @@ import 'package:farmfix/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField({
+  const CustomTextField({
     super.key,
     required this.hintText,
-    this.ObscureText = false,
+    this.obscureText = false,
     this.width = .9,
     this.borderRadius = const BorderRadius.all(Radius.circular(8)),
     required this.controller,
   });
   final TextEditingController controller;
   final String hintText;
-  final bool ObscureText;
+  final bool obscureText;
 
   final double width;
   final BorderRadius borderRadius;
@@ -27,6 +27,7 @@ class CustomTextField extends StatelessWidget {
         height: 60,
         width: MediaQuery.of(context).size.width * width,
         child: TextFormField(
+          textInputAction: TextInputAction.next,
           controller: controller,
           validator: (value) {
             if (value!.isEmpty) {
@@ -34,7 +35,7 @@ class CustomTextField extends StatelessWidget {
             }
             return null;
           },
-          obscureText: ObscureText,
+          obscureText: obscureText,
           decoration: InputDecoration(
             fillColor: Colors.white,
             filled: true,
@@ -47,7 +48,7 @@ class CustomTextField extends StatelessWidget {
               borderRadius: borderRadius,
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: KPrimaryColor),
+              borderSide: const BorderSide(color: kPrimaryColor),
               borderRadius: borderRadius,
             ),
             errorBorder: OutlineInputBorder(

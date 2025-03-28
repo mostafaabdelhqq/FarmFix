@@ -29,7 +29,7 @@ class SplashImage extends StatelessWidget {
             padding:
                 const EdgeInsets.only(top: 20, bottom: 0, left: 34, right: 34),
             child: Image.asset(
-              AssetsData.Logo,
+              AssetsData.logo,
               height: MediaQuery.of(context).size.height * .55,
             ),
           )

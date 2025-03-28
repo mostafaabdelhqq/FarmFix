@@ -10,7 +10,7 @@ class ForgetPasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: KSecondryColor,
+        backgroundColor: kSecondryColor,
         body: BlocProvider(
           create: (context) => ResetPasswordCubit(),
           child: BlocConsumer<ResetPasswordCubit, ResetPasswordState>(

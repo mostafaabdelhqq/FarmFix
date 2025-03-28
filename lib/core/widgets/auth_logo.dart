@@ -20,14 +20,14 @@ class AuthLogo extends StatelessWidget {
                 height: 220,
                 width: 255,
                 padding: EdgeInsets.zero,
-                decoration: BoxDecoration(
-                  color: const Color(0xffFBF6E9),
+                decoration: const BoxDecoration(
+                  color: Color(0xffFBF6E9),
                 )),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 75, right: 75),
             child: Image.asset(
-              AssetsData.Logo,
+              AssetsData.logo,
               height: MediaQuery.of(context).size.height * .27,
             ),
           ),

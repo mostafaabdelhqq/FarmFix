@@ -7,11 +7,11 @@ import 'package:farmfix/features/splash/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRoutes {
-  static const KSignInView = '/signInView';
-  static const KSignUpView = '/signUpView';
-  static const KForgetPasswordView = '/forgetPasswordView';
-  static const KHomeView = '/homeView';
-  static const KCheckYourEmailView = '/checkYourEmailView';
+  static const kSignInView = '/signInView';
+  static const kSignUpView = '/signUpView';
+  static const kForgetPasswordView = '/forgetPasswordView';
+  static const kHomeView = '/homeView';
+  static const kCheckYourEmailView = '/checkYourEmailView';
 
   static final router = GoRouter(routes: [
     GoRoute(
@@ -19,23 +19,23 @@ abstract class AppRoutes {
       builder: (context, state) => const SplashView(),
     ),
     GoRoute(
-      path: KSignInView,
+      path: kSignInView,
       builder: (context, state) => const SignInView(),
     ),
     GoRoute(
-      path: KSignUpView,
+      path: kSignUpView,
       builder: (context, state) => const SignUpView(),
     ),
     GoRoute(
-      path: KForgetPasswordView,
+      path: kForgetPasswordView,
       builder: (context, state) => const ForgetPasswordView(),
     ),
     GoRoute(
-      path: KHomeView,
+      path: kHomeView,
       builder: (context, state) => const HomeView(),
     ),
     GoRoute(
-      path: KCheckYourEmailView,
+      path: kCheckYourEmailView,
       builder: (context, state) => const CheckYourEmailView(),
     )
   ]);

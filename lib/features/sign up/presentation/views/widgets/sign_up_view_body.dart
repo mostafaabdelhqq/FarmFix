@@ -7,12 +7,12 @@ class SignUpViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Expanded(
         child: Column(
           children: [
             AuthLogo(),
-            const SizedBox(
+            SizedBox(
               height: 20,
             ),
             SignUpDetails(),

@@ -15,7 +15,7 @@ class SloganText extends StatelessWidget {
             height: 60,
             child: Text('FarmFix',
                 style: TextStyle(
-                  fontFamily: KJersey25,
+                  fontFamily: kJersey25,
                   fontSize: 50,
                 )),
           ),
@@ -27,7 +27,7 @@ class SloganText extends StatelessWidget {
             height: 60,
             child: Text('Detect. Protect. Grow',
                 style: TextStyle(
-                    fontFamily: KJersey25,
+                    fontFamily: kJersey25,
                     fontSize: 30,
                     color: Color(0xffFBF6E9))),
           ),

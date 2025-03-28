@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width * .9,
       child: ElevatedButton(
           style: ButtonStyle(
-              backgroundColor: const WidgetStatePropertyAll(KPrimaryColor),
+              backgroundColor: const WidgetStatePropertyAll(kPrimaryColor),
               shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                 borderRadius: borderRadius,
