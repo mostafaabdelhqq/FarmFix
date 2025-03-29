@@ -98,6 +98,7 @@ class _SignUpFormState extends State<SignUpForm> {
         Padding(
           padding: const EdgeInsets.only(top: 5),
           child: CustomPasswordTextField(
+            textInputAction: TextInputAction.next,
             controller: _passwordController,
             hintText: 'Enter Your password',
           ),

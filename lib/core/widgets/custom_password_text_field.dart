@@ -10,6 +10,7 @@ class CustomPasswordTextField extends StatefulWidget {
     this.width = .9,
     this.borderRadius = const BorderRadius.all(Radius.circular(8)),
     required this.controller,
+    this.textInputAction = TextInputAction.done,
   });
 
   final TextEditingController controller;
@@ -18,6 +19,7 @@ class CustomPasswordTextField extends StatefulWidget {
   final Widget? icon;
   final double width;
   final BorderRadius borderRadius;
+  final TextInputAction textInputAction;
 
   @override
   State<CustomPasswordTextField> createState() =>
