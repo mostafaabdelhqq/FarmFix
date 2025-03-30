@@ -34,6 +34,7 @@ android {
 
         minSdkVersion 23
         targetSdkVersion 33
+        multiDexEnabled true
     }
 
     buildTypes {
