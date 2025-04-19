@@ -29,7 +29,7 @@ class SignUpView extends StatelessWidget {
           },
           builder: (context, state) {
             return const SingleChildScrollView(
-              physics: NeverScrollableScrollPhysics(),
+              // physics: NeverScrollableScrollPhysics(),
               child: SignUpViewBody(),
             );
           },
