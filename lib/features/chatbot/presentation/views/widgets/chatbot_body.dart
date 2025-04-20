@@ -1,3 +1,4 @@
+// chatbot_body.dart
 import 'package:farmfix/features/chatbot/presentation/views/widgets/chat_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,13 +12,20 @@ class ChatbotBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ChatCubit, ChatState>(
       builder: (context, state) {
-        if (state is ChatLoading) {
-          return const ChatPage();
-        }
         if (state is ChatError) {
-          return Center(child: Text('Error: ${state.error}'));
+          return Column(
+            children: [
+              Expanded(child: ChatPage()),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Error: ${state.error}',
+                  style: TextStyle(color: Colors.red),
+                ),
+              ),
+            ],
+          );
         }
-        // Your normal chat UI
         return const ChatPage();
       },
     );

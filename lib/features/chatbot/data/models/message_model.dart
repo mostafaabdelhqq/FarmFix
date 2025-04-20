@@ -1,43 +1,32 @@
 class MessageModel {
   final String text;
-  final bool isUser;
   final DateTime timestamp;
-  final bool isStreaming;
+  final bool isUser;
+  final bool? isTyping;
 
-  MessageModel({
-    required this.text,
-    required this.isUser,
-    required this.timestamp,
-    this.isStreaming = false,
-  });
+  MessageModel(
+    this.text, {
+    this.isUser = false,
+    DateTime? timestamp,
+    this.isTyping = false,
+  }) : timestamp = timestamp ?? DateTime.now();
 
-  factory MessageModel.user(String text) {
-    return MessageModel(
-      text: text,
-      isUser: true,
-      timestamp: DateTime.now(),
-    );
-  }
+  MessageModel.user(String text) : this(text, isUser: true, isTyping: false);
 
-  factory MessageModel.bot(String text) {
-    return MessageModel(
-      text: text,
-      isUser: false,
-      timestamp: DateTime.now(),
-    );
-  }
+  MessageModel.bot(String text, {bool isTyping = false})
+      : this(text, isUser: false, isTyping: isTyping);
 
   MessageModel copyWith({
     String? text,
-    bool? isUser,
     DateTime? timestamp,
-    bool? isStreaming,
+    bool? isUser,
+    bool? isTyping,
   }) {
     return MessageModel(
-      text: text ?? this.text,
+      text ?? this.text,
       isUser: isUser ?? this.isUser,
       timestamp: timestamp ?? this.timestamp,
-      isStreaming: isStreaming ?? this.isStreaming,
+      isTyping: isTyping ?? this.isTyping,
     );
   }
 }
