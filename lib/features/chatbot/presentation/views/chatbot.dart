@@ -16,7 +16,7 @@ class Chatbot extends StatelessWidget {
         ChatRepositoryImpl(GeminiDataSource()),
       ),
       child: Scaffold(
-        backgroundColor: kSecondryColor,
+        backgroundColor: kSecondaryColor,
         appBar: AppBar(
           title: const Text('Chatbot'),
           backgroundColor: kPrimaryColor,

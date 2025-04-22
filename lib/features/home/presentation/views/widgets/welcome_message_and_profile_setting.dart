@@ -20,7 +20,7 @@ class WelcomeMessageAndProfileSetting extends StatelessWidget {
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
         ),
-        color: kSecondryColor,
+        color: kSecondaryColor,
         image: const DecorationImage(
             image: AssetImage(
                 'assets/images/welcome _message_and_profile_setting_image.png'),

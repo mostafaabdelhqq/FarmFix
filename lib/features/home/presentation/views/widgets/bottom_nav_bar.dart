@@ -36,7 +36,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             });
           },
           type: BottomNavigationBarType.fixed,
-          backgroundColor: kSecondryColor,
+          backgroundColor: kSecondaryColor,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.grey,
           showSelectedLabels: false,
