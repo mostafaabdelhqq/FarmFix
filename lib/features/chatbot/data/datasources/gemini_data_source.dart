@@ -25,6 +25,8 @@ class GeminiDataSource {
     final chat = _model.startChat(history: history);
     final response = chat.sendMessageStream(Content.text(prompt));
 
-    yield* response.asyncMap((chunk) => chunk.text ?? '');
+    await for (final chunk in response) {
+      yield chunk.text ?? '';
+    }
   }
 }

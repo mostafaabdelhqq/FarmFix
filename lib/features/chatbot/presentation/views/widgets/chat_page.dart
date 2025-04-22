@@ -1,3 +1,4 @@
+import 'package:farmfix/core/utils/assets_data.dart';
 import 'package:farmfix/features/chatbot/logic/cubits/chat_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,11 +12,17 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController _textController = TextEditingController();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Gemini Chatbot'),
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            AssetsData.logo,
+          ),
+          opacity: .5,
+          fit: BoxFit.fitWidth,
+        ),
       ),
-      body: Column(
+      child: Column(
         children: [
           Expanded(
             child: BlocBuilder<ChatCubit, ChatState>(
@@ -38,9 +45,25 @@ class ChatPage extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     controller: _textController,
-                    decoration: const InputDecoration(
-                      hintText: 'Type your message...',
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      focusedBorder: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      suffixIcon: IconButton(
+                        icon: const Icon(Icons.send),
+                        onPressed: () {
+                          final text = _textController.text;
+                          if (text.isNotEmpty) {
+                            context.read<ChatCubit>().sendMessage(text);
+                            _textController.clear();
+                          }
+                        },
+                      ),
+                      hintText: 'Ask FarmFix',
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
                     ),
                     onSubmitted: (text) {
                       if (text.isNotEmpty) {
@@ -49,16 +72,6 @@ class ChatPage extends StatelessWidget {
                       }
                     },
                   ),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.send),
-                  onPressed: () {
-                    final text = _textController.text;
-                    if (text.isNotEmpty) {
-                      context.read<ChatCubit>().sendMessage(text);
-                      _textController.clear();
-                    }
-                  },
                 ),
               ],
             ),

@@ -12,7 +12,7 @@ class ChatbotBody extends StatelessWidget {
     return BlocBuilder<ChatCubit, ChatState>(
       builder: (context, state) {
         if (state is ChatLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const ChatPage();
         }
         if (state is ChatError) {
           return Center(child: Text('Error: ${state.error}'));

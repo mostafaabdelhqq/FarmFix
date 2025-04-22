@@ -15,17 +15,18 @@ class MessageBubble extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
         constraints: BoxConstraints(
           maxWidth: MediaQuery.of(context).size.width * 0.8,
+          minWidth: MediaQuery.of(context).size.width * .2,
         ),
         child: Card(
           color: message.isUser
-              ? Theme.of(context).colorScheme.primaryContainer
-              : Theme.of(context).colorScheme.surfaceVariant,
+              ? const Color(0xff5DB996)
+              : const Color(0xff047C43),
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
+                /*  Row(
                   children: [
                     Icon(message.isUser ? Icons.person : Icons.android),
                     const SizedBox(width: 8),
@@ -34,7 +35,7 @@ class MessageBubble extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
                   ],
-                ),
+                ), */
                 const SizedBox(height: 8),
                 MarkdownBody(data: message.text),
                 const SizedBox(height: 4),
