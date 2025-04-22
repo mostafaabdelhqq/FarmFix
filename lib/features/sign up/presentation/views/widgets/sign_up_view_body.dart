@@ -13,7 +13,7 @@ class SignUpViewBody extends StatelessWidget {
           children: [
             AuthLogo(),
             SizedBox(
-              height: 20,
+              height: 24,
             ),
             SignUpDetails(),
           ],

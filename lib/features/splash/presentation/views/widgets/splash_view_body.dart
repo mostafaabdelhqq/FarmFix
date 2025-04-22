@@ -36,7 +36,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void navigateToHome() {
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 3), () {
       // ignore: use_build_context_synchronously
       GoRouter.of(context).push(AppRoutes.kSignInView);
     });

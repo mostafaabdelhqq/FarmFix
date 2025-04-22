@@ -59,10 +59,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
               ),
               label: 'Chat',
             ),
-            const BottomNavigationBarItem(
-              icon: Iconify(Ion.scan_circle, size: 33, color: Colors.grey),
+             BottomNavigationBarItem(
+              icon: GestureDetector(
+                  onTap: (){GoRouter.of(context).push(AppRoutes.kCamera);},
+                  child: const Iconify(Ion.scan_circle, size: 33, color: Colors.grey)),
               activeIcon:
-                  Iconify(Ion.scan_circle, size: 36, color: Colors.black),
+                  GestureDetector(
+                      onTap: (){GoRouter.of(context).push(AppRoutes.kCamera);},
+                      child: const Iconify(Ion.scan_circle, size: 36, color: Colors.black)),
               label: 'Scan',
             ),
             const BottomNavigationBarItem(
@@ -71,6 +75,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   Iconify(Mdi.google_earth, size: 36, color: Colors.black),
               label: 'Search',
             ),
+
           ],
         ),
       ),

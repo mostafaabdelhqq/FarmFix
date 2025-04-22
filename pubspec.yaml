@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  camera: ^0.10.4
   cloud_firestore: ^5.6.5
   cupertino_icons: ^1.0.8
   firebase_auth: ^5.5.1
@@ -43,7 +44,10 @@ dependencies:
   google_fonts: ^6.2.1
   google_generative_ai: ^0.4.7
   iconify_flutter: ^0.0.7
+  image: ^4.5.4
+  image_picker: ^1.1.2
   shared_preferences: ^2.5.3
+  tflite_flutter: ^0.11.0
 
 dev_dependencies:
   flutter_lints: ^4.0.0
@@ -62,6 +66,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/model/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
