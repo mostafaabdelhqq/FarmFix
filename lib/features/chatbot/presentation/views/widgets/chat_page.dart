@@ -72,8 +72,8 @@ class _ChatPageState extends State<ChatPage> {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(23),
-                borderSide: const BorderSide(
-                  color: Colors.black26,
+                borderSide: BorderSide(
+                  color: kPrimaryColor.withOpacity(.6),
                   width: 2,
                 ),
               ),
