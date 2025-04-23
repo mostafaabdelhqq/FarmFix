@@ -8,7 +8,7 @@ class CheckYourEmailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: kSecondryColor,
+      backgroundColor: kSecondaryColor,
       body: CheckYourEmailBody(),
     );
   }
