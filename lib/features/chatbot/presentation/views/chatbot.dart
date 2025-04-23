@@ -22,7 +22,7 @@ class Chatbot extends StatelessWidget {
         ChatRepositoryImpl(GeminiDataSource()),
       ),
       child: Scaffold(
-        backgroundColor: kSecondryColor,
+        backgroundColor: kSecondaryColor,
         appBar: AppBar(
           title: const Text('FarmFix Assistant'),
           titleTextStyle: GoogleFonts.righteous(

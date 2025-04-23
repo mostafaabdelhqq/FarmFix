@@ -28,7 +28,6 @@ class SignInView extends StatelessWidget {
         }, builder: (context, state) {
           return const SingleChildScrollView(
             // physics: NeverScrollableScrollPhysics(),
-
             child: SignInViewBody(),
           );
         }),
