@@ -44,14 +44,11 @@ dependencies:
   google_fonts: ^6.2.1
   google_generative_ai: ^0.4.7
   iconify_flutter: ^0.0.7
-<<<<<<< HEAD
-  material_symbols_icons: ^4.2815.0
-=======
   image: ^4.5.4
   image_picker: ^1.1.2
->>>>>>> 1aec016aa0e7e6770edbc8275c8564fa8f67d313
+  material_symbols_icons: ^4.2815.0
   shared_preferences: ^2.5.3
-  tflite_flutter: ^0.11.0
+  
 
 dev_dependencies:
   flutter_lints: ^4.0.0

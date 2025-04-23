@@ -9,7 +9,7 @@ class SettingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Scaffold(
-        backgroundColor: kSecondryColor,
+        backgroundColor: kSecondaryColor,
         body: SettingsViewBody(),
       ),
     );

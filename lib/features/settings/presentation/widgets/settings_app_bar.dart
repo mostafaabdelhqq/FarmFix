@@ -36,7 +36,7 @@ class SettingsAppBar extends StatelessWidget {
               style: GoogleFonts.roboto(
                 fontSize: 40.sp,
                 fontWeight: FontWeight.w600,
-                color: kSecondryColor,
+                color: kSecondaryColor,
               ),
             ),
           ),
@@ -48,7 +48,7 @@ class SettingsAppBar extends StatelessWidget {
                 },
                 icon: Icon(
                   Symbols.expand_circle_right,
-                  color: kSecondryColor,
+                  color: kSecondaryColor,
                   size: 38.sp,
                 )),
           ),

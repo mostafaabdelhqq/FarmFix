@@ -68,7 +68,7 @@ class SettingOptions extends StatelessWidget {
                 width: 1.w,
                 strokeAlign: BorderSide.strokeAlignOutside)),
             foregroundColor: WidgetStateProperty.all(Colors.red),
-            backgroundColor: WidgetStateProperty.all(kSecondryColor),
+            backgroundColor: WidgetStateProperty.all(kSecondaryColor),
             minimumSize: WidgetStateProperty.all(Size(350.w, 60.h)),
           ),
           child: Text(
