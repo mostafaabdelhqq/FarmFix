@@ -2,6 +2,7 @@ import 'package:farmfix/features/chatbot/presentation/views/chatbot.dart';
 import 'package:farmfix/features/forget%20password/presentation/views/forget_password_view.dart';
 import 'package:farmfix/features/forget%20password/presentation/views/widgets/check_your_email_view.dart';
 import 'package:farmfix/features/home/presentation/views/home_view.dart';
+import 'package:farmfix/features/settings/presentation/settings_view.dart';
 import 'package:farmfix/features/sign%20in/presentation/views/sign_in_view.dart';
 import 'package:farmfix/features/sign%20up/presentation/views/sign_up_view.dart';
 import 'package:go_router/go_router.dart';
@@ -13,6 +14,7 @@ abstract class AppRoutes {
   static const kHomeView = '/homeView';
   static const kCheckYourEmailView = '/checkYourEmailView';
   static const kChatbot = '/chatbot';
+  static const kSettingsView = '/settingsView';
 
   static final router = GoRouter(routes: [
     GoRoute(
@@ -42,6 +44,10 @@ abstract class AppRoutes {
     GoRoute(
       path: kChatbot,
       builder: (context, state) => const Chatbot(),
+    ),
+    GoRoute(
+      path: kSettingsView,
+      builder: (context, state) => const SettingsView(),
     )
   ]);
 }

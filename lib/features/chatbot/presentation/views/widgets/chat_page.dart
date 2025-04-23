@@ -61,6 +61,7 @@ class _ChatPageState extends State<ChatPage> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
+            cursorColor: kPrimaryColor,
             controller: _textController,
             decoration: InputDecoration(
               border: OutlineInputBorder(

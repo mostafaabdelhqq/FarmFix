@@ -1,8 +1,10 @@
 import 'package:farmfix/constants.dart';
+import 'package:farmfix/core/utils/app_routes.dart';
 import 'package:farmfix/core/utils/extensions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeMessageAndProfileSetting extends StatelessWidget {
@@ -74,7 +76,9 @@ class WelcomeMessageAndProfileSetting extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    GoRouter.of(context).push(AppRoutes.kSettingsView);
+                  },
                   icon: const Icon(
                     Icons.settings,
                     color: Colors.black,
