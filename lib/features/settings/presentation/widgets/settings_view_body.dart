@@ -1,5 +1,5 @@
+import 'package:farmfix/core/widgets/custom_app_bar.dart';
 import 'package:farmfix/features/settings/presentation/widgets/setting_options.dart';
-import 'package:farmfix/features/settings/presentation/widgets/settings_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +12,10 @@ class SettingsViewBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SettingsAppBar(),
+        const CustomAppBar(
+          title: 'Settings',
+          fontSize: 40,
+        ),
         SizedBox(
           height: 35.h,
         ),

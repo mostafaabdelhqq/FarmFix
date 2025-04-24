@@ -57,16 +57,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-<<<<<<< HEAD
-  chalkdart:
-    dependency: transitive
-    description:
-      name: chalkdart
-      sha256: "7ffc6bd39c81453fb9ba8dbce042a9c960219b75ea1c07196a7fa41c2fab9e86"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.5"
-=======
   camera:
     dependency: "direct main"
     description:
@@ -107,7 +97,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.5"
->>>>>>> 1aec016aa0e7e6770edbc8275c8564fa8f67d313
+  chalkdart:
+    dependency: transitive
+    description:
+      name: chalkdart
+      sha256: "7ffc6bd39c81453fb9ba8dbce042a9c960219b75ea1c07196a7fa41c2fab9e86"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.5"
   characters:
     dependency: transitive
     description:
@@ -716,7 +713,7 @@ packages:
     source: hosted
     version: "6.1.4"
   quiver:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: quiver
       sha256: ea0b925899e64ecdfbf9c7becb60d5b50e706ade44a85b2363be2a22d88117d2
