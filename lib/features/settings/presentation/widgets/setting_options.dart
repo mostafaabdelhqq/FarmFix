@@ -1,6 +1,6 @@
 import 'package:farmfix/constants.dart';
-import 'package:farmfix/features/settings/presentation/widgets/Custom_list_tile.dart';
 import 'package:farmfix/features/settings/presentation/widgets/custom_divider.dart';
+import 'package:farmfix/features/settings/presentation/widgets/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';

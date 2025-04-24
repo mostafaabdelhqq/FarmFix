@@ -30,7 +30,22 @@ class Chatbot extends StatelessWidget {
             fontWeight: FontWeight.w200,
             color: Colors.white,
           ),
-          backgroundColor: kPrimaryColor,
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xFF009951),
+                  Color(0xFF006636),
+                  Color(0xFF004D29),
+                  // Color(0xFF004022),
+                  Color(0xFF00331B),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomLeft,
+              ),
+            ),
+          ),
+          centerTitle: true,
           leading: Padding(
             padding: const EdgeInsets.all(8),
             child: Container(

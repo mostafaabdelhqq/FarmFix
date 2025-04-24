@@ -5,9 +5,10 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
-class SettingsAppBar extends StatelessWidget {
-  const SettingsAppBar({super.key});
-
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({super.key, required this.title, required this.fontSize});
+  final String title;
+  final double fontSize;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,9 +33,9 @@ class SettingsAppBar extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 55, left: 20),
             child: Text(
-              'Settings',
+              title,
               style: GoogleFonts.roboto(
-                fontSize: 40.sp,
+                fontSize: fontSize.sp,
                 fontWeight: FontWeight.w600,
                 color: kSecondaryColor,
               ),

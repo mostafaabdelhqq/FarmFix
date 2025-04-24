@@ -15,12 +15,12 @@ class ChatbotBody extends StatelessWidget {
         if (state is ChatError) {
           return Column(
             children: [
-              Expanded(child: ChatPage()),
+              const Expanded(child: ChatPage()),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   'Error: ${state.error}',
-                  style: TextStyle(color: Colors.red),
+                  style: const TextStyle(color: Colors.red),
                 ),
               ),
             ],

@@ -1,5 +1,5 @@
+import 'package:farmfix/features/camera/presentation/views/widgets/camera_screen.dart';
 import 'package:farmfix/features/chatbot/presentation/views/chatbot.dart';
-import 'package:farmfix/features/camera/presentation/views/camera_view.dart';
 import 'package:farmfix/features/forget%20password/presentation/views/forget_password_view.dart';
 import 'package:farmfix/features/forget%20password/presentation/views/widgets/check_your_email_view.dart';
 import 'package:farmfix/features/home/presentation/views/home_view.dart';
@@ -15,11 +15,10 @@ abstract class AppRoutes {
   static const kHomeView = '/homeView';
   static const kCheckYourEmailView = '/checkYourEmailView';
   static const kChatbot = '/chatbot';
-<<<<<<< HEAD
+
   static const kSettingsView = '/settingsView';
-=======
-  static const kCamera= '/camera';
->>>>>>> 1aec016aa0e7e6770edbc8275c8564fa8f67d313
+
+  static const kCamera = '/camera';
 
   static final router = GoRouter(routes: [
     GoRoute(
@@ -51,13 +50,9 @@ abstract class AppRoutes {
       builder: (context, state) => const Chatbot(),
     ),
     GoRoute(
-<<<<<<< HEAD
       path: kSettingsView,
       builder: (context, state) => const SettingsView(),
-    )
-=======
-        path: kCamera,
-        builder: (context,state)=> const CameraScreen())
->>>>>>> 1aec016aa0e7e6770edbc8275c8564fa8f67d313
+    ),
+    GoRoute(path: kCamera, builder: (context, state) => const CameraScreen())
   ]);
 }
