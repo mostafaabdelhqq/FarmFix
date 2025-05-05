@@ -1,9 +1,10 @@
 import 'dart:io';
-import 'dart:typed_data';
-import 'package:image/image.dart' as img;
 import 'dart:math';
-import 'package:tflite_flutter/tflite_flutter.dart';
+import 'dart:typed_data';
+
 import 'package:flutter/services.dart';
+import 'package:image/image.dart' as img;
+import 'package:tflite_flutter/tflite_flutter.dart';
 
 
 Future<Float32List> preprocessImage(File imageFile) async {
@@ -63,26 +64,50 @@ Future<List<String>> loadLabels() async {
 }
 
 
+// Softmax مع temperature
+List<double> applySoftmax(List<double> logits, {double temperature = 0.5}) {
+  List<double> expScores = logits.map((x) => exp(x / temperature)).toList();
+  double sumExp = expScores.reduce((a, b) => a + b);
+  return expScores.map((x) => x / sumExp).toList();
+}
+
+// Rescale للـ confidence عشان تبقى بين 0.0 و 1.0
+double rescaleConfidence(double confidence) {
+  const minExpected = 0.3;
+  const maxExpected = 1.0;
+  double normalized = (confidence - minExpected) / (maxExpected - minExpected);
+  return normalized.clamp(0.0, 1.0); // ده اللي بيرجع القيمة من 0.0 إلى 1.0
+}
+
 Future<Map<String, dynamic>> predictImage({
   required File imageFile,
   required Interpreter interpreter,
   required List<String> labels,
 }) async {
-  print('Prediction in progress...');
   final input = await preprocessImage(imageFile);
-
   final outputBuffer = Float32List(labels.length);
 
   interpreter.run(input.buffer.asUint8List(), outputBuffer.buffer.asUint8List());
 
-
-  final confidence = outputBuffer.reduce(max);
-  final predictedIndex = outputBuffer.indexOf(confidence);
+  final probabilities = applySoftmax(outputBuffer.toList(), temperature: 0.5);
+  final rawConfidence = probabilities.reduce(max);
+  final scaledConfidence = rescaleConfidence(rawConfidence);
+  final predictedIndex = probabilities.indexOf(rawConfidence);
   final predictedLabel = labels[predictedIndex];
+
+  String message;
+  if (scaledConfidence < 0.6) {
+    message = '⚠️ الصورة غير واضحة أو المرض غير معروف، حاول مجددًا.';
+  } else {
+    message = '✅ تم التعرف على المرض بثقة جيدة.';
+  }
 
   return {
     'label': predictedLabel,
-    'confidence': confidence,
+    'confidence': scaledConfidence, // double بين 0.0 و 1.0
     'index': predictedIndex,
+    'message': message,
   };
 }
+
+
