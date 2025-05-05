@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ic.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 import 'package:tflite_flutter/tflite_flutter.dart';
 
 import '../../../logic/image_preprocessing.dart';
@@ -37,7 +38,7 @@ class _ResultScreenState extends State<ResultScreen> {
     _predictImage();
   }
 
-  // دالة التنبؤ بعد معالجة الصورة
+
   Future<void> _predictImage() async {
     final prediction = await predictImage(
       imageFile: widget.imageFile,
@@ -82,14 +83,14 @@ class _ResultScreenState extends State<ResultScreen> {
                 },
                 icon: Iconify(
                   Ic.twotone_help,
-                  color: kPrimaryColor,
+                  color: Colors.black,
                   size: 35.sp,
                 ),
               ),
             ),
 
             SizedBox(height: 28.h),
-            // عرض الصورة
+
             Center(
               child: Container(
                 height: 270.h,
@@ -98,8 +99,8 @@ class _ResultScreenState extends State<ResultScreen> {
                   borderRadius: BorderRadius.circular(23.r),
                   color: kPrimaryColor,
                   border: Border.all(
-                    color: kPrimaryColor,
-                    width: 8.w,
+                    color: Colors.transparent,
+                    width: 4.w,
                   ),
                   image: DecorationImage(
                     image: FileImage(widget.imageFile),
@@ -110,7 +111,7 @@ class _ResultScreenState extends State<ResultScreen> {
             ),
             SizedBox(height: 24.h),
 
-            // عرض النتيجة
+
             Padding(
               padding: EdgeInsets.only(left: 31.w),
               child: Text(
@@ -143,9 +144,29 @@ class _ResultScreenState extends State<ResultScreen> {
               ),
             ),
             SizedBox(height: 10.h),
-            Text(
-              'Confidence: ${(_confidence * 100).toStringAsFixed(2)}%',
-              style: const TextStyle(fontSize: 20, color: Colors.green),
+            Row(mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    CircularPercentIndicator(
+                      animation: true,
+                      animationDuration: 1000,
+                      startAngle: 0,
+                      radius: 60,
+                      percent: _confidence,
+                      lineWidth: 8,
+                      circularStrokeCap: CircularStrokeCap.round,
+                      progressColor: kPrimaryColor,
+                      center: Text("${(_confidence*100 ).toStringAsFixed(1)}%",style: TextStyle(color: Colors.black,fontSize: 28),),),
+
+
+                    Text(
+                      'Confidence',
+                      style: const TextStyle(fontSize: 20, color: Colors.black),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),
