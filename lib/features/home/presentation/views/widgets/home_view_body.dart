@@ -2,6 +2,7 @@ import 'package:farmfix/features/home/presentation/views/widgets/scan_plant.dart
 import 'package:farmfix/features/home/presentation/views/widgets/welcome_message_and_profile_setting.dart';
 import 'package:flutter/material.dart';
 
+
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({
     super.key,
@@ -21,6 +22,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           alignment: AlignmentDirectional.center,
           child: ScanPlant(),
         ),
+
       ],
     );
   }
