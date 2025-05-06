@@ -1,10 +1,8 @@
 import 'package:farmfix/constants.dart';
-import 'package:farmfix/core/utils/app_routes.dart';
 import 'package:farmfix/core/utils/extensions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeMessageAndProfileSetting extends StatelessWidget {
@@ -22,11 +20,7 @@ class WelcomeMessageAndProfileSetting extends StatelessWidget {
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
         ),
-        color: kSecondaryColor,
-        image: const DecorationImage(
-            image: AssetImage(
-                'assets/images/welcome _message_and_profile_setting_image.png'),
-            fit: BoxFit.cover),
+        gradient: kLinearGradient,
         boxShadow: [
           BoxShadow(
             color: const Color(0xff000000).withOpacity(0.5),
@@ -51,7 +45,7 @@ class WelcomeMessageAndProfileSetting extends StatelessWidget {
                   'welcome',
                   style: GoogleFonts.niconne(
                     fontSize: 25.sp,
-                    color: Colors.black,
+                    color: kSecondaryColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -59,7 +53,7 @@ class WelcomeMessageAndProfileSetting extends StatelessWidget {
                   user.displayName?.capitalize()??"User",
                   style: GoogleFonts.balthazar(
                     fontSize: 28.sp,
-                    color: Colors.black,
+                    color: kSecondaryColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -71,17 +65,7 @@ class WelcomeMessageAndProfileSetting extends StatelessWidget {
                   onPressed: () {},
                   icon: const Icon(
                     Icons.manage_accounts,
-                    color: Colors.black,
-                    size: 35,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    GoRouter.of(context).push(AppRoutes.kSettingsView);
-                  },
-                  icon: const Icon(
-                    Icons.settings,
-                    color: Colors.black,
+                    color: kSecondaryColor,
                     size: 35,
                   ),
                 ),
