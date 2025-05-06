@@ -8,8 +8,8 @@ import 'package:google_fonts/google_fonts.dart';
 class WelcomeMessageAndProfileSetting extends StatelessWidget {
   WelcomeMessageAndProfileSetting({super.key});
 
-  final User user = FirebaseAuth.instance.currentUser!;
 
+   final User user = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,7 +50,7 @@ class WelcomeMessageAndProfileSetting extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  user.displayName!.capitalize(),
+                  user.displayName?.capitalize()??"User",
                   style: GoogleFonts.balthazar(
                     fontSize: 28.sp,
                     color: kSecondaryColor,

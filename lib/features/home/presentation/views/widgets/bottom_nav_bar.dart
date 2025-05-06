@@ -1,84 +1,116 @@
+
 import 'package:farmfix/constants.dart';
 import 'package:farmfix/core/utils/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/cryptocurrency.dart';
-import 'package:iconify_flutter/icons/ion.dart';
+import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:iconify_flutter/icons/uil.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+
+   const BottomNavBar({super.key});
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
+
 class _BottomNavBarState extends State<BottomNavBar> {
-  int _currentIndex = 0;
+
+
+  final routes = [
+    AppRoutes.kHomeView,
+    AppRoutes.kChatbot,
+    AppRoutes.kLandScanner,
+    AppRoutes.kSettingsView];
+
+  int getCurrentIndex(BuildContext context) {
+    final location = GoRouterState.of(context).path;
+
+    if (location!.startsWith(AppRoutes.kHomeView)) {
+
+      return 0;
+    }
+    if (location.startsWith(AppRoutes.kChatbot)) {
+
+      return 1;
+    }
+    if (location.startsWith(AppRoutes.kLandScanner)) {
+
+      return 2;
+    }
+    if (location.startsWith(AppRoutes.kSettingsView)) {
+
+      return 3;
+    }
+
+    return 0; // default
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 90.h,
-      decoration: const BoxDecoration(),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(35),
-          topRight: Radius.circular(35),
-        ),
-        child: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: kSecondaryColor,
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.grey,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          items: [
-            BottomNavigationBarItem(
-              icon: GestureDetector(
-                onTap: () {
-                  GoRouter.of(context).push(AppRoutes.kChatbot);
-                },
-                child: const Iconify(Cryptocurrency.chat,
-                    size: 33, color: Colors.grey),
-              ),
-              activeIcon: GestureDetector(
-                onTap: () {
-                  GoRouter.of(context).push(AppRoutes.kChatbot);
-                },
-                child: const Iconify(Cryptocurrency.chat,
-                    size: 36, color: Colors.black),
-              ),
-              label: 'Chat',
-            ),
-             BottomNavigationBarItem(
-              icon: GestureDetector(
-                  onTap: (){GoRouter.of(context).push(AppRoutes.kCamera);},
-                  child: const Iconify(Ion.scan_circle, size: 33, color: Colors.grey)),
-              activeIcon:
-                  GestureDetector(
-                      onTap: (){GoRouter.of(context).push(AppRoutes.kCamera);},
-                      child: const Iconify(Ion.scan_circle, size: 36, color: Colors.black)),
-              label: 'Scan',
-            ),
-            const BottomNavigationBarItem(
-              icon: Iconify(Mdi.google_earth, size: 33, color: Colors.grey),
-              activeIcon:
-                  Iconify(Mdi.google_earth, size: 36, color: Colors.black),
-              label: 'Search',
-            ),
+    int currentIndex =getCurrentIndex(context);
+    void onItemTapped(int index) {
+      setState(() {
+        if(currentIndex == index) {
+          return;
+        }else {
 
-          ],
-        ),
+          GoRouter.of(context).push(routes[index]);
+
+        }
+      });
+
+
+    }
+    return BottomAppBar(
+      // padding: EdgeInsets.symmetric(horizontal: 12,vertical: 12),
+      shape: const CircularNotchedRectangle(),
+      color: Colors.black87,
+
+
+
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: List.generate(4, (index){
+          final icons = [
+            Uil.home_alt,
+            Mdi.chat_processing_outline,
+            Mdi.google_earth,
+            MaterialSymbols.settings_outline_rounded,
+        ];
+          final isSelected = currentIndex==index;
+
+          if(isSelected ) {
+           return InkWell(
+
+          onTap: () => onItemTapped(index),
+          child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20)
+          ),
+          padding: EdgeInsets.all(6),
+          child: Iconify(icons[index], size: 32, color: kSecondaryColor,)
+
+          ),
+          );}
+
+               return InkWell(
+          onTap: () => onItemTapped(index),
+          child: Container(
+              padding: EdgeInsets.all(6),
+              child: Iconify(icons[index], size: 32, color:  kSecondaryColor,)
+          ),
+          );})
+
       ),
     );
+
+
+
   }
 }
