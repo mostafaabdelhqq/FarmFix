@@ -18,6 +18,7 @@ class ResultScreen extends StatefulWidget {
   final List<String> labels;
 
   const ResultScreen({
+    super.key,
     required this.imageFile,
     required this.interpreter,
     required this.labels,

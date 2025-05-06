@@ -1,4 +1,4 @@
-import 'package:farmfix/features/camera/presentation/views/widgets/camera_view.dart';
+import 'package:farmfix/features/camera/presentation/views/widgets/camera_screen.dart';
 import 'package:flutter/material.dart';
 
 class CameraViewBody extends StatelessWidget {
