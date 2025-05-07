@@ -1,12 +1,9 @@
 import 'package:farmfix/core/utils/assets_data.dart';
+import 'package:farmfix/features/home/logic/cubit/weather_cubit.dart';
 import 'package:farmfix/features/home/presentation/views/widgets/bottom_nav_bar.dart';
 import 'package:farmfix/features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/lucide.dart';
-
-import '../../../../core/utils/app_routes.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -17,12 +14,26 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return BlocProvider(
+      create: (context) => WeatherCubit()..fetchWeather(),
       child: Scaffold(
-        backgroundColor: kPrimaryColor,
-        body: HomeViewBody(),
-        bottomNavigationBar: BottomNavBar(),
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(AssetsData.homeBg),
+              fit: BoxFit.contain,
+              repeat: ImageRepeat.repeat,
+            ),
+          ),
+          child: const HomeViewBody(),
+        ),
+        bottomNavigationBar: const BottomNavBar(),
       ),
     );
   }

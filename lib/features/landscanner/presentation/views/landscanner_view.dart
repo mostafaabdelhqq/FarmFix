@@ -39,9 +39,7 @@ class LandScannerView extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.all(8),
           child: Container(
-            decoration: const BoxDecoration(
-
-            ),
+            decoration: const BoxDecoration(),
           ),
         ),
         actions: [
@@ -57,7 +55,7 @@ class LandScannerView extends StatelessWidget {
           ),
         ],
       ),
-      body:Placeholder(),
+      body: const Placeholder(),
     );
   }
 }

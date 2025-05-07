@@ -22,7 +22,7 @@ class CameraScreen extends StatefulWidget {
 class CameraScreenState extends State<CameraScreen> {
   CameraController? _cameraController;
   List<CameraDescription>? cameras;
-   late File? _imageFile;
+  late File? _imageFile;
 
   @override
   void initState() {
@@ -67,6 +67,7 @@ class CameraScreenState extends State<CameraScreen> {
       final labels = await loadLabels();
 
       Navigator.push(
+        // ignore: use_build_context_synchronously
         context,
         MaterialPageRoute(
           builder: (context) => ResultScreen(
@@ -87,25 +88,33 @@ class CameraScreenState extends State<CameraScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return  _cameraController != null && _cameraController!.value.isInitialized
-          ? CameraPreview(
-          _cameraController!,
+    return _cameraController != null && _cameraController!.value.isInitialized
+        ? CameraPreview(
+            _cameraController!,
             child: Scaffold(
               backgroundColor: Colors.transparent,
               appBar: AppBar(
-
                 backgroundColor: Colors.black54,
                 centerTitle: true,
-                title: const Text('Discover Diseases',style: TextStyle(color: Colors.white),),
+                title: const Text(
+                  'Discover Diseases',
+                  style: TextStyle(color: Colors.white),
+                ),
                 automaticallyImplyLeading: false,
                 actions: [
                   InkWell(
-                    onTap: (){GoRouter.of(context).pop();},
-
+                    onTap: () {
+                      GoRouter.of(context).pop();
+                    },
                     child: const Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: Icon(Icons.close,color: Colors.white,size: 30,),
-                    ),)
+                      child: Icon(
+                        Icons.close,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
+                  )
                 ],
               ),
 
@@ -137,63 +146,71 @@ class CameraScreenState extends State<CameraScreen> {
               bottomNavigationBar: Container(
                 height: 200,
                 decoration: const BoxDecoration(color: Colors.black54),
-                child: Stack(children: [
-                  Positioned(
-                    bottom: 45,
-                    left: MediaQuery.of(context).size.width / 2 - 35,
-                    child: GestureDetector(
-                      onTap: captureImage,
-                      child: Container(
-                        width: 70,
-                        height: 70, 
-                        // padding: EdgeInsets.all(4),
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.white,width: 4)
+                child: Stack(
+                  children: [
+                    Positioned(
+                      bottom: 45,
+                      left: MediaQuery.of(context).size.width / 2 - 35,
+                      child: GestureDetector(
+                        onTap: captureImage,
+                        child: Container(
+                          width: 70,
+                          height: 70,
+                          // padding: EdgeInsets.all(4),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border:
+                                  Border.all(color: Colors.white, width: 4)),
+                          child: const Icon(
+                            Icons.circle,
+                            color: Colors.white,
+                            size: 62,
+                          ),
                         ),
-                        child: const Icon(Icons.circle,color: Colors.white,size: 62,),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    bottom: 55,
-                    left: 30,
-                    child: GestureDetector(
-                      onTap: pickImageFromGallery,
-                      child: const Icon(Icons.image, color: Colors.white, size: 30),
+                    Positioned(
+                      bottom: 55,
+                      left: 30,
+                      child: GestureDetector(
+                        onTap: pickImageFromGallery,
+                        child: const Icon(Icons.image,
+                            color: Colors.white, size: 30),
+                      ),
                     ),
-                  ),
-                  Positioned(
-                    bottom: 45,
-                    right: 30,
-                    child: IconButton(
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const ShowHelpDialog(
-                              title: 'Tips for capturing a clear image',
-                              description:
-                              '''Make sure the infected leaf or area is clearly visible.
+                    Positioned(
+                      bottom: 45,
+                      right: 30,
+                      child: IconButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const ShowHelpDialog(
+                                title: 'Tips for capturing a clear image',
+                                description:
+                                    '''Make sure the infected leaf or area is clearly visible.
 
                                 Use good lighting with no shadows or glare.
 
                                 Focus on the affected part without background distractions.''',
-                            );
-                          },
-                        );
-                      },
-                      icon: Iconify(
-                        Ic.twotone_help,
-                        color: Colors.white,
-                        size: 35.sp,
+                              );
+                            },
+                          );
+                        },
+                        icon: Iconify(
+                          Ic.twotone_help,
+                          color: Colors.white,
+                          size: 35.sp,
+                        ),
                       ),
                     ),
-                  ),
-                ],),),
+                  ],
+                ),
               ),
-              )
-          : const Center(child: CircularProgressIndicator());
+            ),
+          )
+        : const Center(child: CircularProgressIndicator());
   }
 }

@@ -1,3 +1,4 @@
+import 'package:farmfix/features/home/presentation/views/widgets/home_card.dart';
 import 'package:farmfix/features/home/presentation/views/widgets/welcome_message_and_profile_setting.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         WelcomeMessageAndProfileSetting(),
         const Align(
           alignment: AlignmentDirectional.center,
-          child: ScanPlant(),
+          child: HomeCard(),
         ),
       ],
     );
