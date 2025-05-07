@@ -1,4 +1,3 @@
-import 'package:farmfix/features/camera/presentation/views/widgets/camera_view.dart';
 import 'package:flutter/material.dart';
 
 import 'camera_screen.dart';
