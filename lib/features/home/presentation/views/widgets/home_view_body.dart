@@ -19,11 +19,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         WelcomeMessageAndProfileSetting(),
         const Align(
           alignment: AlignmentDirectional.center,
-<<<<<<< HEAD
           child: HomeCard(),
-=======
-          child: HomeCard(widget: Row()),
->>>>>>> 2178b46c36ea60340672e5dfbad2674dbb3f523f
         ),
       ],
     );
