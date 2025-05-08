@@ -21,7 +21,7 @@ class WeatherData extends StatelessWidget {
           children: [
             Iconify(
               weatherIcon,
-              size: 25.sp,
+              size: 20.sp,
             ),
             SizedBox(
               width: 7.w,
@@ -30,7 +30,7 @@ class WeatherData extends StatelessWidget {
               weatherDataType,
               style: GoogleFonts.roboto(
                   fontWeight: FontWeight.w600,
-                  fontSize: 16.sp,
+                  fontSize: 14.sp,
                   color: Colors.black.withOpacity(.5)),
             ),
           ],

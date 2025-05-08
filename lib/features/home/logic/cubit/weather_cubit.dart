@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:farmfix/features/home/data/model/weather_model.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:location/location.dart'; // استخدم location بدل geolocator
 import 'package:meta/meta.dart';
 
 part 'weather_state.dart';
@@ -10,21 +10,24 @@ class WeatherCubit extends Cubit<WeatherState> {
   WeatherCubit() : super(WeatherInitial());
   final Dio dio = Dio();
   final String apiKey = 'ca5fe25807b64b65a79132932250705';
+  final Location location = Location();
 
   Future<void> fetchWeather() async {
     emit(WeatherLoading());
     try {
-      Position position = await _determinePosition();
+      final locData = await _determineLocation();
+
       final response = await dio.get(
         'https://api.weatherapi.com/v1/forecast.json',
         queryParameters: {
           'key': apiKey,
-          'q': '${position.latitude},${position.longitude}',
+          'q': '${locData.latitude},${locData.longitude}',
           'days': 7,
           'aqi': 'no',
           'alerts': 'no',
         },
       );
+
       WeatherModel weather = WeatherModel.fromJson(response.data);
       emit(WeatherLoaded(weather));
     } catch (e) {
@@ -32,21 +35,23 @@ class WeatherCubit extends Cubit<WeatherState> {
     }
   }
 
-  Future<Position> _determinePosition() async {
-    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  Future<LocationData> _determineLocation() async {
+    bool serviceEnabled = await location.serviceEnabled();
     if (!serviceEnabled) {
-      throw Exception('Location services are disabled.');
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) {
+        throw Exception('Location services are disabled.');
+      }
     }
 
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.deniedForever ||
-          permission == LocationPermission.denied) {
+    PermissionStatus permissionGranted = await location.hasPermission();
+    if (permissionGranted == PermissionStatus.denied) {
+      permissionGranted = await location.requestPermission();
+      if (permissionGranted != PermissionStatus.granted) {
         throw Exception('Location permissions are denied.');
       }
     }
 
-    return await Geolocator.getCurrentPosition();
+    return await location.getLocation();
   }
 }

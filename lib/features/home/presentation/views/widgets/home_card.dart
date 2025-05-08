@@ -46,7 +46,7 @@ class HomeCard extends StatelessWidget {
                           weather.cityName,
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
-                            fontSize: 32.sp,
+                            fontSize: 20.sp,
                           ),
                         ),
                         Padding(
@@ -82,8 +82,8 @@ class HomeCard extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 20.w),
-                      child: Image.network(
-                        'https:${weather.icon}', // من الـ API
+                      child: Image.asset(
+                        weather.getWeather(), // من الـ API
                         width: 230.w,
                         height: 200.h,
                         fit: BoxFit.cover,
@@ -115,11 +115,11 @@ class HomeCard extends StatelessWidget {
                         indent: 70.w,
                         endIndent: 0.w,
                       ),
-                      const WeatherData(
+                      WeatherData(
                         weatherIcon: Mdi.weather_windy,
                         weatherDataType: 'Wind',
                         weatherDataValue:
-                            '12 KM/H', // لو عندك داتا حقيقية بدلها
+                            '${weather.windSpeed} KM/H', // لو عندك داتا حقيقية بدلها
                       ),
                       SizedBox(width: 40.w),
                       VerticalDivider(
