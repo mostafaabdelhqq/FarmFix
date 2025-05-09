@@ -1,0 +1,83 @@
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:http/http.dart' as http;
+import 'package:latlong2/latlong.dart';
+
+class AppMap {
+  final MapController mapController = MapController();
+  LatLng? selectedPoint;
+
+  void setPoint(LatLng point, VoidCallback onUpdate) {
+    selectedPoint = point;
+    onUpdate();
+  }
+
+  MarkerLayer getMarkerLayer() {
+    if (selectedPoint == null) return const MarkerLayer(markers: []);
+
+    return MarkerLayer(
+      markers: [
+        Marker(
+          point: selectedPoint!,
+          width: 100,
+          height: 100,
+          child:  Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.location_on, size: 40, color: Colors.amber),
+              Container(
+
+                padding: const EdgeInsets.all(4),
+                color: Colors.black54,
+                child: Text(
+
+                  '${selectedPoint!.latitude.toStringAsFixed(2)}, ${selectedPoint!.longitude.toStringAsFixed(2)}',
+                  style: const TextStyle(color: Colors.white, fontSize: 12,overflow: TextOverflow.clip),
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+  Future<void> searchLocation(String query, VoidCallback onUpdate, BuildContext context) async {
+    final url = Uri.parse(
+        'https://nominatim.openstreetmap.org/search?q=$query&format=json&limit=1');
+    final response = await http.get(url, headers: {
+      'User-Agent': 'flutter_map_app'
+    });
+
+    final data = json.decode(response.body);
+    if (data != null && data.length > 0) {
+      final lat = double.parse(data[0]['lat']);
+      final lon = double.parse(data[0]['lon']);
+      selectedPoint = LatLng(lat, lon);
+      mapController.move(selectedPoint!, 14.0);
+      onUpdate();
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('الموقع غير موجود')),
+      );
+    }
+  }
+
+  void setFromCoordinates(String latText, String lonText, VoidCallback onUpdate, BuildContext context) {
+    try {
+      final lat = double.parse(latText);
+      final lon = double.parse(lonText);
+      final newPoint = LatLng(lat, lon);
+      selectedPoint = newPoint;
+      mapController.move(newPoint, 14.0);
+      onUpdate();
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('إحداثيات غير صحيحة')),
+      );
+    }
+  }
+
+}
