@@ -9,8 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconify_flutter/icons/ion.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 
-class HomeCard extends StatelessWidget {
-  const HomeCard({super.key});
+class WeatherCard extends StatelessWidget {
+  const WeatherCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -93,48 +93,47 @@ class HomeCard extends StatelessWidget {
                 ),
                 Divider(
                   color: kSecondaryColor,
-                  thickness: 2,
+                  thickness: 1.5,
                   height: 20.h,
                   indent: 10.w,
                   endIndent: 10.w,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w),
-                  child: Row(
-                    children: [
-                      WeatherData(
-                        weatherIcon: Mdi.weather_heavy_rain,
-                        weatherDataType: 'Precipitation',
-                        weatherDataValue: '${weather.precipitation} mm',
-                      ),
-                      SizedBox(width: 40.w),
-                      VerticalDivider(
-                        color: kSecondaryColor,
-                        thickness: 2,
-                        width: 10.h,
-                        indent: 70.w,
-                        endIndent: 0.w,
-                      ),
-                      WeatherData(
-                        weatherIcon: Mdi.weather_windy,
-                        weatherDataType: 'Wind',
-                        weatherDataValue:
-                            '${weather.windSpeed} KM/H', // لو عندك داتا حقيقية بدلها
-                      ),
-                      SizedBox(width: 40.w),
-                      VerticalDivider(
-                        color: kSecondaryColor,
-                        thickness: 2,
-                        width: 10.h,
-                        indent: 70.w,
-                        endIndent: 0.w,
-                      ),
-                      WeatherData(
-                        weatherIcon: Ion.water,
-                        weatherDataType: 'Humidity',
-                        weatherDataValue: '${weather.avgHumidity}%',
-                      ),
-                    ],
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: IntrinsicHeight(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        WeatherData(
+                          weatherIcon: Mdi.weather_heavy_rain,
+                          weatherDataType: 'Precipitation',
+                          weatherDataValue: '${weather.precipitation} mm',
+                        ),
+                        // SizedBox(width: 40.w),
+                        VerticalDivider(
+                          color: kSecondaryColor,
+                          thickness: 1.5,
+                          width: 10.h,
+                        ),
+                        WeatherData(
+                          weatherIcon: Mdi.weather_windy,
+                          weatherDataType: 'Wind',
+                          weatherDataValue:
+                              '${weather.windSpeed} KM/H', // لو عندك داتا حقيقية بدلها
+                        ),
+                        // SizedBox(width: 35.w),
+                        VerticalDivider(
+                          color: kSecondaryColor,
+                          thickness: 1.5,
+                          width: 10.h,
+                        ),
+                        WeatherData(
+                          weatherIcon: Ion.water,
+                          weatherDataType: 'Humidity',
+                          weatherDataValue: '${weather.avgHumidity}%',
+                        ),
+                      ],
+                    ),
                   ),
                 )
               ],

@@ -9,4 +9,9 @@ class AssetsData {
   static const clear = 'assets/images/clear.png';
   static const cloudy = 'assets/images/cloudy.png';
   static const thunderstorm = 'assets/images/thunderstorm.png';
+  static const grassIcon = 'assets/images/grass_icon.png';
+  static const costIcon = 'assets/images/cost_icon.png';
+  static const tubeIcon = 'assets/images/tube_icon.png';
+  static const waterIcon = 'assets/images/water_icon.png';
+  static const sustainabilityIcon = 'assets/images/sustainability_icon.png';
 }
