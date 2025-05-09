@@ -175,11 +175,9 @@ class CameraScreenState extends State<CameraScreen> {
                             return const ShowHelpDialog(
                               title: 'Tips for capturing a clear image',
                               description:
-                              '''Make sure the infected leaf or area is clearly visible.
-
-                                Use good lighting with no shadows or glare.
-
-                                Focus on the affected part without background distractions.''',
+                              '1. Make sure the infected leaf or area is clearly visible.\n'
+                              '\n2. Use good lighting with no shadows or glare.\n'
+                              '\n3. Focus on the affected part without background distractions.',
                             );
                           },
                         );
