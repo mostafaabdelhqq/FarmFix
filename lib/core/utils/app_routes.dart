@@ -25,8 +25,9 @@ abstract class AppRoutes {
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
-      // builder: (context, state) => const HomeView(),
-      builder: (context, state) => const SignInView(),
+      // builder: (context, state) => const LandScannerView(),
+      builder: (context, state) => const HomeView(),
+      // builder: (context, state) => const SignInView(),
     ),
     GoRoute(
       path: kSignInView,

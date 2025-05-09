@@ -7,7 +7,10 @@ import 'package:latlong2/latlong.dart';
 
 class AppMap {
   final MapController mapController = MapController();
+<<<<<<< HEAD
   LatLng? userLocation;
+=======
+>>>>>>> c4cfb9a (feat: map screen & model)
   LatLng? selectedPoint;
 
   void setPoint(LatLng point, VoidCallback onUpdate) {
@@ -20,6 +23,7 @@ class AppMap {
 
     return MarkerLayer(
       markers: [
+<<<<<<< HEAD
         if (userLocation != null)
           Marker(
             point: userLocation!,
@@ -34,6 +38,29 @@ class AppMap {
             height: 60,
             child: const Icon(Icons.place, color: Colors.green, size: 40),
           ),
+=======
+        Marker(
+          point: selectedPoint!,
+          width: 100,
+          height: 100,
+          child:  Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.location_on, size: 40, color: Colors.amber),
+              Container(
+
+                padding: const EdgeInsets.all(4),
+                color: Colors.black54,
+                child: Text(
+
+                  '${selectedPoint!.latitude.toStringAsFixed(2)}, ${selectedPoint!.longitude.toStringAsFixed(2)}',
+                  style: const TextStyle(color: Colors.white, fontSize: 12,overflow: TextOverflow.clip),
+                ),
+              ),
+            ],
+          ),
+        )
+>>>>>>> c4cfb9a (feat: map screen & model)
       ],
     );
   }
