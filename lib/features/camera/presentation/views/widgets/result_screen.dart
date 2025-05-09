@@ -39,7 +39,6 @@ class _ResultScreenState extends State<ResultScreen> {
     _predictImage();
   }
 
-
   Future<void> _predictImage() async {
     final prediction = await predictImage(
       imageFile: widget.imageFile,
@@ -66,7 +65,6 @@ class _ResultScreenState extends State<ResultScreen> {
               fontSize: 27,
             ),
             SizedBox(height: 13.h),
-
             Align(
               alignment: Alignment.centerLeft,
               child: IconButton(
@@ -89,9 +87,7 @@ class _ResultScreenState extends State<ResultScreen> {
                 ),
               ),
             ),
-
             SizedBox(height: 28.h),
-
             Center(
               child: Container(
                 height: 270.h,
@@ -111,8 +107,6 @@ class _ResultScreenState extends State<ResultScreen> {
               ),
             ),
             SizedBox(height: 24.h),
-
-
             Padding(
               padding: EdgeInsets.only(left: 31.w),
               child: Text(
@@ -145,7 +139,8 @@ class _ResultScreenState extends State<ResultScreen> {
               ),
             ),
             SizedBox(height: 10.h),
-            Row(mainAxisAlignment: MainAxisAlignment.center,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Column(
                   children: [
@@ -158,12 +153,15 @@ class _ResultScreenState extends State<ResultScreen> {
                       lineWidth: 8,
                       circularStrokeCap: CircularStrokeCap.round,
                       progressColor: kPrimaryColor,
-                      center: Text("${(_confidence*100 ).toStringAsFixed(1)}%",style: TextStyle(color: Colors.black,fontSize: 28),),),
-
-
-                    Text(
+                      center: Text(
+                        "${(_confidence * 100).toStringAsFixed(1)}%",
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 28),
+                      ),
+                    ),
+                    const Text(
                       'Confidence',
-                      style: const TextStyle(fontSize: 20, color: Colors.black),
+                      style: TextStyle(fontSize: 20, color: Colors.black),
                     ),
                   ],
                 ),

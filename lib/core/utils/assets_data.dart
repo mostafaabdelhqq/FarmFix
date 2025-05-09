@@ -5,4 +5,13 @@ class AssetsData {
   static const confirmedPhoto = 'assets/images/confirmed.png';
   static const chatbotIcon = 'assets/images/chatbot_icon.png';
   static const homeBg = 'assets/images/home_bg.png';
+  static const homeCardBg = 'assets/images/pcloudy.png';
+  static const clear = 'assets/images/clear.png';
+  static const cloudy = 'assets/images/cloudy.png';
+  static const thunderstorm = 'assets/images/thunderstorm.png';
+  static const grassIcon = 'assets/images/grass_icon.png';
+  static const costIcon = 'assets/images/cost_icon.png';
+  static const tubeIcon = 'assets/images/tube_icon.png';
+  static const waterIcon = 'assets/images/water_icon.png';
+  static const sustainabilityIcon = 'assets/images/sustainability_icon.png';
 }
