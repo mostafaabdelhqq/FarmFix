@@ -48,6 +48,7 @@ dependencies:
   iconify_flutter: ^0.0.7
   image: ^4.5.4
   image_picker: ^1.1.2
+  infinite_carousel: ^1.1.1
   location: ^7.0.1
   material_symbols_icons: ^4.2815.0
   percent_indicator: ^4.2.5

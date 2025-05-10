@@ -5,9 +5,13 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CalculatorButton extends StatelessWidget {
   const CalculatorButton(
-      {super.key, required this.purposeOfCalculation, required this.fontSize});
+      {super.key,
+      required this.purposeOfCalculation,
+      required this.fontSize,
+      this.onPressed});
   final String purposeOfCalculation;
   final int fontSize;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -32,7 +36,7 @@ class CalculatorButton extends StatelessWidget {
               )
             ]),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: onPressed,
               style: ElevatedButton.styleFrom(
                 backgroundColor: kSecondaryColor,
                 shape: RoundedRectangleBorder(

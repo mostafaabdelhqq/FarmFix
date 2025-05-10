@@ -15,7 +15,8 @@ class CustomCalculator extends StatelessWidget {
       required this.calculationIcon,
       required this.calculationName,
       required this.calculationDescription,
-      required this.fontSize});
+      required this.fontSize,
+      required this.onPressed});
   final String dataName1;
   final String dataName2;
   final String dataName3;
@@ -24,6 +25,7 @@ class CustomCalculator extends StatelessWidget {
   final String calculationName;
   final String calculationDescription;
   final int fontSize;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -58,6 +60,7 @@ class CustomCalculator extends StatelessWidget {
           CalculatorButton(
             purposeOfCalculation: purposeOfCalculation,
             fontSize: fontSize,
+            onPressed: onPressed,
           ),
           SizedBox(
             height: 15.h,

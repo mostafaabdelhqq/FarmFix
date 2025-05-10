@@ -5,9 +5,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ShowHelpDialog extends StatelessWidget {
   const ShowHelpDialog(
-      {super.key, required this.title, required this.description});
+      {super.key,
+      required this.title,
+      required this.description,
+      this.width = 350,
+      this.height = 350});
   final String title;
   final String description;
+  final int width;
+  final int height;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +23,8 @@ class ShowHelpDialog extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.r),
       ),
       child: SizedBox(
-        width: 350, // Fixed width
-        height: 350, // Fixed height
+        width: width.w, // Fixed width
+        height: height.h, // Fixed height
         child: Stack(
           children: [
             // Main content
