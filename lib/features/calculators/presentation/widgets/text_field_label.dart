@@ -9,7 +9,7 @@ class TextFieldLabel extends StatelessWidget {
     return Align(
       alignment: Alignment.topLeft,
       child: Padding(
-        padding: EdgeInsets.only(left: 23.w),
+        padding: EdgeInsets.only(left: 8.w),
         child: Text(textField,
             style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700)),
       ),

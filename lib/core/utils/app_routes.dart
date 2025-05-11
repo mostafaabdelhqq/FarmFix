@@ -1,4 +1,6 @@
 import 'package:farmfix/features/calculators/presentation/widgets/Plant_density_calculator.dart';
+import 'package:farmfix/features/calculators/presentation/widgets/per_square_meter_production_cost_calculator.dart';
+import 'package:farmfix/features/calculators/presentation/widgets/total_production_cost_calculator.dart';
 import 'package:farmfix/features/camera/presentation/views/widgets/camera_screen.dart';
 import 'package:farmfix/features/chatbot/presentation/views/chatbot.dart';
 import 'package:farmfix/features/forget%20password/presentation/views/forget_password_view.dart';
@@ -20,6 +22,11 @@ abstract class AppRoutes {
   static const kCamera = '/camera';
   static const kLandScanner = '/landScanner';
   static const kPlantDensityCalculator = '/plantDensityCalculator';
+  static const kTotalProductionCostCalculator =
+      '/totalProductionCostCalculator';
+
+  static const kPerSquareMeterProductionCostCalculator =
+      '/perSquareMeterProductionCostCalculator';
 
   static final router = GoRouter(routes: [
     GoRoute(
@@ -59,5 +66,12 @@ abstract class AppRoutes {
     GoRoute(
         path: kPlantDensityCalculator,
         builder: (context, state) => const PlantDensityCalculator()),
+    GoRoute(
+        path: kTotalProductionCostCalculator,
+        builder: (context, state) => const TotalProductionCostCalculator()),
+    GoRoute(
+        path: kPerSquareMeterProductionCostCalculator,
+        builder: (context, state) =>
+            const PerSquareMeterProductionCostCalculator()),
   ]);
 }

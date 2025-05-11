@@ -6,9 +6,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, required this.title, required this.fontSize});
+  const CustomAppBar(
+      {super.key,
+      required this.title,
+      required this.fontSize,
+      this.arrowBackOnPressed});
   final String title;
   final double fontSize;
+  final VoidCallback? arrowBackOnPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,9 +49,10 @@ class CustomAppBar extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 10, bottom: 45),
             child: IconButton(
-                onPressed: () {
-                  GoRouter.of(context).pop();
-                },
+                onPressed: arrowBackOnPressed ??
+                    () {
+                      GoRouter.of(context).pop();
+                    },
                 icon: Icon(
                   Symbols.expand_circle_right,
                   color: kSecondaryColor,

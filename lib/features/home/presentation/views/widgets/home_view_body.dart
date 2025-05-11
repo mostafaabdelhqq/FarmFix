@@ -34,7 +34,9 @@ List<CustomCalculator> calculatorsList(BuildContext context) => [
             'Calculate the number of plants suitable \n for your land area and spacing',
       ),
       CustomCalculator(
-        onPressed: () {},
+        onPressed: () {
+          GoRouter.of(context).push(AppRoutes.kTotalProductionCostCalculator);
+        },
         fontSize: 15,
         dataName1: 'Seeds',
         dataName2: 'Fertilizers',
