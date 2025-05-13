@@ -4,11 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class TransitionBetweenTwoScreen extends StatelessWidget {
   final int selectedIndex;
   final Function(int) onTabTapped;
+  final String firstScreen;
+  final String secondScreen;
 
   const TransitionBetweenTwoScreen({
     super.key,
     required this.selectedIndex,
     required this.onTabTapped,
+    required this.firstScreen,
+    required this.secondScreen,
   });
 
   @override
@@ -18,9 +22,9 @@ class TransitionBetweenTwoScreen extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          buildTabButton("Total Cost", 0),
+          buildTabButton(firstScreen, 0),
           SizedBox(width: 24.w),
-          buildTabButton("Per Square Meter", 1),
+          buildTabButton(secondScreen, 1),
         ],
       ),
     );

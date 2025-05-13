@@ -48,7 +48,10 @@ List<CustomCalculator> calculatorsList(BuildContext context) => [
             'Estimate total farming costs and\n expected profit margin',
       ),
       CustomCalculator(
-        onPressed: () {},
+        onPressed: () {
+          GoRouter.of(context)
+              .push(AppRoutes.kSingleSprayerPesticideMixerCalculator);
+        },
         fontSize: 15,
         dataName1: 'Target',
         dataName2: 'Tank Volume',
@@ -60,7 +63,9 @@ List<CustomCalculator> calculatorsList(BuildContext context) => [
             'Determine the correct amount of\n pesticide per area and concentration',
       ),
       CustomCalculator(
-        onPressed: () {},
+        onPressed: () {
+          GoRouter.of(context).push(AppRoutes.kSeedQuantityCalculator);
+        },
         fontSize: 15,
         dataName1: 'Crop',
         dataName2: 'Land Area',
@@ -72,7 +77,9 @@ List<CustomCalculator> calculatorsList(BuildContext context) => [
             'Calculate required seed amount based\n on area and germination rate',
       ),
       CustomCalculator(
-        onPressed: () {},
+        onPressed: () {
+          GoRouter.of(context).push(AppRoutes.kIrrigationRateCalculator);
+        },
         fontSize: 13,
         dataName1: 'Soil',
         dataName2: 'Weather',

@@ -14,4 +14,9 @@ class AssetsData {
   static const tubeIcon = 'assets/images/tube_icon.png';
   static const waterIcon = 'assets/images/water_icon.png';
   static const sustainabilityIcon = 'assets/images/sustainability_icon.png';
+  static const irrigationRateBg = 'assets/images/irrigation_rate_bg.png';
+  static const productionCostBg = 'assets/images/production_cost_bg.png';
+  static const seedQuantityBg = 'assets/images/seed_quantity_bg.png';
+  static const plantdensityBg = 'assets/images/plant_density_bg.png';
+  static const pesticidemixerBg = 'assets/images/pesticide_mixer_bg.png';
 }

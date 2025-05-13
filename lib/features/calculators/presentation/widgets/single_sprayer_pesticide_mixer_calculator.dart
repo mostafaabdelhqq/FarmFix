@@ -11,25 +11,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class TotalProductionCostCalculator extends StatefulWidget {
-  const TotalProductionCostCalculator({super.key});
+class SingleSprayerPesticideMixerCalculator extends StatefulWidget {
+  const SingleSprayerPesticideMixerCalculator({super.key});
 
   @override
-  State<TotalProductionCostCalculator> createState() =>
-      _TotalProductionCostCalculatorState();
+  State<SingleSprayerPesticideMixerCalculator> createState() =>
+      _SingleSprayerPesticideMixerCalculatorState();
 }
 
-class _TotalProductionCostCalculatorState
-    extends State<TotalProductionCostCalculator> {
+class _SingleSprayerPesticideMixerCalculatorState
+    extends State<SingleSprayerPesticideMixerCalculator> {
   final _formKey = GlobalKey<FormState>();
 
-  final TextEditingController _seadCostController = TextEditingController();
-  final TextEditingController _fertilizerCostController =
+  final TextEditingController _targetConcentrationController =
       TextEditingController();
-  final TextEditingController _laborCostController = TextEditingController();
-  final TextEditingController _waterCostController = TextEditingController();
-  final TextEditingController _otherExpensesController =
+  final TextEditingController _sprayerVolumeController =
       TextEditingController();
+  final TextEditingController _sprayerCoverageAreaController =
+      TextEditingController();
+  final TextEditingController _landAreaController = TextEditingController();
 
   int selectedIndex = 0;
 
@@ -40,10 +40,10 @@ class _TotalProductionCostCalculatorState
 
     if (index == 0) {
       GoRouter.of(context)
-          .pushReplacement(AppRoutes.kTotalProductionCostCalculator);
+          .pushReplacement(AppRoutes.kSingleSprayerPesticideMixerCalculator);
     } else {
       GoRouter.of(context)
-          .pushReplacement(AppRoutes.kPerSquareMeterProductionCostCalculator);
+          .pushReplacement(AppRoutes.kMultipleSprayersPesticideMixerCalculator);
     }
   }
 
@@ -56,7 +56,7 @@ class _TotalProductionCostCalculatorState
         decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage(
-                AssetsData.productionCostBg,
+                AssetsData.pesticidemixerBg,
               ),
               fit: BoxFit.fitHeight),
         ),
@@ -70,8 +70,8 @@ class _TotalProductionCostCalculatorState
                     fontSize: 30,
                   ),
                   TransitionBetweenTwoScreen(
-                    firstScreen: 'Total Cost',
-                    secondScreen: 'Per Square Meter',
+                    firstScreen: 'Single Sprayer',
+                    secondScreen: 'Multiple Sprayers',
                     selectedIndex: selectedIndex,
                     onTabTapped: handleTabTapped,
                   ),
@@ -84,39 +84,41 @@ class _TotalProductionCostCalculatorState
                         children: [
                           Row(
                             children: [
-                              const TextFieldLabel(textField: 'Seed Cost'),
+                              const TextFieldLabel(
+                                  textField: 'Target Concentration'),
                               Padding(
-                                padding: EdgeInsets.only(left: 115.w),
+                                padding: EdgeInsets.only(left: 35.w),
                                 child: const TextFieldLabel(
-                                    textField: 'Fertilizer Cost'),
+                                    textField: 'Sprayer Volume'),
                               ),
                             ],
                           ),
                           Row(
                             children: [
                               CalculatorTextField(
-                                suffixText: ' ',
+                                suffixText: '%',
                                 width: 190,
-                                controller: _seadCostController,
+                                controller: _targetConcentrationController,
                               ),
                               SizedBox(
                                 width: 10.w,
                               ),
                               CalculatorTextField(
-                                suffixText: ' ',
+                                suffixText: 'L',
                                 width: 190,
-                                controller: _fertilizerCostController,
+                                controller: _sprayerVolumeController,
                               ),
                             ],
                           ),
                           SizedBox(height: 43.h),
                           Row(
                             children: [
-                              const TextFieldLabel(textField: 'Labor Cost'),
+                              const TextFieldLabel(
+                                  textField: 'Sprayer Coverage Area'),
                               Padding(
-                                padding: EdgeInsets.only(left: 115.w),
+                                padding: EdgeInsets.only(left: 25.w),
                                 child: const TextFieldLabel(
-                                    textField: 'Water Cost'),
+                                    textField: 'Land Area'),
                               ),
                             ],
                           ),
@@ -125,7 +127,7 @@ class _TotalProductionCostCalculatorState
                               CalculatorTextField(
                                 suffixText: ' ',
                                 width: 190,
-                                controller: _laborCostController,
+                                controller: _sprayerCoverageAreaController,
                               ),
                               SizedBox(
                                 width: 10.w,
@@ -133,19 +135,10 @@ class _TotalProductionCostCalculatorState
                               CalculatorTextField(
                                   suffixText: ' ',
                                   width: 190,
-                                  controller: _waterCostController),
+                                  controller: _landAreaController),
                             ],
                           ),
                           SizedBox(height: 43.h),
-                          const TextFieldLabel(textField: 'Other Expenses'),
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: CalculatorTextField(
-                              suffixText: ' ',
-                              width: 190,
-                              controller: _otherExpensesController,
-                            ),
-                          ),
                         ],
                       ),
                     ),
@@ -155,34 +148,35 @@ class _TotalProductionCostCalculatorState
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 580.h),
+              padding: const EdgeInsets.only(top: 550),
               child: Center(
                 child: ResultButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       // Get values from controllers
-                      double seadCost =
-                          double.tryParse(_seadCostController.text) ?? 0;
-                      double laborCost =
-                          double.tryParse(_laborCostController.text) ?? 0;
-                      double waterCost =
-                          double.tryParse(_waterCostController.text) ?? 0;
-                      double fertilizerCost =
-                          double.tryParse(_fertilizerCostController.text) ?? 0;
-                      double otherExpenses =
-                          double.tryParse(_otherExpensesController.text) ?? 0;
+                      double targetConcentration = double.tryParse(
+                              _targetConcentrationController.text) ??
+                          0;
+                      double sprayerVolume =
+                          double.tryParse(_sprayerVolumeController.text) ?? 0;
+                      double sprayerCoverageArea = double.tryParse(
+                              _sprayerCoverageAreaController.text) ??
+                          0;
+                      double landArea =
+                          double.tryParse(_landAreaController.text) ?? 0;
 
                       // Calculate Plant Density
-                      if (seadCost > 0 &&
-                          laborCost > 0 &&
-                          waterCost > 0 &&
-                          fertilizerCost > 0 &&
-                          otherExpenses > 0) {
-                        double productionCost = seadCost +
-                            laborCost +
-                            waterCost +
-                            fertilizerCost +
-                            otherExpenses;
+                      if (targetConcentration > 0 &&
+                          sprayerVolume > 0 &&
+                          sprayerCoverageArea > 0 &&
+                          landArea > 0) {
+                        double forEverySpray =
+                            (targetConcentration / 100) * sprayerVolume * 1000;
+
+                        double numOfSprays = landArea / sprayerCoverageArea;
+
+                        double totalPesticideNeeded =
+                            forEverySpray * numOfSprays;
 
                         // Show the result
                         showDialog(
@@ -191,9 +185,9 @@ class _TotalProductionCostCalculatorState
                             return ShowHelpDialog(
                               width: 200,
                               height: 200,
-                              title: 'Production Cost',
+                              title: 'Pesticide Mixer',
                               description:
-                                  'The Production Cost is : $productionCost',
+                                  'Total Amount of Pesticide : $totalPesticideNeeded ml',
                             );
                           },
                         );
@@ -201,8 +195,7 @@ class _TotalProductionCostCalculatorState
                         // Handle invalid spacing values
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                              content: Text(
-                                  'Row Spacing and Plant Spacing must be greater than 0')),
+                              content: Text('Please enter valid value')),
                         );
                       }
                     }

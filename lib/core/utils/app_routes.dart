@@ -1,5 +1,9 @@
 import 'package:farmfix/features/calculators/presentation/widgets/Plant_density_calculator.dart';
+import 'package:farmfix/features/calculators/presentation/widgets/irrigation_rate_calculator.dart';
+import 'package:farmfix/features/calculators/presentation/widgets/multiple_sprayers_pesticide_mixer_calculator.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/per_square_meter_production_cost_calculator.dart';
+import 'package:farmfix/features/calculators/presentation/widgets/seed_quantity_calculator.dart';
+import 'package:farmfix/features/calculators/presentation/widgets/single_sprayer_pesticide_mixer_calculator.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/total_production_cost_calculator.dart';
 import 'package:farmfix/features/camera/presentation/views/widgets/camera_screen.dart';
 import 'package:farmfix/features/chatbot/presentation/views/chatbot.dart';
@@ -24,9 +28,17 @@ abstract class AppRoutes {
   static const kPlantDensityCalculator = '/plantDensityCalculator';
   static const kTotalProductionCostCalculator =
       '/totalProductionCostCalculator';
+  static const kSeedQuantityCalculator = '/seedQuantityCalculator';
 
   static const kPerSquareMeterProductionCostCalculator =
       '/perSquareMeterProductionCostCalculator';
+
+  static const kSingleSprayerPesticideMixerCalculator =
+      '/singleSprayerPesticideMixerCalculator';
+  static const kMultipleSprayersPesticideMixerCalculator =
+      '/multipleSprayersPesticideMixerCalculator';
+
+  static const kIrrigationRateCalculator = '/irrigationRateCalculator';
 
   static final router = GoRouter(routes: [
     GoRoute(
@@ -73,5 +85,19 @@ abstract class AppRoutes {
         path: kPerSquareMeterProductionCostCalculator,
         builder: (context, state) =>
             const PerSquareMeterProductionCostCalculator()),
+    GoRoute(
+        path: kSingleSprayerPesticideMixerCalculator,
+        builder: (context, state) =>
+            const SingleSprayerPesticideMixerCalculator()),
+    GoRoute(
+        path: kMultipleSprayersPesticideMixerCalculator,
+        builder: (context, state) =>
+            const MultipleSprayersPesticideMixerCalculator()),
+    GoRoute(
+        path: kSeedQuantityCalculator,
+        builder: (context, state) => const SeedQuantityCalculator()),
+    GoRoute(
+        path: kIrrigationRateCalculator,
+        builder: (context, state) => const IrrigationRateCalculator()),
   ]);
 }
