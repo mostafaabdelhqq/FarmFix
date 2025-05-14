@@ -69,7 +69,16 @@ class Chatbot extends StatelessWidget {
             ),
           ],
         ),
-        body: const ChatbotBody(),
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(AssetsData.chatBg),
+              fit: BoxFit.contain,
+              repeat: ImageRepeat.repeat,
+            ),
+          ),
+          child: const ChatbotBody(),
+        ),
       ),
     );
   }
