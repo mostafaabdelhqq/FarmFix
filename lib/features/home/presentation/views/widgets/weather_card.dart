@@ -17,7 +17,7 @@ class WeatherCard extends StatelessWidget {
     return BlocBuilder<WeatherCubit, WeatherState>(
       builder: (context, state) {
         if (state is WeatherLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return  Center(child: CircularProgressIndicator(color: const Color(0xff009951).withOpacity(.5),));
         } else if (state is WeatherLoaded) {
           WeatherModel weather = state.weather;
           return Container(
