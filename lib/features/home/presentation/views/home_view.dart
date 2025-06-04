@@ -25,8 +25,9 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => WeatherCubit()..fetchWeather(),
+    final weatherCubit = WeatherCubit()..fetchWeather();
+    return BlocProvider<WeatherCubit>.value(
+      value: weatherCubit,
       child: Scaffold(
         body: Container(
           decoration: const BoxDecoration(

@@ -7,12 +7,16 @@ import 'package:meta/meta.dart';
 part 'weather_state.dart';
 
 class WeatherCubit extends Cubit<WeatherState> {
+  bool _hasFetched = false;
+
   WeatherCubit() : super(WeatherInitial());
   final Dio dio = Dio();
   final String apiKey = 'ca5fe25807b64b65a79132932250705';
   final Location location = Location();
 
   Future<void> fetchWeather() async {
+    if (_hasFetched) return;
+
     emit(WeatherLoading());
     try {
       final locData = await _determineLocation();
@@ -29,6 +33,7 @@ class WeatherCubit extends Cubit<WeatherState> {
       );
 
       WeatherModel weather = WeatherModel.fromJson(response.data);
+      _hasFetched = true;
       emit(WeatherLoaded(weather));
     } catch (e) {
       emit(WeatherError(e.toString()));

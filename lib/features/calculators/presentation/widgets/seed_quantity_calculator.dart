@@ -157,8 +157,8 @@ class _SeedQuantityCalculatorState extends State<SeedQuantityCalculator> {
                       double landArea =
                           double.tryParse(_landAreaController.text) ?? 0;
 
-                      int cropType =
-                          int.tryParse(_cropTypeValueController.text) ?? 0;
+                      double cropType =
+                          double.tryParse(_cropTypeValueController.text) ?? 0;
 
                       if (rowSpacing > 0 &&
                           plantSpacing > 0 &&
@@ -167,7 +167,7 @@ class _SeedQuantityCalculatorState extends State<SeedQuantityCalculator> {
                           cropType > 0) {
                         double seedQuantity = (landArea) *
                             (seedWeight * 1000) /
-                            ((cropType / 10000) * plantSpacing * rowSpacing);
+                            ((cropType / 100) * plantSpacing * rowSpacing);
 
                         showDialog(
                           context: context,

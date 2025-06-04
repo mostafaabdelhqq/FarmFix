@@ -68,7 +68,7 @@ class _MultipleSprayersPesticideMixerCalculatorState
               child: Column(
                 children: [
                   const CustomAppBar(
-                    title: 'Production Cost',
+                    title: 'Pesticide Mixer',
                     fontSize: 30,
                   ),
                   TransitionBetweenTwoScreen(

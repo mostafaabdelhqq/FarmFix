@@ -1,4 +1,5 @@
 import 'package:farmfix/constants.dart';
+import 'package:farmfix/core/utils/assets_data.dart';
 import 'package:farmfix/core/widgets/custom_app_bar.dart';
 import 'package:farmfix/core/widgets/show_help_dialog.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/calculator_text_field.dart';
@@ -30,7 +31,7 @@ class _PlantDensityCalculatorState extends State<PlantDensityCalculator> {
         decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage(
-                'assets/images/Plant Density.png',
+                AssetsData.plantdensityBg,
               ),
               fit: BoxFit.fitHeight),
         ),

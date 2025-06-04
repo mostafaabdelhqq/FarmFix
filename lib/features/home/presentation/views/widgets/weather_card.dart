@@ -1,6 +1,7 @@
 import 'package:farmfix/constants.dart';
 import 'package:farmfix/features/home/data/model/weather_model.dart';
 import 'package:farmfix/features/home/logic/cubit/weather_cubit.dart';
+import 'package:farmfix/features/home/presentation/views/widgets/loading_weather_card.dart';
 import 'package:farmfix/features/home/presentation/views/widgets/weather_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,14 +11,16 @@ import 'package:iconify_flutter/icons/ion.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 
 class WeatherCard extends StatelessWidget {
-  const WeatherCard({super.key});
+  const WeatherCard({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<WeatherCubit, WeatherState>(
       builder: (context, state) {
         if (state is WeatherLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const LoadingWeatherCard();
         } else if (state is WeatherLoaded) {
           WeatherModel weather = state.weather;
           return Container(
@@ -118,8 +121,7 @@ class WeatherCard extends StatelessWidget {
                         WeatherData(
                           weatherIcon: Mdi.weather_windy,
                           weatherDataType: 'Wind',
-                          weatherDataValue:
-                              '${weather.windSpeed} KM/H', // لو عندك داتا حقيقية بدلها
+                          weatherDataValue: '${weather.windSpeed} KM/H',
                         ),
                         // SizedBox(width: 35.w),
                         VerticalDivider(
