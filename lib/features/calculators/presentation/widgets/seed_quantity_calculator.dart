@@ -6,8 +6,10 @@ import 'package:farmfix/features/calculators/presentation/widgets/calculator_tex
 import 'package:farmfix/features/calculators/presentation/widgets/drop_text_field.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/result_button.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/text_field_label.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 class SeedQuantityCalculator extends StatefulWidget {
   const SeedQuantityCalculator({super.key});
@@ -30,17 +32,17 @@ class _SeedQuantityCalculatorState extends State<SeedQuantityCalculator> {
   final TextEditingController _cropTypeValueController =
       TextEditingController();
 
-  final Map<String, double> items = {
-    'Wheat': 85,
-    'Corn': 95,
-    'Cotton': 80,
-    'Rice': 90,
-    'Beans': 85,
-    'Green Beans': 85,
-    'Tomato': 95,
-    'Pepper': 85,
-    'Zucchini': 90,
-    'Watermelon': 85,
+  late Map<String, double> items = {
+    S.of(context).wheat: 85,
+    S.of(context).corn: 95,
+    S.of(context).cotton: 80,
+    S.of(context).rice: 90,
+    S.of(context).beans: 85,
+    S.of(context).greenBeans: 85,
+    S.of(context).tomato: 95,
+    S.of(context).pepper: 85,
+    S.of(context).zucchini: 90,
+    S.of(context).watermelon: 85,
   };
 
   @override
@@ -61,8 +63,8 @@ class _SeedQuantityCalculatorState extends State<SeedQuantityCalculator> {
             SingleChildScrollView(
               child: Column(
                 children: [
-                  const CustomAppBar(
-                    title: 'Seed Quantity',
+                  CustomAppBar(
+                    title: S.of(context).seedQuantity,
                     fontSize: 30,
                   ),
                   SizedBox(height: 60.h),
@@ -74,11 +76,24 @@ class _SeedQuantityCalculatorState extends State<SeedQuantityCalculator> {
                         children: [
                           Row(
                             children: [
-                              const TextFieldLabel(textField: 'Row Spacing'),
                               Padding(
-                                padding: EdgeInsets.only(left: 98.w),
-                                child: const TextFieldLabel(
-                                    textField: 'Plant Spacing'),
+                                padding: EdgeInsets.only(
+                                    right: Intl.getCurrentLocale() == 'en'
+                                        ? 0.w
+                                        : 13.w),
+                                child: TextFieldLabel(
+                                    textField: S.of(context).rowSpacing),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: Intl.getCurrentLocale() == 'en'
+                                        ? 98.w
+                                        : 0.w,
+                                    right: Intl.getCurrentLocale() == 'en'
+                                        ? 0.w
+                                        : 47.w),
+                                child: TextFieldLabel(
+                                    textField: S.of(context).plantSpacing),
                               ),
                             ],
                           ),
@@ -100,11 +115,24 @@ class _SeedQuantityCalculatorState extends State<SeedQuantityCalculator> {
                           SizedBox(height: 33.h),
                           Row(
                             children: [
-                              const TextFieldLabel(textField: 'Seed Weight'),
                               Padding(
-                                padding: EdgeInsets.only(left: 100.w),
-                                child: const TextFieldLabel(
-                                    textField: 'Land Area'),
+                                padding: EdgeInsets.only(
+                                    right: Intl.getCurrentLocale() == 'en'
+                                        ? 0.w
+                                        : 15.w),
+                                child: TextFieldLabel(
+                                    textField: S.of(context).seedWeight),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: Intl.getCurrentLocale() == 'en'
+                                        ? 100.w
+                                        : 0.w,
+                                    right: Intl.getCurrentLocale() == 'en'
+                                        ? 0.w
+                                        : 69.w),
+                                child: TextFieldLabel(
+                                    textField: S.of(context).landArea),
                               ),
                             ],
                           ),
@@ -124,7 +152,14 @@ class _SeedQuantityCalculatorState extends State<SeedQuantityCalculator> {
                             ],
                           ),
                           SizedBox(height: 33.h),
-                          const TextFieldLabel(textField: 'Crop Type'),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              left:
+                                  Intl.getCurrentLocale() == 'en' ? 0.w : 18.w,
+                            ),
+                            child: TextFieldLabel(
+                                textField: S.of(context).cropType),
+                          ),
                           Align(
                             alignment: Alignment.topLeft,
                             child: DropTextField(

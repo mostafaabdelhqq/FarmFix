@@ -1,5 +1,10 @@
 import 'package:farmfix/core/utils/app_routes.dart';
+import 'package:farmfix/generated/l10n.dart';
+import 'package:farmfix/localization_cubit/cubit/locale_cubit.dart';
+import 'package:farmfix/localization_cubit/cubit/locale_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FarmFix extends StatelessWidget {
@@ -12,9 +17,21 @@ class FarmFix extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          routerConfig: AppRoutes.router,
+        return BlocBuilder<LocaleCubit, LocaleState>(
+          builder: (context, state) {
+            return MaterialApp.router(
+              debugShowCheckedModeBanner: false,
+              locale: state.locale,
+              localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: S.delegate.supportedLocales,
+              routerConfig: AppRoutes.router,
+            );
+          },
         );
       },
     );

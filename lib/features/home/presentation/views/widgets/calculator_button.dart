@@ -1,4 +1,5 @@
 import 'package:farmfix/constants.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -50,7 +51,7 @@ class CalculatorButton extends StatelessWidget {
                 fixedSize: Size(145.w, 31.h),
               ),
               child: Text(
-                'Calculate Now',
+                S.of(context).calculateNow,
                 style: GoogleFonts.roboto(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w800,

@@ -7,9 +7,11 @@ import 'package:farmfix/core/widgets/transition_between_two_screen.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/calculator_text_field.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/result_button.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/text_field_label.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 
 class SingleSprayerPesticideMixerCalculator extends StatefulWidget {
   const SingleSprayerPesticideMixerCalculator({super.key});
@@ -65,13 +67,13 @@ class _SingleSprayerPesticideMixerCalculatorState
             SingleChildScrollView(
               child: Column(
                 children: [
-                  const CustomAppBar(
-                    title: 'Pesticide Mixer',
+                  CustomAppBar(
+                    title: S.of(context).pesticideMixer,
                     fontSize: 30,
                   ),
                   TransitionBetweenTwoScreen(
-                    firstScreen: 'Single Sprayer',
-                    secondScreen: 'Multiple Sprayers',
+                    firstScreen: S.of(context).singleSprayer,
+                    secondScreen: S.of(context).multipleSprayers,
                     selectedIndex: selectedIndex,
                     onTabTapped: handleTabTapped,
                   ),
@@ -84,12 +86,25 @@ class _SingleSprayerPesticideMixerCalculatorState
                         children: [
                           Row(
                             children: [
-                              const TextFieldLabel(
-                                  textField: 'Target Concentration'),
                               Padding(
-                                padding: EdgeInsets.only(left: 35.w),
-                                child: const TextFieldLabel(
-                                    textField: 'Sprayer Volume'),
+                                padding: EdgeInsets.only(
+                                    right: Intl.getCurrentLocale() == 'en'
+                                        ? 0.w
+                                        : 13.w),
+                                child: TextFieldLabel(
+                                    textField:
+                                        S.of(context).targetConcentration),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: Intl.getCurrentLocale() == 'en'
+                                        ? 35.w
+                                        : 0.w,
+                                    right: Intl.getCurrentLocale() == 'en'
+                                        ? 0.w
+                                        : 25.w),
+                                child: TextFieldLabel(
+                                    textField: S.of(context).sprayerVolume),
                               ),
                             ],
                           ),
@@ -113,12 +128,28 @@ class _SingleSprayerPesticideMixerCalculatorState
                           SizedBox(height: 43.h),
                           Row(
                             children: [
-                              const TextFieldLabel(
-                                  textField: 'Sprayer Coverage Area'),
                               Padding(
-                                padding: EdgeInsets.only(left: 25.w),
-                                child: const TextFieldLabel(
-                                    textField: 'Land Area'),
+                                padding: EdgeInsets.only(
+                                    right: Intl.getCurrentLocale() == 'en'
+                                        ? 0.w
+                                        : 13.w),
+                                child: TextFieldLabel(
+                                    textField:
+                                        S.of(context).sprayerCovarageArea),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: Intl.getCurrentLocale() == 'en'
+                                        ? 25.w
+                                        : 0.w),
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      left: Intl.getCurrentLocale() == 'en'
+                                          ? 0.w
+                                          : 10.w),
+                                  child: TextFieldLabel(
+                                      textField: S.of(context).landArea),
+                                ),
                               ),
                             ],
                           ),

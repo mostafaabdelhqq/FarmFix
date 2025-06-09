@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:farmfix/constants.dart';
 import 'package:farmfix/core/widgets/custom_app_bar.dart';
 import 'package:farmfix/core/widgets/show_help_dialog.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -59,8 +60,8 @@ class _ResultScreenState extends State<ResultScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CustomAppBar(
-            title: 'Prediction Result',
+          CustomAppBar(
+            title: S.of(context).predictionResult,
             fontSize: 27,
           ),
           SizedBox(height: 13.h),
@@ -71,11 +72,9 @@ class _ResultScreenState extends State<ResultScreen> {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return const ShowHelpDialog(
-                      title: 'Accuracy',
-                      description:
-                          'is a metric used to evaluate model performance. It indicates the percentage of correct predictions out of all predictions made. In simple terms, higher accuracy means the model is generally making more correct decisions.',
-                    );
+                    return ShowHelpDialog(
+                        title: S.of(context).accuracy,
+                        description: S.of(context).accuracyDesc);
                   },
                 );
               },
@@ -107,9 +106,9 @@ class _ResultScreenState extends State<ResultScreen> {
           ),
           SizedBox(height: 24.h),
           Padding(
-            padding: EdgeInsets.only(left: 31.w),
+            padding: EdgeInsets.only(left: 31.w, right: 31.w),
             child: Text(
-              'Prediction Result:',
+              '${S.of(context).predictionResult}:',
               style:
                   GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.w500),
             ),
@@ -118,13 +117,13 @@ class _ResultScreenState extends State<ResultScreen> {
           Container(
             width: 345.w,
             height: 50.h,
-            margin: EdgeInsets.only(left: 31.w),
+            margin: EdgeInsets.only(left: 31.w, right: 31.w),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18.r),
               color: kPrimaryColor,
             ),
             child: Padding(
-              padding: EdgeInsets.only(left: 10.w),
+              padding: EdgeInsets.only(left: 10.w, right: 10.w),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -157,9 +156,9 @@ class _ResultScreenState extends State<ResultScreen> {
                       style: const TextStyle(color: Colors.black, fontSize: 28),
                     ),
                   ),
-                  const Text(
-                    'Accuracy',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
+                  Text(
+                    S.of(context).accuracy,
+                    style: const TextStyle(fontSize: 20, color: Colors.black),
                   ),
                 ],
               ),

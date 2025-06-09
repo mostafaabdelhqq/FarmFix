@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:material_symbols_icons/symbols.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/uiw.dart';
+import 'package:intl/intl.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar(
@@ -36,7 +38,7 @@ class CustomAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 55, left: 20),
+            padding: EdgeInsets.only(top: 55.h, left: 20.w, right: 20.w),
             child: Text(
               title,
               style: GoogleFonts.roboto(
@@ -47,14 +49,16 @@ class CustomAppBar extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 10, bottom: 45),
+            padding: EdgeInsets.only(right: 10.w, bottom: 45.h, left: 10.w),
             child: IconButton(
                 onPressed: arrowBackOnPressed ??
                     () {
                       GoRouter.of(context).pop();
                     },
-                icon: Icon(
-                  Symbols.expand_circle_right,
+                icon: Iconify(
+                  Intl.getCurrentLocale() == 'ar'
+                      ? Uiw.left_circle_o
+                      : Uiw.right_circle_o,
                   color: kSecondaryColor,
                   size: 38.sp,
                 )),

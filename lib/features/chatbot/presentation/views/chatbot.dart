@@ -4,6 +4,7 @@ import 'package:farmfix/features/chatbot/data/datasources/gemini_data_source.dar
 import 'package:farmfix/features/chatbot/data/repositories/chat_repository_impl.dart';
 import 'package:farmfix/features/chatbot/logic/cubits/chat_cubit.dart';
 import 'package:farmfix/features/chatbot/presentation/views/widgets/chatbot_body.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +25,7 @@ class Chatbot extends StatelessWidget {
       child: Scaffold(
         backgroundColor: kSecondaryColor,
         appBar: AppBar(
-          title: const Text('FarmFix Assistant'),
+          title: Text(S.of(context).farmFixAssistant),
           titleTextStyle: GoogleFonts.righteous(
             fontSize: 22.sp,
             fontWeight: FontWeight.w200,

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:farmfix/features/camera/presentation/views/widgets/result_screen.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -96,9 +97,9 @@ class CameraScreenState extends State<CameraScreen> {
               appBar: AppBar(
                 backgroundColor: Colors.black54,
                 centerTitle: true,
-                title: const Text(
-                  'Discover Diseases',
-                  style: TextStyle(color: Colors.white),
+                title: Text(
+                  S.of(context).discoverDiseases,
+                  style: const TextStyle(color: Colors.white),
                 ),
                 automaticallyImplyLeading: false,
                 actions: [

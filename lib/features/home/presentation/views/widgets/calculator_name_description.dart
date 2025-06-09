@@ -15,7 +15,7 @@ class CalculatorNameDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       Padding(
-        padding: EdgeInsets.only(top: 14.h, left: 20.w),
+        padding: EdgeInsets.only(top: 14.h, left: 20.w, right: 20.w),
         child: Row(
           children: [
             Image.asset(
@@ -40,7 +40,7 @@ class CalculatorNameDescription extends StatelessWidget {
         ),
       ),
       Padding(
-        padding: EdgeInsets.only(left: 20.w, top: 8.h, bottom: 8.h),
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
         child: Row(
           children: [
             Text(

@@ -7,9 +7,11 @@ import 'package:farmfix/core/widgets/transition_between_two_screen.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/calculator_text_field.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/result_button.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/text_field_label.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 
 class PerSquareMeterProductionCostCalculator extends StatefulWidget {
   const PerSquareMeterProductionCostCalculator({super.key});
@@ -67,13 +69,13 @@ class _PerSquareMeterTotalProductionCostCalculatorState
             SingleChildScrollView(
               child: Column(
                 children: [
-                  const CustomAppBar(
-                    title: 'Production Cost',
+                  CustomAppBar(
+                    title: S.of(context).productionCost,
                     fontSize: 30,
                   ),
                   TransitionBetweenTwoScreen(
-                    firstScreen: 'Total Cost',
-                    secondScreen: 'Per Square Meter',
+                    firstScreen: S.of(context).totalCost,
+                    secondScreen: S.of(context).perSquareMeter,
                     selectedIndex: selectedIndex,
                     onTabTapped: handleTabTapped,
                   ),
@@ -86,11 +88,24 @@ class _PerSquareMeterTotalProductionCostCalculatorState
                         children: [
                           Row(
                             children: [
-                              const TextFieldLabel(textField: 'Seed Cost'),
                               Padding(
-                                padding: EdgeInsets.only(left: 115.w),
-                                child: const TextFieldLabel(
-                                    textField: 'Fertilizer Cost'),
+                                padding: EdgeInsets.only(
+                                    right: Intl.getCurrentLocale() == 'en'
+                                        ? 0.w
+                                        : 12.w),
+                                child: TextFieldLabel(
+                                    textField: S.of(context).seedCost),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: Intl.getCurrentLocale() == 'en'
+                                        ? 115.w
+                                        : 0.w,
+                                    right: Intl.getCurrentLocale() == 'en'
+                                        ? 0.w
+                                        : 60.w),
+                                child: TextFieldLabel(
+                                    textField: S.of(context).fertilizerCost),
                               ),
                             ],
                           ),
@@ -114,11 +129,24 @@ class _PerSquareMeterTotalProductionCostCalculatorState
                           SizedBox(height: 43.h),
                           Row(
                             children: [
-                              const TextFieldLabel(textField: 'Labor Cost'),
                               Padding(
-                                padding: EdgeInsets.only(left: 115.w),
-                                child: const TextFieldLabel(
-                                    textField: 'Water Cost'),
+                                  padding: EdgeInsets.only(
+                                      right: Intl.getCurrentLocale() == 'en'
+                                          ? 0.w
+                                          : 12.w),
+                                  child: TextFieldLabel(
+                                    textField: S.of(context).laborCost,
+                                  )),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: Intl.getCurrentLocale() == 'en'
+                                        ? 115.w
+                                        : 0.w,
+                                    right: Intl.getCurrentLocale() == 'en'
+                                        ? 0.w
+                                        : 58.w),
+                                child: TextFieldLabel(
+                                    textField: S.of(context).waterCost),
                               ),
                             ],
                           ),
@@ -141,11 +169,25 @@ class _PerSquareMeterTotalProductionCostCalculatorState
                           SizedBox(height: 43.h),
                           Row(
                             children: [
-                              const TextFieldLabel(textField: 'Other Expenses'),
                               Padding(
-                                padding: EdgeInsets.only(left: 85.w),
-                                child: const TextFieldLabel(
-                                    textField: 'Land Area'),
+                                padding: EdgeInsets.only(
+                                  right: Intl.getCurrentLocale() == 'en'
+                                      ? 0.w
+                                      : 11.w,
+                                ),
+                                child: TextFieldLabel(
+                                    textField: S.of(context).otherExpenses),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: Intl.getCurrentLocale() == 'en'
+                                        ? 85.w
+                                        : 0.w,
+                                    right: Intl.getCurrentLocale() == 'en'
+                                        ? 0.w
+                                        : 60.w),
+                                child: TextFieldLabel(
+                                    textField: S.of(context).landArea),
                               ),
                             ],
                           ),

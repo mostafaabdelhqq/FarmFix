@@ -5,8 +5,10 @@ import 'package:farmfix/core/widgets/show_help_dialog.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/calculator_text_field.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/result_button.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/text_field_label.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 class PlantDensityCalculator extends StatefulWidget {
   const PlantDensityCalculator({super.key});
@@ -40,8 +42,8 @@ class _PlantDensityCalculatorState extends State<PlantDensityCalculator> {
             SingleChildScrollView(
               child: Column(
                 children: [
-                  const CustomAppBar(
-                    title: 'Plant Density',
+                  CustomAppBar(
+                    title: S.of(context).plantDensity,
                     fontSize: 30,
                   ),
                   SizedBox(height: 70.h),
@@ -51,14 +53,35 @@ class _PlantDensityCalculatorState extends State<PlantDensityCalculator> {
                       key: _formKey,
                       child: Column(
                         children: [
-                          const TextFieldLabel(textField: 'Land Area'),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: Intl.getCurrentLocale() == 'en'
+                                    ? 0.w
+                                    : 225.w),
+                            child: TextFieldLabel(
+                                textField: S.of(context).landArea),
+                          ),
                           CalculatorTextField(controller: _landAreaController),
                           SizedBox(height: 43.h),
-                          const TextFieldLabel(textField: 'Row Spacing'),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: Intl.getCurrentLocale() == 'en'
+                                    ? 0.w
+                                    : 225.w),
+                            child: TextFieldLabel(
+                                textField: S.of(context).rowSpacing),
+                          ),
                           CalculatorTextField(
                               controller: _rowSpacingController),
                           SizedBox(height: 43.h),
-                          const TextFieldLabel(textField: 'Plant Spacing'),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: Intl.getCurrentLocale() == 'en'
+                                    ? 0.w
+                                    : 225.w),
+                            child: TextFieldLabel(
+                                textField: S.of(context).plantSpacing),
+                          ),
                           CalculatorTextField(
                               controller: _plantSpacingController),
                         ],

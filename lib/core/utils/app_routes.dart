@@ -11,6 +11,7 @@ import 'package:farmfix/features/forget%20password/presentation/views/forget_pas
 import 'package:farmfix/features/forget%20password/presentation/views/widgets/check_your_email_view.dart';
 import 'package:farmfix/features/home/presentation/views/home_view.dart';
 import 'package:farmfix/features/settings/presentation/settings_view.dart';
+import 'package:farmfix/features/settings/presentation/widgets/appearance_view.dart';
 import 'package:farmfix/features/sign%20in/presentation/views/sign_in_view.dart';
 import 'package:farmfix/features/sign%20up/presentation/views/sign_up_view.dart';
 import 'package:go_router/go_router.dart';
@@ -39,6 +40,8 @@ abstract class AppRoutes {
       '/multipleSprayersPesticideMixerCalculator';
 
   static const kIrrigationRateCalculator = '/irrigationRateCalculator';
+
+  static const kAppearanceView = '/appearanceView';
 
   static final router = GoRouter(routes: [
     GoRoute(
@@ -99,5 +102,8 @@ abstract class AppRoutes {
     GoRoute(
         path: kIrrigationRateCalculator,
         builder: (context, state) => const IrrigationRateCalculator()),
+    GoRoute(
+        path: kAppearanceView,
+        builder: (context, state) => const AppearanceView()),
   ]);
 }

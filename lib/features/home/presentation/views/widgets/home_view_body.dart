@@ -4,6 +4,7 @@ import 'package:farmfix/core/utils/assets_data.dart';
 import 'package:farmfix/features/home/presentation/views/widgets/custom_calculator.dart';
 import 'package:farmfix/features/home/presentation/views/widgets/weather_card.dart';
 import 'package:farmfix/features/home/presentation/views/widgets/welcome_message_and_profile_setting.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -24,28 +25,26 @@ List<CustomCalculator> calculatorsList(BuildContext context) => [
           GoRouter.of(context).push(AppRoutes.kPlantDensityCalculator);
         },
         fontSize: 15,
-        dataName1: 'Row Spacing',
-        dataName2: 'Plant Spacing',
-        dataName3: 'Land Area',
-        purposeOfCalculation: 'Achieve ideal crop covarage',
+        dataName1: S.of(context).rowSpacing,
+        dataName2: S.of(context).plantSpacing,
+        dataName3: S.of(context).landArea,
+        purposeOfCalculation: S.of(context).idealCropCoverage,
         calculationIcon: AssetsData.grassIcon,
-        calculationName: 'Plant Density',
-        calculationDescription:
-            'Calculate the number of plants suitable \n for your land area and spacing',
+        calculationName: S.of(context).plantDensity,
+        calculationDescription: S.of(context).plantDensityDesc,
       ),
       CustomCalculator(
         onPressed: () {
           GoRouter.of(context).push(AppRoutes.kTotalProductionCostCalculator);
         },
         fontSize: 15,
-        dataName1: 'Seeds',
-        dataName2: 'Fertilizers',
-        dataName3: 'Labor',
-        purposeOfCalculation: 'Maximize your profitability',
+        dataName1: S.of(context).seeds,
+        dataName2: S.of(context).fertilizers,
+        dataName3: S.of(context).labor,
+        purposeOfCalculation: S.of(context).maximizeyourprofitability,
         calculationIcon: AssetsData.costIcon,
-        calculationName: 'Production Cost',
-        calculationDescription:
-            'Estimate total farming costs and\n expected profit margin',
+        calculationName: S.of(context).productionCost,
+        calculationDescription: S.of(context).productionCostDesc,
       ),
       CustomCalculator(
         onPressed: () {
@@ -53,42 +52,39 @@ List<CustomCalculator> calculatorsList(BuildContext context) => [
               .push(AppRoutes.kSingleSprayerPesticideMixerCalculator);
         },
         fontSize: 15,
-        dataName1: 'Target',
-        dataName2: 'Tank Volume',
-        dataName3: 'Area Size',
-        purposeOfCalculation: 'Precise and safe spraying',
+        dataName1: S.of(context).target,
+        dataName2: S.of(context).tankVolume,
+        dataName3: S.of(context).areaSize,
+        purposeOfCalculation: S.of(context).preciseAndSafeSpraying,
         calculationIcon: AssetsData.tubeIcon,
-        calculationName: 'Pesticide Mixer',
-        calculationDescription:
-            'Determine the correct amount of\n pesticide per area and concentration',
+        calculationName: S.of(context).pesticideMixer,
+        calculationDescription: S.of(context).pesticideMixerDesc,
       ),
       CustomCalculator(
         onPressed: () {
           GoRouter.of(context).push(AppRoutes.kSeedQuantityCalculator);
         },
         fontSize: 15,
-        dataName1: 'Crop',
-        dataName2: 'Land Area',
-        dataName3: 'Germination',
-        purposeOfCalculation: 'Plan accurate seeding',
+        dataName1: S.of(context).crop,
+        dataName2: S.of(context).landArea,
+        dataName3: S.of(context).germination,
+        purposeOfCalculation: S.of(context).planAccurateSeeding,
         calculationIcon: AssetsData.sustainabilityIcon,
-        calculationName: 'Seed Quantity',
-        calculationDescription:
-            'Calculate required seed amount based\n on area and germination rate',
+        calculationName: S.of(context).seedQuantity,
+        calculationDescription: S.of(context).seedQuantityDesc,
       ),
       CustomCalculator(
         onPressed: () {
           GoRouter.of(context).push(AppRoutes.kIrrigationRateCalculator);
         },
         fontSize: 13,
-        dataName1: 'Soil',
-        dataName2: 'Weather',
-        dataName3: 'Crop',
-        purposeOfCalculation: 'Essential for efficient water usage',
+        dataName1: S.of(context).soil,
+        dataName2: S.of(context).weather,
+        dataName3: S.of(context).crop,
+        purposeOfCalculation: S.of(context).essentialForEfficientWaterUsage,
         calculationIcon: AssetsData.waterIcon,
-        calculationName: 'Irrigation Rate',
-        calculationDescription:
-            'Calculate the optimal amount of water\n based on soil type, crop, and weather',
+        calculationName: S.of(context).irrigationRate,
+        calculationDescription: S.of(context).irrigationRateDesc,
       ),
       // Add more CustomCalculator instances as needed
     ];

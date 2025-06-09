@@ -6,8 +6,10 @@ import 'package:farmfix/features/calculators/presentation/widgets/calculator_tex
 import 'package:farmfix/features/calculators/presentation/widgets/drop_text_field.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/result_button.dart';
 import 'package:farmfix/features/calculators/presentation/widgets/text_field_label.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 class IrrigationRateCalculator extends StatefulWidget {
   const IrrigationRateCalculator({super.key});
@@ -31,28 +33,28 @@ class _IrrigationRateCalculatorState extends State<IrrigationRateCalculator> {
 
   final TextEditingController _landAreaController = TextEditingController();
 
-  final Map<String, double> kcItems = {
-    'Wheat': 1.15,
-    'Corn': 1.20,
-    'Cotton': 1.15,
-    'Rice': 1.20,
-    'Sunflower': 1.05,
-    'Citrus': .95,
-    'Tomato': 1.15,
-    'Potato': 1.10,
-    'Alfalfa': 1.20,
-    'Grapes': .75,
+  late Map<String, double> kcItems = {
+    S.of(context).wheat: 1.15,
+    S.of(context).corn: 1.20,
+    S.of(context).cotton: 1.15,
+    S.of(context).rice: 1.20,
+    S.of(context).sunflower: 1.05,
+    S.of(context).citrus: .95,
+    S.of(context).tomato: 1.15,
+    S.of(context).potato: 1.10,
+    S.of(context).alfalfa: 1.20,
+    S.of(context).grapes: .75,
   };
 
-  final Map<String, double> etItems = {
-    'Windy': 6.5,
-    'Rainy': 1.5,
-    'Mild': 4,
-    'Cool and Humid': 2.5,
-    'Cool and Dry': 3,
-    'Hot and Humid': 5,
-    'Hot and Dry': 6,
-    'Very Hot and Dry': 7,
+  late Map<String, double> etItems = {
+    S.of(context).windy: 6.5,
+    S.of(context).rainy: 1.5,
+    S.of(context).mild: 4,
+    S.of(context).coolAndHumid: 2.5,
+    S.of(context).coolAndDry: 3,
+    S.of(context).hotAndHumid: 5,
+    S.of(context).hotAndDry: 6,
+    S.of(context).veryHotAndDry: 7,
   };
 
   @override
@@ -73,8 +75,8 @@ class _IrrigationRateCalculatorState extends State<IrrigationRateCalculator> {
             SingleChildScrollView(
               child: Column(
                 children: [
-                  const CustomAppBar(
-                    title: 'Irrigation Rate',
+                  CustomAppBar(
+                    title: S.of(context).irrigationRate,
                     fontSize: 30,
                   ),
                   SizedBox(height: 60.h),
@@ -85,8 +87,12 @@ class _IrrigationRateCalculatorState extends State<IrrigationRateCalculator> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(left: 1.w),
-                            child: const TextFieldLabel(textField: 'Land Area'),
+                            padding: EdgeInsets.only(
+                                left: Intl.getCurrentLocale() == 'en'
+                                    ? 1.w
+                                    : 225.w),
+                            child: TextFieldLabel(
+                                textField: S.of(context).landArea),
                           ),
                           CalculatorTextField(
                             width: 400,
@@ -95,11 +101,24 @@ class _IrrigationRateCalculatorState extends State<IrrigationRateCalculator> {
                           SizedBox(height: 40.h),
                           Row(
                             children: [
-                              const TextFieldLabel(textField: 'Crop Type Kc'),
                               Padding(
-                                padding: EdgeInsets.only(left: 87.w),
-                                child: const TextFieldLabel(
-                                    textField: 'Weather Condition'),
+                                padding: EdgeInsets.only(
+                                    right: Intl.getCurrentLocale() == 'en'
+                                        ? 0.w
+                                        : 13.w),
+                                child: TextFieldLabel(
+                                    textField: S.of(context).cropTypeKc),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: Intl.getCurrentLocale() == 'en'
+                                        ? 87.w
+                                        : 0.w,
+                                    right: Intl.getCurrentLocale() == 'en'
+                                        ? 0.w
+                                        : 38.w),
+                                child: TextFieldLabel(
+                                    textField: S.of(context).weatherCondition),
                               ),
                             ],
                           ),
