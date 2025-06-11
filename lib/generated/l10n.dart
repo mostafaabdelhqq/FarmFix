@@ -295,10 +295,10 @@ class S {
     );
   }
 
-  /// ` Welcome to FarmFix Assistant! \n\n I'm here to help with all your agriculture and climate questions.`
+  /// ` Welcome to FarmFix Assistant! \n I'm here to help with all your agriculture and climate questions.`
   String get welcomeMessageChatbot {
     return Intl.message(
-      ' Welcome to FarmFix Assistant! \n\n I\'m here to help with all your agriculture and climate questions.',
+      ' Welcome to FarmFix Assistant! \n I\'m here to help with all your agriculture and climate questions.',
       name: 'welcomeMessageChatbot',
       desc: '',
       args: [],

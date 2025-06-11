@@ -142,7 +142,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
     "welcomeMessageChatbot": MessageLookupByLibrary.simpleMessage(
-      " Welcome to FarmFix Assistant! \n\n I\'m here to help with all your agriculture and climate questions.",
+      " Welcome to FarmFix Assistant! \n I\'m here to help with all your agriculture and climate questions.",
     ),
     "wheat": MessageLookupByLibrary.simpleMessage("Wheat"),
     "wind": MessageLookupByLibrary.simpleMessage("Wind"),

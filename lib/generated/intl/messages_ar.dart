@@ -132,7 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "weatherCondition": MessageLookupByLibrary.simpleMessage("حالة الطقس"),
     "welcome": MessageLookupByLibrary.simpleMessage("مرحبًا"),
     "welcomeMessageChatbot": MessageLookupByLibrary.simpleMessage(
-      "مرحبًا بك في مساعد FarmFix! \n\n أنا هنا للمساعدة في جميع أسئلتك المتعلقة بالزراعة والمناخ.",
+      "مرحبًا بك في مساعد FarmFix! \n أنا هنا للمساعدة في جميع أسئلتك المتعلقة بالزراعة والمناخ.",
     ),
     "wheat": MessageLookupByLibrary.simpleMessage("قمح"),
     "wind": MessageLookupByLibrary.simpleMessage("الرياح"),

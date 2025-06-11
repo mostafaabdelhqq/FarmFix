@@ -21,7 +21,9 @@ class ChatRepositoryImpl implements ChatRepository {
       String message, List<Content> history) {
     return _dataSource
         .getResponseStream(message, history)
-        .map((text) => MessageModel.bot(text));
+        .map((text) => MessageModel.bot(
+              '',
+            ));
   }
 
   @override

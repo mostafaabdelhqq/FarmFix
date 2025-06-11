@@ -8,8 +8,12 @@ part 'chat_state.dart';
 class ChatCubit extends Cubit<ChatState> {
   final ChatRepository _repository;
   final List<MessageModel> _messages = [];
+  final String welcomeText;
 
-  ChatCubit(this._repository) : super(ChatInitial()) {
+  ChatCubit(
+    this._repository, {
+    required this.welcomeText,
+  }) : super(ChatInitial()) {
     _addWelcomeMessage();
   }
 
@@ -18,8 +22,7 @@ class ChatCubit extends Cubit<ChatState> {
   void _addWelcomeMessage() {
     if (_messages.isEmpty) {
       final welcomeMessage = MessageModel.bot(
-        " Welcome to FarmFix Assistant! \n\n"
-        "I'm here to help with all your agriculture and climate questions. ",
+        welcomeText,
         isTyping: false,
       );
       _messages.add(welcomeMessage);
@@ -28,11 +31,9 @@ class ChatCubit extends Cubit<ChatState> {
   }
 
   Future<void> sendMessage(String message) async {
-    // Add user message immediately
     _messages.add(MessageModel.user(message));
     emit(ChatSuccess([..._messages]));
 
-    // Create a temporary bot message that will be updated
     final botMessage = MessageModel.bot('', isTyping: true);
     _messages.add(botMessage);
     emit(ChatLoading([..._messages]));
@@ -44,7 +45,7 @@ class ChatCubit extends Cubit<ChatState> {
       String fullResponse = '';
       await for (final response in responseStream) {
         fullResponse += response.text;
-        // Update the last message with new content
+
         _messages.last = _messages.last.copyWith(
           text: fullResponse,
           isTyping: true,
@@ -52,7 +53,6 @@ class ChatCubit extends Cubit<ChatState> {
         emit(ChatSuccess([..._messages]));
       }
 
-      // Mark typing as complete when done
       _messages.last = _messages.last.copyWith(isTyping: false);
       emit(ChatSuccess([..._messages]));
     } catch (e) {
