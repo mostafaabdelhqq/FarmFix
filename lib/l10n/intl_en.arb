@@ -1,8 +1,18 @@
 {
   "@@locale": "en",
+  "signInToYourAccount": "Sign in to your account",
+  "emailAdress": "Email Address",
+  "enterYourEmail": "Enter Your Email",
+  "password": "Password",
+  "enterYourPassword": "Enter Your Password",
+  "forgotPassword": "Forgot Password?",
+  "signIn": "Sign In",
+  "don'tHaveAnAccount": "Don't have an account?",
   "welcome": "Welcome",
   "precipitation": "Precipitation",
+  "mm": "mm",
   "wind": "Wind",
+  "kmh": "km/h",
   "humidity": "Humidity",
   "plantDensity": "Plant Density",
   "plantDensityDesc": "Calculate the number of plants suitable \n For your land area and spacing",
@@ -87,7 +97,9 @@
   "discoverDiseases": "Discover Diseases",
   "predictionResult": "Prediction Result",
   "accuracy": "Accuracy",
-  "accuracyDesc":"is a metric used to evaluate model performance. It indicates the percentage of correct predictions out of all predictions made. In simple terms, higher accuracy means the model is generally making more correct decisions."
+  "accuracyDesc":"is a metric used to evaluate model performance. It indicates the percentage of correct predictions out of all predictions made. In simple terms, higher accuracy means the model is generally making more correct decisions.",
+  "highTemp":"H",
+  "lowTemp":"L"
 
 
 

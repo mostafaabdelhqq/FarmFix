@@ -2,7 +2,6 @@ import 'package:farmfix/constants.dart';
 import 'package:farmfix/features/settings/presentation/widgets/custom_divider.dart';
 import 'package:farmfix/features/settings/presentation/widgets/custom_list_tile.dart';
 import 'package:farmfix/generated/l10n.dart';
-import 'package:farmfix/localization_cubit/cubit/locale_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,6 +14,8 @@ import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/ri.dart';
 import 'package:intl/intl.dart';
+
+import '../../../../../localization_cubit/cubit/locale_cubit.dart';
 
 class SettingOptions extends StatelessWidget {
   const SettingOptions({super.key});

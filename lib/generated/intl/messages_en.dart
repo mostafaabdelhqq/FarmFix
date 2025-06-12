@@ -44,6 +44,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "discoverDiseases": MessageLookupByLibrary.simpleMessage(
       "Discover Diseases",
     ),
+    "emailAdress": MessageLookupByLibrary.simpleMessage("Email Address"),
+    "enterYourEmail": MessageLookupByLibrary.simpleMessage("Enter Your Email"),
+    "enterYourPassword": MessageLookupByLibrary.simpleMessage(
+      "Enter Your Password",
+    ),
     "essentialForEfficientWaterUsage": MessageLookupByLibrary.simpleMessage(
       "Essential for efficient water usage",
     ),
@@ -52,11 +57,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "fertilizerCost": MessageLookupByLibrary.simpleMessage("Fertilizer Cost"),
     "fertilizers": MessageLookupByLibrary.simpleMessage("Fertilizers"),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
     "general": MessageLookupByLibrary.simpleMessage("General"),
     "germination": MessageLookupByLibrary.simpleMessage("Germination"),
     "getResult": MessageLookupByLibrary.simpleMessage("Get Result"),
     "grapes": MessageLookupByLibrary.simpleMessage("Grapes"),
     "greenBeans": MessageLookupByLibrary.simpleMessage("Green Beans"),
+    "highTemp": MessageLookupByLibrary.simpleMessage("H"),
     "hotAndDry": MessageLookupByLibrary.simpleMessage("Hot and Dry"),
     "hotAndHumid": MessageLookupByLibrary.simpleMessage("Hot and Humid"),
     "humidity": MessageLookupByLibrary.simpleMessage("Humidity"),
@@ -67,20 +74,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "irrigationRateDesc": MessageLookupByLibrary.simpleMessage(
       "Calculate the optimal amount of water\n based on soil type, crop, and weather",
     ),
+    "kmh": MessageLookupByLibrary.simpleMessage("km/h"),
     "labor": MessageLookupByLibrary.simpleMessage("Labor"),
     "laborCost": MessageLookupByLibrary.simpleMessage("Labor Cost"),
     "landArea": MessageLookupByLibrary.simpleMessage("Land Area"),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
     "logout": MessageLookupByLibrary.simpleMessage("Log Out"),
+    "lowTemp": MessageLookupByLibrary.simpleMessage("L"),
     "maximizeyourprofitability": MessageLookupByLibrary.simpleMessage(
       "Maximize your profitability",
     ),
     "mild": MessageLookupByLibrary.simpleMessage("Mild"),
+    "mm": MessageLookupByLibrary.simpleMessage("mm"),
     "multipleSprayers": MessageLookupByLibrary.simpleMessage(
       "Multiple Sprayers",
     ),
     "numOfSprayers": MessageLookupByLibrary.simpleMessage("Num of Sprayers"),
     "otherExpenses": MessageLookupByLibrary.simpleMessage("Other Expenses"),
+    "password": MessageLookupByLibrary.simpleMessage("Password"),
     "pepper": MessageLookupByLibrary.simpleMessage("Pepper"),
     "perSquareMeter": MessageLookupByLibrary.simpleMessage("Per Square Meter"),
     "pesticideMixer": MessageLookupByLibrary.simpleMessage("Pesticide Mixer"),
@@ -118,6 +129,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "seedWeight": MessageLookupByLibrary.simpleMessage("Seed Weight"),
     "seeds": MessageLookupByLibrary.simpleMessage("Seeds"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+    "signInToYourAccount": MessageLookupByLibrary.simpleMessage(
+      "Sign in to your account",
+    ),
     "singleSprayer": MessageLookupByLibrary.simpleMessage("Single Sprayer"),
     "soil": MessageLookupByLibrary.simpleMessage("Soil"),
     "sprayerCovarageArea": MessageLookupByLibrary.simpleMessage(

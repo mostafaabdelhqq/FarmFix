@@ -1,14 +1,17 @@
 import 'package:farmfix/constants.dart';
+import 'package:farmfix/core/utils/extensions.dart';
 import 'package:farmfix/features/home/data/model/weather_model.dart';
 import 'package:farmfix/features/home/logic/cubit/weather_cubit.dart';
 import 'package:farmfix/features/home/presentation/views/widgets/loading_weather_card.dart';
 import 'package:farmfix/features/home/presentation/views/widgets/weather_data.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconify_flutter/icons/ion.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:intl/intl.dart';
 
 class WeatherCard extends StatelessWidget {
   const WeatherCard({
@@ -46,7 +49,9 @@ class WeatherCard extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          weather.cityName,
+                          Intl.getCurrentLocale() == 'en'
+                              ? weather.cityNameEn
+                              : weather.cityNameAr,
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 20.sp,
@@ -55,7 +60,9 @@ class WeatherCard extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(left: 20.w),
                           child: Text(
-                            '${weather.avgTemp.toInt()}°',
+                            Localizations.localeOf(context).languageCode == 'en'
+                                ? '${weather.avgTemp.toInt()}°'
+                                : '${convertToArabicNumbers(weather.avgTemp.toInt().toString())}°',
                             style: GoogleFonts.roboto(
                               fontWeight: FontWeight.w600,
                               fontSize: 60.sp,
@@ -65,18 +72,32 @@ class WeatherCard extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              'H:${weather.maxTemp.toInt()}°',
+                              Localizations.localeOf(context).languageCode ==
+                                      'en'
+                                  ? '${S.of(context).highTemp}:${weather.maxTemp.toInt()}°'
+                                  : '${S.of(context).highTemp}:${convertToArabicNumbers(weather.maxTemp.toInt().toString())}°',
                               style: GoogleFonts.roboto(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 15.sp,
+                                fontSize: Localizations.localeOf(context)
+                                            .languageCode ==
+                                        'en'
+                                    ? 15.sp
+                                    : 15.sp,
                               ),
                             ),
                             SizedBox(width: 20.w),
                             Text(
-                              'L:${weather.minTemp.toInt()}°',
+                              Localizations.localeOf(context).languageCode ==
+                                      'en'
+                                  ? '${S.of(context).lowTemp}:${weather.minTemp.toInt()}°'
+                                  : '${S.of(context).lowTemp}:${convertToArabicNumbers(weather.minTemp.toInt().toString())}°',
                               style: GoogleFonts.roboto(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 15.sp,
+                                fontSize: Localizations.localeOf(context)
+                                            .languageCode ==
+                                        'en'
+                                    ? 15.sp
+                                    : 15.sp,
                               ),
                             ),
                           ],
@@ -109,8 +130,12 @@ class WeatherCard extends StatelessWidget {
                       children: [
                         WeatherData(
                           weatherIcon: Mdi.weather_heavy_rain,
-                          weatherDataType: 'Precipitation',
-                          weatherDataValue: '${weather.precipitation} mm',
+                          weatherDataType: S.of(context).precipitation,
+                          weatherDataValue: Localizations.localeOf(context)
+                                      .languageCode ==
+                                  'en'
+                              ? '${weather.precipitation} ${S.of(context).mm}'
+                              : '${convertToArabicNumbers(weather.precipitation.toString())} ${S.of(context).mm}',
                         ),
                         // SizedBox(width: 40.w),
                         VerticalDivider(
@@ -120,8 +145,12 @@ class WeatherCard extends StatelessWidget {
                         ),
                         WeatherData(
                           weatherIcon: Mdi.weather_windy,
-                          weatherDataType: 'Wind',
-                          weatherDataValue: '${weather.windSpeed} KM/H',
+                          weatherDataType: S.of(context).wind,
+                          weatherDataValue: Localizations.localeOf(context)
+                                      .languageCode ==
+                                  'en'
+                              ? '${weather.windSpeed} ${S.of(context).kmh}'
+                              : '${convertToArabicNumbers(weather.windSpeed.toString())} ${S.of(context).kmh}',
                         ),
                         // SizedBox(width: 35.w),
                         VerticalDivider(
@@ -131,8 +160,12 @@ class WeatherCard extends StatelessWidget {
                         ),
                         WeatherData(
                           weatherIcon: Ion.water,
-                          weatherDataType: 'Humidity',
-                          weatherDataValue: '${weather.avgHumidity}%',
+                          weatherDataType: S.of(context).humidity,
+                          weatherDataValue: Localizations.localeOf(context)
+                                      .languageCode ==
+                                  'en'
+                              ? '${weather.avgHumidity}%'
+                              : '${convertToArabicNumbers(weather.avgHumidity.toString())}%',
                         ),
                       ],
                     ),

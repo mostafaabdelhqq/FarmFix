@@ -55,6 +55,68 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Sign in to your account`
+  String get signInToYourAccount {
+    return Intl.message(
+      'Sign in to your account',
+      name: 'signInToYourAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email Address`
+  String get emailAdress {
+    return Intl.message(
+      'Email Address',
+      name: 'emailAdress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Your Email`
+  String get enterYourEmail {
+    return Intl.message(
+      'Enter Your Email',
+      name: 'enterYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
+  /// `Enter Your Password`
+  String get enterYourPassword {
+    return Intl.message(
+      'Enter Your Password',
+      name: 'enterYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In`
+  String get signIn {
+    return Intl.message('Sign In', name: 'signIn', desc: '', args: []);
+  }
+
+  // skipped getter for the 'don\'tHaveAnAccount' key
+
   /// `Welcome`
   String get welcome {
     return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
@@ -70,9 +132,19 @@ class S {
     );
   }
 
+  /// `mm`
+  String get mm {
+    return Intl.message('mm', name: 'mm', desc: '', args: []);
+  }
+
   /// `Wind`
   String get wind {
     return Intl.message('Wind', name: 'wind', desc: '', args: []);
+  }
+
+  /// `km/h`
+  String get kmh {
+    return Intl.message('km/h', name: 'kmh', desc: '', args: []);
   }
 
   /// `Humidity`
@@ -678,6 +750,16 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `H`
+  String get highTemp {
+    return Intl.message('H', name: 'highTemp', desc: '', args: []);
+  }
+
+  /// `L`
+  String get lowTemp {
+    return Intl.message('L', name: 'lowTemp', desc: '', args: []);
   }
 }
 
