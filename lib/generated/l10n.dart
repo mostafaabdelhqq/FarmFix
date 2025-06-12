@@ -75,10 +75,10 @@ class S {
     );
   }
 
-  /// `Enter Your Email`
+  /// `Enter your email`
   String get enterYourEmail {
     return Intl.message(
-      'Enter Your Email',
+      'Enter your email',
       name: 'enterYourEmail',
       desc: '',
       args: [],
@@ -90,20 +90,20 @@ class S {
     return Intl.message('Password', name: 'password', desc: '', args: []);
   }
 
-  /// `Enter Your Password`
+  /// `Enter your password`
   String get enterYourPassword {
     return Intl.message(
-      'Enter Your Password',
+      'Enter your password',
       name: 'enterYourPassword',
       desc: '',
       args: [],
     );
   }
 
-  /// `Forgot Password?`
+  /// `Forgot password?`
   String get forgotPassword {
     return Intl.message(
-      'Forgot Password?',
+      'Forgot password?',
       name: 'forgotPassword',
       desc: '',
       args: [],
@@ -115,7 +115,115 @@ class S {
     return Intl.message('Sign In', name: 'signIn', desc: '', args: []);
   }
 
-  // skipped getter for the 'don\'tHaveAnAccount' key
+  /// `Don't have an account?`
+  String get dontHaveAnAccount {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'dontHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create new account`
+  String get createNewAccount {
+    return Intl.message(
+      'Create new account',
+      name: 'createNewAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `First name`
+  String get firstName {
+    return Intl.message('First name', name: 'firstName', desc: '', args: []);
+  }
+
+  /// `Last name`
+  String get lastName {
+    return Intl.message('Last name', name: 'lastName', desc: '', args: []);
+  }
+
+  /// `Confirm Password`
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your confirm password`
+  String get enterYourConfirmPassword {
+    return Intl.message(
+      'Enter your confirm password',
+      name: 'enterYourConfirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up`
+  String get signUp {
+    return Intl.message('Sign Up', name: 'signUp', desc: '', args: []);
+  }
+
+  /// `Already have an account?`
+  String get alreadyHaveAnAccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'alreadyHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A link will be resend to your email to help\n reset password`
+  String get forgetpasswordDesc {
+    return Intl.message(
+      'A link will be resend to your email to help\n reset password',
+      name: 'forgetpasswordDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Reset Link`
+  String get sendResetLink {
+    return Intl.message(
+      'Send Reset Link',
+      name: 'sendResetLink',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log In`
+  String get logIn {
+    return Intl.message('Log In', name: 'logIn', desc: '', args: []);
+  }
+
+  /// `Check Your Email`
+  String get checkYourEmail {
+    return Intl.message(
+      'Check Your Email',
+      name: 'checkYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset password from link in your email and \nlog in with your new pasword`
+  String get checkYourEmailDesc {
+    return Intl.message(
+      'Reset password from link in your email and \nlog in with your new pasword',
+      name: 'checkYourEmailDesc',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Welcome`
   String get welcome {

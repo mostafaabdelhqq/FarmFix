@@ -29,25 +29,42 @@ class MessageLookup extends MessageLookupByLibrary {
       "is a metric used to evaluate model performance. It indicates the percentage of correct predictions out of all predictions made. In simple terms, higher accuracy means the model is generally making more correct decisions.",
     ),
     "alfalfa": MessageLookupByLibrary.simpleMessage("Alfalfa"),
+    "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+      "Already have an account?",
+    ),
     "appearance": MessageLookupByLibrary.simpleMessage("Appearance"),
     "areaSize": MessageLookupByLibrary.simpleMessage("Area Size"),
     "beans": MessageLookupByLibrary.simpleMessage("Beans"),
     "calculateNow": MessageLookupByLibrary.simpleMessage("Calculate Now"),
+    "checkYourEmail": MessageLookupByLibrary.simpleMessage("Check Your Email"),
+    "checkYourEmailDesc": MessageLookupByLibrary.simpleMessage(
+      "Reset password from link in your email and \nlog in with your new pasword",
+    ),
     "citrus": MessageLookupByLibrary.simpleMessage("Citrus"),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "coolAndDry": MessageLookupByLibrary.simpleMessage("Cool and Dry"),
     "coolAndHumid": MessageLookupByLibrary.simpleMessage("Cool and Humid"),
     "corn": MessageLookupByLibrary.simpleMessage("Corn"),
     "cotton": MessageLookupByLibrary.simpleMessage("Cotton"),
+    "createNewAccount": MessageLookupByLibrary.simpleMessage(
+      "Create new account",
+    ),
     "crop": MessageLookupByLibrary.simpleMessage("Crop"),
     "cropType": MessageLookupByLibrary.simpleMessage("Crop Type"),
     "cropTypeKc": MessageLookupByLibrary.simpleMessage("Crop Type Kc"),
     "discoverDiseases": MessageLookupByLibrary.simpleMessage(
       "Discover Diseases",
     ),
+    "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+      "Don\'t have an account?",
+    ),
     "emailAdress": MessageLookupByLibrary.simpleMessage("Email Address"),
-    "enterYourEmail": MessageLookupByLibrary.simpleMessage("Enter Your Email"),
+    "enterYourConfirmPassword": MessageLookupByLibrary.simpleMessage(
+      "Enter your confirm password",
+    ),
+    "enterYourEmail": MessageLookupByLibrary.simpleMessage("Enter your email"),
     "enterYourPassword": MessageLookupByLibrary.simpleMessage(
-      "Enter Your Password",
+      "Enter your password",
     ),
     "essentialForEfficientWaterUsage": MessageLookupByLibrary.simpleMessage(
       "Essential for efficient water usage",
@@ -57,7 +74,11 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "fertilizerCost": MessageLookupByLibrary.simpleMessage("Fertilizer Cost"),
     "fertilizers": MessageLookupByLibrary.simpleMessage("Fertilizers"),
-    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+    "firstName": MessageLookupByLibrary.simpleMessage("First name"),
+    "forgetpasswordDesc": MessageLookupByLibrary.simpleMessage(
+      "A link will be resend to your email to help\n reset password",
+    ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot password?"),
     "general": MessageLookupByLibrary.simpleMessage("General"),
     "germination": MessageLookupByLibrary.simpleMessage("Germination"),
     "getResult": MessageLookupByLibrary.simpleMessage("Get Result"),
@@ -79,6 +100,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "laborCost": MessageLookupByLibrary.simpleMessage("Labor Cost"),
     "landArea": MessageLookupByLibrary.simpleMessage("Land Area"),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
+    "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
+    "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
     "logout": MessageLookupByLibrary.simpleMessage("Log Out"),
     "lowTemp": MessageLookupByLibrary.simpleMessage("L"),
     "maximizeyourprofitability": MessageLookupByLibrary.simpleMessage(
@@ -128,11 +151,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "seedWeight": MessageLookupByLibrary.simpleMessage("Seed Weight"),
     "seeds": MessageLookupByLibrary.simpleMessage("Seeds"),
+    "sendResetLink": MessageLookupByLibrary.simpleMessage("Send Reset Link"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
     "signInToYourAccount": MessageLookupByLibrary.simpleMessage(
       "Sign in to your account",
     ),
+    "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "singleSprayer": MessageLookupByLibrary.simpleMessage("Single Sprayer"),
     "soil": MessageLookupByLibrary.simpleMessage("Soil"),
     "sprayerCovarageArea": MessageLookupByLibrary.simpleMessage(

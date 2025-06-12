@@ -1,4 +1,5 @@
 import 'package:farmfix/constants.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class SignUpHeader extends StatelessWidget {
@@ -6,11 +7,11 @@ class SignUpHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Positioned(
+    return Positioned(
       top: 50,
       child: Text(
-        'Create new account',
-        style: TextStyle(
+        S.of(context).createNewAccount,
+        style: const TextStyle(
           fontFamily: kJersey25,
           fontSize: 20,
           fontWeight: FontWeight.w600,

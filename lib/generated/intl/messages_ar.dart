@@ -29,20 +29,37 @@ class MessageLookup extends MessageLookupByLibrary {
       "هو مقياس يُستخدم لتقييم أداء النموذج. يُشير إلى نسبة التنبؤات الصحيحة من إجمالي التنبؤات المُقدمة. ببساطة، تعني الدقة العالية أن النموذج يتخذ قرارات أكثر دقة بشكل عام.",
     ),
     "alfalfa": MessageLookupByLibrary.simpleMessage("برسيم"),
+    "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+      "هل لديك حساب بالفعل؟",
+    ),
     "appearance": MessageLookupByLibrary.simpleMessage("المظهر"),
     "areaSize": MessageLookupByLibrary.simpleMessage("مساحه المنطقة"),
     "beans": MessageLookupByLibrary.simpleMessage("فاصوليا"),
     "calculateNow": MessageLookupByLibrary.simpleMessage("احسب الآن"),
+    "checkYourEmail": MessageLookupByLibrary.simpleMessage(
+      "تحقق من بريدك الإلكتروني",
+    ),
+    "checkYourEmailDesc": MessageLookupByLibrary.simpleMessage(
+      "لقد أرسلنا لك رابطًا لإعادة تعيين كلمة المرور. \n يرجى التحقق من بريدك الإلكتروني.",
+    ),
     "citrus": MessageLookupByLibrary.simpleMessage("حمضيات"),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمة المرور",
+    ),
     "coolAndDry": MessageLookupByLibrary.simpleMessage("بارد و جاف"),
     "coolAndHumid": MessageLookupByLibrary.simpleMessage("بارد و رطب"),
     "corn": MessageLookupByLibrary.simpleMessage("ذرة"),
     "cotton": MessageLookupByLibrary.simpleMessage("قطن"),
+    "createNewAccount": MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
     "crop": MessageLookupByLibrary.simpleMessage("محصول"),
     "cropType": MessageLookupByLibrary.simpleMessage("نوع المحصول"),
     "cropTypeKc": MessageLookupByLibrary.simpleMessage("نوع المحصول"),
     "discoverDiseases": MessageLookupByLibrary.simpleMessage("اكتشف الأمراض"),
+    "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "emailAdress": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "enterYourConfirmPassword": MessageLookupByLibrary.simpleMessage(
+      "أدخل تأكيد كلمة المرور",
+    ),
     "enterYourEmail": MessageLookupByLibrary.simpleMessage(
       "أدخل بريدك الإلكتروني",
     ),
@@ -55,6 +72,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "farmFixAssistant": MessageLookupByLibrary.simpleMessage("مساعد FarmFix"),
     "fertilizerCost": MessageLookupByLibrary.simpleMessage("تكلفة الأسمدة"),
     "fertilizers": MessageLookupByLibrary.simpleMessage("الأسمدة"),
+    "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
+    "forgetpasswordDesc": MessageLookupByLibrary.simpleMessage(
+      "أدخل بريدك الإلكتروني وسنرسل لك رابطًا لإعادة تعيين كلمة المرور",
+    ),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
     "general": MessageLookupByLibrary.simpleMessage("عام"),
     "germination": MessageLookupByLibrary.simpleMessage("إنبات"),
@@ -77,6 +98,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "laborCost": MessageLookupByLibrary.simpleMessage("تكلفة العمالة"),
     "landArea": MessageLookupByLibrary.simpleMessage("مساحة الأرض"),
     "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+    "lastName": MessageLookupByLibrary.simpleMessage("الاسم الأخير"),
+    "logIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "lowTemp": MessageLookupByLibrary.simpleMessage("الصغرى"),
     "maximizeyourprofitability": MessageLookupByLibrary.simpleMessage(
@@ -122,11 +145,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "seedWeight": MessageLookupByLibrary.simpleMessage("وزن البذور"),
     "seeds": MessageLookupByLibrary.simpleMessage("البذور"),
+    "sendResetLink": MessageLookupByLibrary.simpleMessage(
+      "إرسال رابط إعادة التعيين",
+    ),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "signInToYourAccount": MessageLookupByLibrary.simpleMessage(
       "تسجيل الدخول إلى حسابك",
     ),
+    "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "singleSprayer": MessageLookupByLibrary.simpleMessage("رشاش واحد"),
     "soil": MessageLookupByLibrary.simpleMessage("التربه"),
     "sprayerCovarageArea": MessageLookupByLibrary.simpleMessage(
