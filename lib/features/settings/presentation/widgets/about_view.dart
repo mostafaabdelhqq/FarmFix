@@ -44,53 +44,48 @@ class AboutView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Overview',
+                    S.of(context).overview,
                     style: textStyle22,
                   ),
                   sizedBox15,
                   Text(
-                    'FarmFix – Your smart assistant for soil health.FarmFix helps farmers and agricultural professionals analyze soil conditions, track fertility, and receive intelligent recommendations to enhance crop productivity.',
+                    S.of(context).overviewDesc,
                     style: textStyle16,
                   ),
                   sizedBox20,
                   horizontalDivider,
                   sizedBox20,
                   Text(
-                    'Purpose',
+                    S.of(context).purpose,
                     style: textStyle22,
                   ),
                   sizedBox15,
                   Text(
-                    'The main goal of FarmFix is to simplify the soil testing process and empower users to make data-driven decisions in agriculture using AI and remote sensing technologies.',
+                    S.of(context).purposeDesc,
                     style: textStyle16,
                   ),
                   sizedBox20,
                   horizontalDivider,
                   sizedBox20,
                   Text(
-                    'Key Features',
+                    S.of(context).keyFeatures,
                     style: textStyle22,
                   ),
                   sizedBox15,
                   Text(
-                    '📊 Detailed Soil Analysis: View and understand various soil properties in a clear format.\n' +
-                        '🎨 Color-coded Indicators: Visual feedback (Green, Orange, Red) to quickly assess soil conditions.\n' +
-                        '🤖 Smart Recommendations: Get fertilizer tips and soil improvement suggestions based on your data.\n' +
-                        '📍 Location Tracking: Monitor readings for different fields or areas.\n' +
-                        '💬 In-App Chatbot Support: Ask questions and get help instantly.\n' +
-                        '🌐 Global Data Integration: Powered by sources like SoilGrids and Google Earth Engine.',
+                    S.of(context).keyFeaturesDesc,
                     style: textStyle16,
                   ),
                   sizedBox20,
                   horizontalDivider,
                   sizedBox20,
                   Text(
-                    'Version Info',
+                    S.of(context).versionInfo,
                     style: textStyle22,
                   ),
                   sizedBox15,
                   Text(
-                    'App Version: 1.0.0\n\nLast Updated: June 2025',
+                    S.of(context).versionInfoDesc,
                     style: textStyle16,
                   ),
                   SizedBox(

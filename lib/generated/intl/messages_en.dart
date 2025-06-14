@@ -38,6 +38,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "beans": MessageLookupByLibrary.simpleMessage("Beans"),
     "calculateNow": MessageLookupByLibrary.simpleMessage("Calculate Now"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "checkForUpdates": MessageLookupByLibrary.simpleMessage(
+      "Check For Updates",
+    ),
     "checkYourEmail": MessageLookupByLibrary.simpleMessage("Check Your Email"),
     "checkYourEmailDesc": MessageLookupByLibrary.simpleMessage(
       "Reset password from link in your email and \nlog in with your new pasword",
@@ -101,6 +104,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "irrigationRateDesc": MessageLookupByLibrary.simpleMessage(
       "Calculate the optimal amount of water\n based on soil type, crop, and weather",
     ),
+    "keyFeatures": MessageLookupByLibrary.simpleMessage("Key Features"),
+    "keyFeaturesDesc": MessageLookupByLibrary.simpleMessage(
+      "📊 Detailed Soil Analysis: View and understand various soil properties in a clear format.\n🎨 Color-coded Indicators: Visual feedback (Green, Orange, Red) to quickly assess soil conditions.\n🤖 Smart Recommendations: Get fertilizer tips and soil improvement suggestions based on your data.\n📍 Location Tracking: Monitor readings for different fields or areas.\n💬 In-App Chatbot Support: Ask questions and get help instantly.\n🌐 Global Data Integration: Powered by sources like SoilGrids and Google Earth Engine.",
+    ),
     "kmh": MessageLookupByLibrary.simpleMessage("km/h"),
     "labor": MessageLookupByLibrary.simpleMessage("Labor"),
     "laborCost": MessageLookupByLibrary.simpleMessage("Labor Cost"),
@@ -123,6 +130,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "numOfSprayers": MessageLookupByLibrary.simpleMessage("Num of Sprayers"),
     "otherExpenses": MessageLookupByLibrary.simpleMessage("Other Expenses"),
+    "overview": MessageLookupByLibrary.simpleMessage("Overview"),
+    "overviewDesc": MessageLookupByLibrary.simpleMessage(
+      "FarmFix – Your smart assistant for soil health.FarmFix helps farmers and agricultural professionals analyze soil conditions, track fertility, and receive intelligent recommendations to enhance crop productivity.",
+    ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "pepper": MessageLookupByLibrary.simpleMessage("Pepper"),
     "perSquareMeter": MessageLookupByLibrary.simpleMessage("Per Square Meter"),
@@ -151,7 +162,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "productionCostDesc": MessageLookupByLibrary.simpleMessage(
       "Estimate total farming costs and\n expected profit margin",
     ),
+    "purpose": MessageLookupByLibrary.simpleMessage("Purpose"),
+    "purposeDesc": MessageLookupByLibrary.simpleMessage(
+      "The main goal of FarmFix is to simplify the soil testing process and empower users to make data-driven decisions in agriculture using AI and remote sensing technologies.",
+    ),
     "rainy": MessageLookupByLibrary.simpleMessage("Rainy"),
+    "releaseDate": MessageLookupByLibrary.simpleMessage("Release Date:"),
+    "releaseDateDesc": MessageLookupByLibrary.simpleMessage(
+      "     Released on: June 10, 2025",
+    ),
     "rice": MessageLookupByLibrary.simpleMessage("Rice"),
     "rowSpacing": MessageLookupByLibrary.simpleMessage("Row Spacing"),
     "save": MessageLookupByLibrary.simpleMessage("save"),
@@ -184,6 +203,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "tomato": MessageLookupByLibrary.simpleMessage("Tomato"),
     "totalCost": MessageLookupByLibrary.simpleMessage("Total Cost"),
     "update": MessageLookupByLibrary.simpleMessage("Update"),
+    "version": MessageLookupByLibrary.simpleMessage("     Version 1.0.0"),
+    "versionInfo": MessageLookupByLibrary.simpleMessage("Version Info"),
+    "versionInfoBlock": MessageLookupByLibrary.simpleMessage(
+      "Version Info Block",
+    ),
+    "versionInfoDesc": MessageLookupByLibrary.simpleMessage(
+      "App Version: 1.0.0\n\nLast Updated: June 2025",
+    ),
+    "versionLabel": MessageLookupByLibrary.simpleMessage("Version Label:"),
     "veryHotAndDry": MessageLookupByLibrary.simpleMessage("Very Hot and Dry"),
     "waterCost": MessageLookupByLibrary.simpleMessage("Water Cost"),
     "watermelon": MessageLookupByLibrary.simpleMessage("Watermelon"),
@@ -198,6 +226,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "wheat": MessageLookupByLibrary.simpleMessage("Wheat"),
     "wind": MessageLookupByLibrary.simpleMessage("Wind"),
     "windy": MessageLookupByLibrary.simpleMessage("Windy"),
+    "youAreUsingTheLatestVersion": MessageLookupByLibrary.simpleMessage(
+      "You are using the latest version",
+    ),
     "zucchini": MessageLookupByLibrary.simpleMessage("Zucchini"),
   };
 }

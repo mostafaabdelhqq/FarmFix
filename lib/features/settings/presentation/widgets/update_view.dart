@@ -34,26 +34,26 @@ class UpdateView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Version Info Block',
+                  S.of(context).versionInfoBlock,
                   style: textStyle22,
                 ),
                 SizedBox(
                   height: 15.h,
                 ),
                 Text(
-                  'Version Label:',
+                  S.of(context).versionLabel,
                   style: textStyle16,
                 ),
                 Text(
-                  '     Version 1.0.0',
+                  S.of(context).version,
                   style: textStyle16,
                 ),
                 Text(
-                  'Release Date:',
+                  S.of(context).releaseDate,
                   style: textStyle16,
                 ),
                 Text(
-                  '     Released on: June 10, 2025',
+                  S.of(context).releaseDateDesc,
                   style: textStyle16,
                 ),
                 SizedBox(
@@ -108,12 +108,12 @@ class UpdateView extends StatelessWidget {
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                                content:
-                                    Text('You are using the latest version ')),
+                                content: Text(
+                                    S.of(context).youAreUsingTheLatestVersion)),
                           );
                         }
                       },
-                      textButton: 'Check For Updates'),
+                      textButton: S.of(context).checkForUpdates),
                 )
               ],
             ),

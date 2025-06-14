@@ -22,7 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "about": MessageLookupByLibrary.simpleMessage("حول"),
+    "about": MessageLookupByLibrary.simpleMessage("حول التطبيق"),
     "accountData": MessageLookupByLibrary.simpleMessage("بيانات الحساب"),
     "accountInfo": MessageLookupByLibrary.simpleMessage("معلومات الحساب"),
     "accuracy": MessageLookupByLibrary.simpleMessage("الدقة"),
@@ -38,6 +38,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "beans": MessageLookupByLibrary.simpleMessage("فاصوليا"),
     "calculateNow": MessageLookupByLibrary.simpleMessage("احسب الآن"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "checkForUpdates": MessageLookupByLibrary.simpleMessage(
+      "التحقق من التحديثات",
+    ),
     "checkYourEmail": MessageLookupByLibrary.simpleMessage(
       "تحقق من بريدك الإلكتروني",
     ),
@@ -99,6 +102,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "irrigationRateDesc": MessageLookupByLibrary.simpleMessage(
       "احسب الكمية المثلى من المياه بناءً على نوع التربة \nوالمحصول والطقس",
     ),
+    "keyFeatures": MessageLookupByLibrary.simpleMessage("الميزات الرئيسية"),
+    "keyFeaturesDesc": MessageLookupByLibrary.simpleMessage(
+      "📊 تحليل مفصل للتربة: عرض وفهم خصائص التربة المختلفة بتنسيق واضح.\n🎨 مؤشرات مرمزة بالألوان: ملاحظات مرئية (أخضر، برتقالي، أحمر) لتقييم حالة التربة بسرعة.\n🤖 توصيات ذكية: احصل على نصائح حول الأسمدة واقتراحات لتحسين التربة بناءً على بياناتك.\n📍 تتبع الموقع: مراقبة القراءات لحقول أو مناطق مختلفة.\n💬 دعم Chatbot داخل التطبيق: اطرح الأسئلة واحصل على المساعدة على الفور.\n🌐 تكامل البيانات العالمي: مدعوم من مصادر مثل SoilGrids وGoogle Earth Engine.",
+    ),
     "kmh": MessageLookupByLibrary.simpleMessage("كم/س"),
     "labor": MessageLookupByLibrary.simpleMessage("العمالة"),
     "laborCost": MessageLookupByLibrary.simpleMessage("تكلفة العمالة"),
@@ -119,6 +126,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "multipleSprayers": MessageLookupByLibrary.simpleMessage("رشاشات متعددة"),
     "numOfSprayers": MessageLookupByLibrary.simpleMessage("عدد الرشاشات"),
     "otherExpenses": MessageLookupByLibrary.simpleMessage("تكاليف أخرى"),
+    "overview": MessageLookupByLibrary.simpleMessage("نظره عامه"),
+    "overviewDesc": MessageLookupByLibrary.simpleMessage(
+      "FarmFix – مساعدك الذكي لصحة التربة. يساعد FarmFix المزارعين على تحليل ظروف التربة وتتبع الخصوبة وتلقي توصيات ذكية لتعزيز إنتاجية المحاصيل.",
+    ),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "pepper": MessageLookupByLibrary.simpleMessage("فلفل"),
     "perSquareMeter": MessageLookupByLibrary.simpleMessage("لكل متر مربع"),
@@ -145,7 +156,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "productionCostDesc": MessageLookupByLibrary.simpleMessage(
       "تقدير إجمالي تكاليف الزراعة وهامش الربح المتوقع",
     ),
+    "purpose": MessageLookupByLibrary.simpleMessage("الهدف"),
+    "purposeDesc": MessageLookupByLibrary.simpleMessage(
+      "الهدف الرئيسي من FarmFix هو تبسيط عملية اختبار التربة وتمكين المستخدمين من اتخاذ قرارات تعتمد على البيانات في الزراعة باستخدام تقنيات الذكاء الاصطناعي والاستشعار عن بعد.",
+    ),
     "rainy": MessageLookupByLibrary.simpleMessage("ممطر"),
+    "releaseDate": MessageLookupByLibrary.simpleMessage("تاريخ الإصدار:"),
+    "releaseDateDesc": MessageLookupByLibrary.simpleMessage(
+      "     تم الإصدار في: 10 يونيو 2025",
+    ),
     "rice": MessageLookupByLibrary.simpleMessage("أرز"),
     "rowSpacing": MessageLookupByLibrary.simpleMessage("تباعد الصفوف"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
@@ -180,6 +199,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "tomato": MessageLookupByLibrary.simpleMessage("طماطم"),
     "totalCost": MessageLookupByLibrary.simpleMessage("إجمالي التكلفة"),
     "update": MessageLookupByLibrary.simpleMessage("تحديث"),
+    "version": MessageLookupByLibrary.simpleMessage("     الإصدار 1.0.0"),
+    "versionInfo": MessageLookupByLibrary.simpleMessage("معلومات الإصدار"),
+    "versionInfoBlock": MessageLookupByLibrary.simpleMessage("معلومات الإصدار"),
+    "versionInfoDesc": MessageLookupByLibrary.simpleMessage(
+      "إصدار التطبيق: 1.0.0\n\nآخر تحديث: يونيو 2025",
+    ),
+    "versionLabel": MessageLookupByLibrary.simpleMessage("رقم الإصدار:"),
     "veryHotAndDry": MessageLookupByLibrary.simpleMessage("حار جدًا و جاف"),
     "waterCost": MessageLookupByLibrary.simpleMessage("تكلفة المياه"),
     "watermelon": MessageLookupByLibrary.simpleMessage("بطيخ"),
@@ -192,6 +218,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "wheat": MessageLookupByLibrary.simpleMessage("قمح"),
     "wind": MessageLookupByLibrary.simpleMessage("الرياح"),
     "windy": MessageLookupByLibrary.simpleMessage("رياح"),
+    "youAreUsingTheLatestVersion": MessageLookupByLibrary.simpleMessage(
+      "أنت تستخدم أحدث إصدار",
+    ),
     "zucchini": MessageLookupByLibrary.simpleMessage("كوسا"),
   };
 }

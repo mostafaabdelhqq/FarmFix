@@ -395,9 +395,149 @@ class S {
     return Intl.message('About', name: 'about', desc: '', args: []);
   }
 
+  /// `Overview`
+  String get overview {
+    return Intl.message('Overview', name: 'overview', desc: '', args: []);
+  }
+
+  /// `FarmFix – Your smart assistant for soil health.FarmFix helps farmers and agricultural professionals analyze soil conditions, track fertility, and receive intelligent recommendations to enhance crop productivity.`
+  String get overviewDesc {
+    return Intl.message(
+      'FarmFix – Your smart assistant for soil health.FarmFix helps farmers and agricultural professionals analyze soil conditions, track fertility, and receive intelligent recommendations to enhance crop productivity.',
+      name: 'overviewDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Purpose`
+  String get purpose {
+    return Intl.message('Purpose', name: 'purpose', desc: '', args: []);
+  }
+
+  /// `The main goal of FarmFix is to simplify the soil testing process and empower users to make data-driven decisions in agriculture using AI and remote sensing technologies.`
+  String get purposeDesc {
+    return Intl.message(
+      'The main goal of FarmFix is to simplify the soil testing process and empower users to make data-driven decisions in agriculture using AI and remote sensing technologies.',
+      name: 'purposeDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Key Features`
+  String get keyFeatures {
+    return Intl.message(
+      'Key Features',
+      name: 'keyFeatures',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `📊 Detailed Soil Analysis: View and understand various soil properties in a clear format.\n🎨 Color-coded Indicators: Visual feedback (Green, Orange, Red) to quickly assess soil conditions.\n🤖 Smart Recommendations: Get fertilizer tips and soil improvement suggestions based on your data.\n📍 Location Tracking: Monitor readings for different fields or areas.\n💬 In-App Chatbot Support: Ask questions and get help instantly.\n🌐 Global Data Integration: Powered by sources like SoilGrids and Google Earth Engine.`
+  String get keyFeaturesDesc {
+    return Intl.message(
+      '📊 Detailed Soil Analysis: View and understand various soil properties in a clear format.\n🎨 Color-coded Indicators: Visual feedback (Green, Orange, Red) to quickly assess soil conditions.\n🤖 Smart Recommendations: Get fertilizer tips and soil improvement suggestions based on your data.\n📍 Location Tracking: Monitor readings for different fields or areas.\n💬 In-App Chatbot Support: Ask questions and get help instantly.\n🌐 Global Data Integration: Powered by sources like SoilGrids and Google Earth Engine.',
+      name: 'keyFeaturesDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Version Info`
+  String get versionInfo {
+    return Intl.message(
+      'Version Info',
+      name: 'versionInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `App Version: 1.0.0\n\nLast Updated: June 2025`
+  String get versionInfoDesc {
+    return Intl.message(
+      'App Version: 1.0.0\n\nLast Updated: June 2025',
+      name: 'versionInfoDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Update`
   String get update {
     return Intl.message('Update', name: 'update', desc: '', args: []);
+  }
+
+  /// `Version Info Block`
+  String get versionInfoBlock {
+    return Intl.message(
+      'Version Info Block',
+      name: 'versionInfoBlock',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check For Updates`
+  String get checkForUpdates {
+    return Intl.message(
+      'Check For Updates',
+      name: 'checkForUpdates',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You are using the latest version`
+  String get youAreUsingTheLatestVersion {
+    return Intl.message(
+      'You are using the latest version',
+      name: 'youAreUsingTheLatestVersion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Version Label:`
+  String get versionLabel {
+    return Intl.message(
+      'Version Label:',
+      name: 'versionLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `     Version 1.0.0`
+  String get version {
+    return Intl.message(
+      '     Version 1.0.0',
+      name: 'version',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Release Date:`
+  String get releaseDate {
+    return Intl.message(
+      'Release Date:',
+      name: 'releaseDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `     Released on: June 10, 2025`
+  String get releaseDateDesc {
+    return Intl.message(
+      '     Released on: June 10, 2025',
+      name: 'releaseDateDesc',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Language`
