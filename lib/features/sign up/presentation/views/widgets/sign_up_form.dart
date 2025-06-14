@@ -2,6 +2,7 @@ import 'package:farmfix/core/widgets/custom_button.dart';
 import 'package:farmfix/core/widgets/custom_password_text_field.dart';
 import 'package:farmfix/core/widgets/custom_text_field.dart';
 import 'package:farmfix/features/sign%20up/cubit/signup_cubit.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -18,7 +19,8 @@ class _SignUpFormState extends State<SignUpForm> {
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -45,7 +47,7 @@ class _SignUpFormState extends State<SignUpForm> {
           padding: const EdgeInsets.only(top: 90),
           child: CustomTextField(
             width: .39,
-            hintText: 'First name',
+            hintText: S.of(context).firstName,
             controller: _firstNameController,
           ),
         ),
@@ -53,7 +55,7 @@ class _SignUpFormState extends State<SignUpForm> {
           padding: const EdgeInsets.only(top: 90),
           child: CustomTextField(
             width: .39,
-            hintText: 'Last name',
+            hintText: S.of(context).lastName,
             controller: _lastNameController,
           ),
         ),
@@ -62,20 +64,28 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   Widget _buildEmailField() {
+    final lang = Localizations.localeOf(context).languageCode;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 22, top: 5),
+        Padding(
+          padding: EdgeInsets.only(
+            left: 22,
+            top: 5,
+            right: lang == 'en' ? 0 : 22,
+          ),
           child: Text(
-            'Email Address',
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+            S.of(context).emailAdress,
+            style: const TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 5),
           child: CustomTextField(
-            hintText: 'Enter Your Email',
+            hintText: S.of(context).enterYourEmail,
             controller: _emailController,
           ),
         ),
@@ -84,14 +94,19 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   Widget _buildPasswordField() {
+    final lang = Localizations.localeOf(context).languageCode;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 22, top: 5),
+        Padding(
+          padding: EdgeInsets.only(
+            left: 22,
+            top: 5,
+            right: lang == 'en' ? 0 : 22,
+          ),
           child: Text(
-            'Password',
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+            S.of(context).password,
+            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
           ),
         ),
         Padding(
@@ -99,7 +114,7 @@ class _SignUpFormState extends State<SignUpForm> {
           child: CustomPasswordTextField(
             textInputAction: TextInputAction.next,
             controller: _passwordController,
-            hintText: 'Enter Your password',
+            hintText: S.of(context).enterYourPassword,
           ),
         ),
       ],
@@ -107,21 +122,26 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   Widget _buildConfirmPasswordField() {
+    final lang = Localizations.localeOf(context).languageCode;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 22, top: 5),
+        Padding(
+          padding: EdgeInsets.only(
+            left: 22,
+            top: 5,
+            right: lang == 'en' ? 0 : 22,
+          ),
           child: Text(
-            'Confirm Password',
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+            S.of(context).confirmPassword,
+            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
           ),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 5),
           child: CustomPasswordTextField(
             controller: _confirmPasswordController,
-            hintText: 'Enter Your confirm password',
+            hintText: S.of(context).enterYourConfirmPassword,
           ),
         ),
       ],
@@ -132,7 +152,7 @@ class _SignUpFormState extends State<SignUpForm> {
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: CustomButton(
-        textButton: 'Sign Up',
+        textButton: S.of(context).signUp,
         onPressed: () {
           if (_formKey.currentState!.validate()) {
             context.read<SignUpCubit>().signUp(
@@ -153,9 +173,9 @@ class _SignUpFormState extends State<SignUpForm> {
       padding: const EdgeInsets.only(top: 20),
       child: GestureDetector(
         onTap: () => GoRouter.of(context).pop(),
-        child: const Text(
-          'Already have an account?',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+        child: Text(
+          S.of(context).alreadyHaveAnAccount,
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
         ),
       ),
     );

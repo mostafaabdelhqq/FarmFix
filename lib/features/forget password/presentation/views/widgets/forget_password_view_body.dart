@@ -5,6 +5,7 @@ import 'package:farmfix/core/widgets/custom_text_field.dart';
 import 'package:farmfix/features/forget%20password/cubit/reset_password_cubit.dart';
 import 'package:farmfix/features/forget%20password/presentation/views/widgets/logo_and_name.dart';
 import 'package:farmfix/features/forget%20password/presentation/views/widgets/two_text_define_this_view.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -28,16 +29,15 @@ class ForgetPasswordViewBody extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            const TwoTextDefineThisView(
-                text1: 'Forget password ?',
-                text2:
-                    'A link will be resend to your email to help\n reset password'),
+            TwoTextDefineThisView(
+                text1: S.of(context).forgotPassword,
+                text2: S.of(context).forgetpasswordDesc),
             const SizedBox(
               height: 27,
             ),
             CustomTextField(
               controller: _emailController,
-              hintText: 'Email',
+              hintText: S.of(context).enterYourEmail,
               borderRadius: BorderRadius.circular(20),
             ),
             const SizedBox(
@@ -56,7 +56,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
                   );
                 }
               },
-              textButton: 'Send',
+              textButton: S.of(context).sendResetLink,
               borderRadius: BorderRadius.circular(20),
             )
           ],

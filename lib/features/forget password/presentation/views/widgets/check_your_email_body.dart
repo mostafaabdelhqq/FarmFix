@@ -3,6 +3,7 @@ import 'package:farmfix/core/utils/assets_data.dart';
 import 'package:farmfix/core/widgets/custom_button.dart';
 import 'package:farmfix/features/forget%20password/presentation/views/widgets/logo_and_name.dart';
 import 'package:farmfix/features/forget%20password/presentation/views/widgets/two_text_define_this_view.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -24,10 +25,9 @@ class CheckYourEmailBody extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            const TwoTextDefineThisView(
-                text1: 'Check Your Email',
-                text2:
-                    'Reset password from link in your email and \nlog in with your new pasword'),
+            TwoTextDefineThisView(
+                text1: S.of(context).checkYourEmail,
+                text2: S.of(context).checkYourEmailDesc),
             const SizedBox(
               height: 27,
             ),
@@ -38,7 +38,7 @@ class CheckYourEmailBody extends StatelessWidget {
               onPressed: () {
                 GoRouter.of(context).pushReplacement(AppRoutes.kSignInView);
               },
-              textButton: 'Log in',
+              textButton: S.of(context).logIn,
               borderRadius: BorderRadius.circular(20),
             )
           ],

@@ -15,22 +15,22 @@ class SignInView extends StatelessWidget {
       backgroundColor: kPrimaryColor,
       body: BlocProvider(
         create: (context) => LoginCubit(),
-        child: BlocConsumer<LoginCubit, LoginState>(listener: (context, state) {
-          if (state is LoginSuccess) {
-            GoRouter.of(context).push(AppRoutes.kHomeView);
-          } else if (state is LoginFailure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.error)),
+        child: BlocConsumer<LoginCubit, LoginState>(
+          listener: (context, state) {
+            if (state is LoginSuccess) {
+              GoRouter.of(context).go(AppRoutes.kHomeView);
+            } else if (state is LoginFailure) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(state.error)),
+              );
+            }
+          },
+          builder: (context, state) {
+            return const SingleChildScrollView(
+              child: SignInViewBody(),
             );
-          } else if (state is LoginLoading) {
-            const CircularProgressIndicator();
-          }
-        }, builder: (context, state) {
-          return const SingleChildScrollView(
-            // physics: NeverScrollableScrollPhysics(),
-            child: SignInViewBody(),
-          );
-        }),
+          },
+        ),
       ),
     );
   }

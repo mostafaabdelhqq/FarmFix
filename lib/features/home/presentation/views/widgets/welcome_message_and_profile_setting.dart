@@ -1,15 +1,17 @@
 import 'package:farmfix/constants.dart';
+import 'package:farmfix/core/utils/app_routes.dart';
 import 'package:farmfix/core/utils/extensions.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeMessageAndProfileSetting extends StatelessWidget {
   WelcomeMessageAndProfileSetting({super.key});
 
-
-   final User user = FirebaseAuth.instance.currentUser!;
+  final User user = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,7 +44,7 @@ class WelcomeMessageAndProfileSetting extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'welcome',
+                  S.of(context).welcome,
                   style: GoogleFonts.niconne(
                     fontSize: 25.sp,
                     color: kSecondaryColor,
@@ -50,7 +52,7 @@ class WelcomeMessageAndProfileSetting extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  user.displayName?.capitalize()??"User",
+                  user.displayName?.capitalize() ?? "User",
                   style: GoogleFonts.balthazar(
                     fontSize: 28.sp,
                     color: kSecondaryColor,
@@ -62,7 +64,9 @@ class WelcomeMessageAndProfileSetting extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    GoRouter.of(context).push(AppRoutes.kAccountInformation);
+                  },
                   icon: const Icon(
                     Icons.manage_accounts,
                     color: kSecondaryColor,

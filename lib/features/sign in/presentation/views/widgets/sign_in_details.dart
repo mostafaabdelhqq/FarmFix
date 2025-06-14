@@ -6,6 +6,7 @@ import 'package:farmfix/core/widgets/custom_text_field.dart';
 import 'package:farmfix/core/widgets/show_snack_bar.dart';
 import 'package:farmfix/features/sign%20in/cubit/login_cubit.dart';
 import 'package:farmfix/features/sign%20in/presentation/views/widgets/blur_layer.dart';
+import 'package:farmfix/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -26,6 +27,7 @@ class _SignInDetailsState extends State<SignInDetails> {
 
   @override
   Widget build(BuildContext context) {
+    final lang = Localizations.localeOf(context).languageCode;
     return Opacity(
       opacity: .9,
       child: Form(
@@ -34,37 +36,39 @@ class _SignInDetailsState extends State<SignInDetails> {
           alignment: AlignmentDirectional.topCenter,
           children: [
             const BlurLayer(),
-            const Positioned(
+            Positioned(
               top: 50,
               child: Text(
-                'sign in to your account',
-                style: TextStyle(
+                S.of(context).signInToYourAccount,
+                style: const TextStyle(
                     fontFamily: kJersey25,
                     fontSize: 20,
                     fontWeight: FontWeight.w600),
               ),
             ),
-            const Positioned(
+            Positioned(
               top: 135,
-              left: 22,
+              left: lang == 'en' ? 22 : 275,
               child: Text(
-                'Email Address',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                S.of(context).emailAdress,
+                style:
+                    const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 165),
               child: CustomTextField(
                 controller: _emailController,
-                hintText: 'Enter Your Email',
+                hintText: S.of(context).enterYourEmail,
               ),
             ),
-            const Positioned(
+            Positioned(
               top: 245,
-              left: 22,
+              left: lang == 'en' ? 22 : 305,
               child: Text(
-                'Password',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                S.of(context).password,
+                style:
+                    const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
               ),
             ),
             Padding(
@@ -72,26 +76,27 @@ class _SignInDetailsState extends State<SignInDetails> {
               child: CustomPasswordTextField(
                 controller: _passwordController,
                 obscureText: true,
-                hintText: 'Enter Your Password',
+                hintText: S.of(context).enterYourPassword,
               ),
             ),
             Positioned(
               top: 328,
-              right: 25,
+              right: lang == 'en' ? 25 : 252,
               child: GestureDetector(
                 onTap: () {
                   GoRouter.of(context).push(AppRoutes.kForgetPasswordView);
                 },
-                child: const Text(
-                  'Forget Password?',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                child: Text(
+                  S.of(context).forgotPassword,
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.w500),
                 ),
               ),
             ),
             Positioned(
                 top: 370,
                 child: CustomButton(
-                  textButton: 'Sign In',
+                  textButton: S.of(context).signIn,
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       final email = _emailController.text;
@@ -109,9 +114,10 @@ class _SignInDetailsState extends State<SignInDetails> {
                 onTap: () {
                   GoRouter.of(context).push(AppRoutes.kSignUpView);
                 },
-                child: const Text(
-                  'Don\'t have an account?',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                child: Text(
+                  S.of(context).dontHaveAnAccount,
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.w500),
                 ),
               ),
             ),
