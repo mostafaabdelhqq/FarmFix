@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("About"),
+    "accountData": MessageLookupByLibrary.simpleMessage("Account Data"),
     "accountInfo": MessageLookupByLibrary.simpleMessage("Account Information"),
     "accuracy": MessageLookupByLibrary.simpleMessage("Accuracy"),
     "accuracyDesc": MessageLookupByLibrary.simpleMessage(
@@ -36,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "areaSize": MessageLookupByLibrary.simpleMessage("Area Size"),
     "beans": MessageLookupByLibrary.simpleMessage("Beans"),
     "calculateNow": MessageLookupByLibrary.simpleMessage("Calculate Now"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "checkYourEmail": MessageLookupByLibrary.simpleMessage("Check Your Email"),
     "checkYourEmailDesc": MessageLookupByLibrary.simpleMessage(
       "Reset password from link in your email and \nlog in with your new pasword",
@@ -52,6 +54,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "crop": MessageLookupByLibrary.simpleMessage("Crop"),
     "cropType": MessageLookupByLibrary.simpleMessage("Crop Type"),
     "cropTypeKc": MessageLookupByLibrary.simpleMessage("Crop Type Kc"),
+    "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account "),
+    "deleteAccountDesc": MessageLookupByLibrary.simpleMessage(
+      "Are you want delete your account?",
+    ),
     "discoverDiseases": MessageLookupByLibrary.simpleMessage(
       "Discover Diseases",
     ),
@@ -103,6 +109,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
     "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
     "logout": MessageLookupByLibrary.simpleMessage("Log Out"),
+    "logoutDesc": MessageLookupByLibrary.simpleMessage(
+      "Are you want to log out?",
+    ),
     "lowTemp": MessageLookupByLibrary.simpleMessage("L"),
     "maximizeyourprofitability": MessageLookupByLibrary.simpleMessage(
       "Maximize your profitability",
@@ -117,6 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "pepper": MessageLookupByLibrary.simpleMessage("Pepper"),
     "perSquareMeter": MessageLookupByLibrary.simpleMessage("Per Square Meter"),
+    "personalData": MessageLookupByLibrary.simpleMessage("Personal Data"),
     "pesticideMixer": MessageLookupByLibrary.simpleMessage("Pesticide Mixer"),
     "pesticideMixerDesc": MessageLookupByLibrary.simpleMessage(
       "Determine the correct amount of\n pesticide per area and concentration",
@@ -144,6 +154,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "rainy": MessageLookupByLibrary.simpleMessage("Rainy"),
     "rice": MessageLookupByLibrary.simpleMessage("Rice"),
     "rowSpacing": MessageLookupByLibrary.simpleMessage("Row Spacing"),
+    "save": MessageLookupByLibrary.simpleMessage("save"),
     "seedCost": MessageLookupByLibrary.simpleMessage("Seed Cost"),
     "seedQuantity": MessageLookupByLibrary.simpleMessage("Seed Quantity"),
     "seedQuantityDesc": MessageLookupByLibrary.simpleMessage(

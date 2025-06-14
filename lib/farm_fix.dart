@@ -9,7 +9,9 @@ import '../localization_cubit/cubit/locale_cubit.dart';
 import '../localization_cubit/cubit/locale_state.dart';
 
 class FarmFix extends StatelessWidget {
-  const FarmFix({super.key});
+  final bool isLoggedIn;
+
+  const FarmFix({super.key, required this.isLoggedIn});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class FarmFix extends StatelessWidget {
                 GlobalCupertinoLocalizations.delegate,
               ],
               supportedLocales: S.delegate.supportedLocales,
-              routerConfig: AppRoutes.router,
+              routerConfig: AppRoutes.getRouter(isLoggedIn),
             );
           },
         );

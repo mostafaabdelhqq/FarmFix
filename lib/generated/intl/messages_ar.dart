@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("حول"),
+    "accountData": MessageLookupByLibrary.simpleMessage("بيانات الحساب"),
     "accountInfo": MessageLookupByLibrary.simpleMessage("معلومات الحساب"),
     "accuracy": MessageLookupByLibrary.simpleMessage("الدقة"),
     "accuracyDesc": MessageLookupByLibrary.simpleMessage(
@@ -36,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "areaSize": MessageLookupByLibrary.simpleMessage("مساحه المنطقة"),
     "beans": MessageLookupByLibrary.simpleMessage("فاصوليا"),
     "calculateNow": MessageLookupByLibrary.simpleMessage("احسب الآن"),
+    "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "checkYourEmail": MessageLookupByLibrary.simpleMessage(
       "تحقق من بريدك الإلكتروني",
     ),
@@ -54,6 +56,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "crop": MessageLookupByLibrary.simpleMessage("محصول"),
     "cropType": MessageLookupByLibrary.simpleMessage("نوع المحصول"),
     "cropTypeKc": MessageLookupByLibrary.simpleMessage("نوع المحصول"),
+    "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
+    "deleteAccountDesc": MessageLookupByLibrary.simpleMessage(
+      "هل تريد حذف حسابك؟",
+    ),
     "discoverDiseases": MessageLookupByLibrary.simpleMessage("اكتشف الأمراض"),
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "emailAdress": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
@@ -101,6 +107,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "lastName": MessageLookupByLibrary.simpleMessage("الاسم الأخير"),
     "logIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "logoutDesc": MessageLookupByLibrary.simpleMessage(
+      "هل تريد تسجيل الخروج من حسابك؟",
+    ),
     "lowTemp": MessageLookupByLibrary.simpleMessage("الصغرى"),
     "maximizeyourprofitability": MessageLookupByLibrary.simpleMessage(
       "تعظيم الربحية الخاصة بك",
@@ -113,6 +122,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "pepper": MessageLookupByLibrary.simpleMessage("فلفل"),
     "perSquareMeter": MessageLookupByLibrary.simpleMessage("لكل متر مربع"),
+    "personalData": MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
     "pesticideMixer": MessageLookupByLibrary.simpleMessage("خلاط مبيدات"),
     "pesticideMixerDesc": MessageLookupByLibrary.simpleMessage(
       "تحديد الكمية الصحيحة من المبيد لكل منطقة وتركيزه",
@@ -138,6 +148,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "rainy": MessageLookupByLibrary.simpleMessage("ممطر"),
     "rice": MessageLookupByLibrary.simpleMessage("أرز"),
     "rowSpacing": MessageLookupByLibrary.simpleMessage("تباعد الصفوف"),
+    "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "seedCost": MessageLookupByLibrary.simpleMessage("تكلفة البذور"),
     "seedQuantity": MessageLookupByLibrary.simpleMessage("كمية البذور"),
     "seedQuantityDesc": MessageLookupByLibrary.simpleMessage(

@@ -340,6 +340,51 @@ class S {
     );
   }
 
+  /// `Personal Data`
+  String get personalData {
+    return Intl.message(
+      'Personal Data',
+      name: 'personalData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Data`
+  String get accountData {
+    return Intl.message(
+      'Account Data',
+      name: 'accountData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `save`
+  String get save {
+    return Intl.message('save', name: 'save', desc: '', args: []);
+  }
+
+  /// `Delete Account `
+  String get deleteAccount {
+    return Intl.message(
+      'Delete Account ',
+      name: 'deleteAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you want delete your account?`
+  String get deleteAccountDesc {
+    return Intl.message(
+      'Are you want delete your account?',
+      name: 'deleteAccountDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Appearance`
   String get appearance {
     return Intl.message('Appearance', name: 'appearance', desc: '', args: []);
@@ -363,6 +408,21 @@ class S {
   /// `Log Out`
   String get logout {
     return Intl.message('Log Out', name: 'logout', desc: '', args: []);
+  }
+
+  /// `Are you want to log out?`
+  String get logoutDesc {
+    return Intl.message(
+      'Are you want to log out?',
+      name: 'logoutDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
   }
 
   /// `Get Result`

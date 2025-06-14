@@ -1,10 +1,13 @@
 import 'package:farmfix/constants.dart';
+import 'package:farmfix/core/utils/app_routes.dart';
 import 'package:farmfix/features/settings/presentation/widgets/custom_divider.dart';
 import 'package:farmfix/features/settings/presentation/widgets/custom_list_tile.dart';
 import 'package:farmfix/generated/l10n.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/codicon.dart';
@@ -14,6 +17,7 @@ import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/ri.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../../localization_cubit/cubit/locale_cubit.dart';
 
@@ -27,6 +31,9 @@ class SettingOptions extends StatelessWidget {
         CustomListTile(
           leadingIcon: Codicon.account,
           title: S.of(context).accountInfo,
+          onPressed: () {
+            GoRouter.of(context).push(AppRoutes.kAccountInformation);
+          },
         ),
         SizedBox(
           height: 30.h,
@@ -49,6 +56,9 @@ class SettingOptions extends StatelessWidget {
         CustomListTile(
           leadingIcon: Mdi.about_circle_outline,
           title: S.of(context).about,
+          onPressed: () {
+            GoRouter.of(context).push(AppRoutes.kAboutView);
+          },
         ),
         SizedBox(
           height: 30.h,
@@ -60,6 +70,9 @@ class SettingOptions extends StatelessWidget {
         CustomListTile(
           leadingIcon: Dashicons.update,
           title: S.of(context).update,
+          onPressed: () {
+            GoRouter.of(context).push(AppRoutes.kUpdateView);
+          },
         ),
         SizedBox(
           height: 30.h,
@@ -111,7 +124,53 @@ class SettingOptions extends StatelessWidget {
           height: 55.h,
         ),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () async {
+            final shouldLogout = await showDialog<bool>(
+              context: context,
+              builder: (context) => AlertDialog(
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.zero,
+                ),
+                backgroundColor: kSecondaryColor,
+                content: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20.h),
+                  child: Text(S.of(context).logoutDesc,
+                      style: GoogleFonts.roboto(
+                          color: Colors.black87,
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w700)),
+                ),
+                actions: [
+                  TextButton(
+                    style: ButtonStyle(
+                      foregroundColor: WidgetStateProperty.all(Colors.black87),
+                    ),
+                    onPressed: () => Navigator.of(context).pop(false),
+                    child: Text(S.of(context).cancel),
+                  ),
+                  TextButton(
+                    style: ButtonStyle(
+                      foregroundColor: WidgetStateProperty.all(Colors.red),
+                    ),
+                    onPressed: () => Navigator.of(context).pop(true),
+                    child: Text(S.of(context).logout),
+                  ),
+                ],
+              ),
+            );
+
+            if (shouldLogout == true) {
+              await FirebaseAuth.instance.signOut();
+
+              final prefs = await SharedPreferences.getInstance();
+              await prefs.remove('isLoggedIn');
+
+              await Future.delayed(const Duration(milliseconds: 300));
+
+              // ignore: use_build_context_synchronously
+              GoRouter.of(context).go(AppRoutes.kSignInView);
+            }
+          },
           style: ButtonStyle(
             side: WidgetStateProperty.all(BorderSide(
                 color: Colors.red,

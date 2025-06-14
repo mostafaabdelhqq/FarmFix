@@ -1,8 +1,7 @@
 import 'package:farmfix/constants.dart';
-import 'package:farmfix/features/home/presentation/views/widgets/weather_data.dart';
+import 'package:farmfix/features/home/presentation/views/widgets/loading_weather_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:iconify_flutter/icons/ion.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:redacted/redacted.dart';
@@ -34,38 +33,44 @@ class LoadingWeatherCard extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Text(
-                    'Suez City',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20.sp,
+                  Container(
+                    width: 100.w,
+                    height: 20.h,
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(6.r),
                     ),
                   ),
+                  SizedBox(height: 10.h),
                   Padding(
                     padding: EdgeInsets.only(left: 20.w),
-                    child: Text(
-                      '23°',
-                      style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 60.sp,
+                    child: Container(
+                      width: 80.w,
+                      height: 60.h,
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(12.r),
                       ),
                     ),
                   ),
+                  SizedBox(height: 10.h),
                   Row(
                     children: [
-                      Text(
-                        'H:25°',
-                        style: GoogleFonts.roboto(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15.sp,
+                      Container(
+                        width: 50.w,
+                        height: 18.h,
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(6.r),
                         ),
                       ),
                       SizedBox(width: 20.w),
-                      Text(
-                        'L:12°',
-                        style: GoogleFonts.roboto(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15.sp,
+                      Container(
+                        width: 50.w,
+                        height: 18.h,
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(6.r),
                         ),
                       ),
                     ],
@@ -74,11 +79,13 @@ class LoadingWeatherCard extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(left: 20.w),
-                child: Image.asset(
-                  'assets/images/cloudy.png', // من الـ API
+                child: Container(
                   width: 230.w,
                   height: 200.h,
-                  fit: BoxFit.cover,
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(20.r),
+                  ),
                 ),
               ),
             ],
@@ -92,37 +99,23 @@ class LoadingWeatherCard extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: IntrinsicHeight(
+            child: const IntrinsicHeight(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const WeatherData(
-                    weatherIcon: Mdi.weather_heavy_rain,
-                    weatherDataType: 'Precipitation',
-                    weatherDataValue: '0.0 mm',
-                  ),
-                  // SizedBox(width: 40.w),
+                  LoadingWeatherData(weatherIcon: Mdi.weather_heavy_rain),
                   VerticalDivider(
                     color: kSecondaryColor,
                     thickness: 1.5,
-                    width: 10.h,
+                    width: 10,
                   ),
-                  const WeatherData(
-                    weatherIcon: Mdi.weather_windy,
-                    weatherDataType: 'Wind',
-                    weatherDataValue: '12.5 KM/H',
-                  ),
-                  // SizedBox(width: 35.w),
+                  LoadingWeatherData(weatherIcon: Mdi.weather_windy),
                   VerticalDivider(
                     color: kSecondaryColor,
                     thickness: 1.5,
-                    width: 10.h,
+                    width: 10,
                   ),
-                  const WeatherData(
-                    weatherIcon: Ion.water,
-                    weatherDataType: 'Humidity',
-                    weatherDataValue: '75%',
-                  ),
+                  LoadingWeatherData(weatherIcon: Ion.water),
                 ],
               ),
             ),
@@ -133,7 +126,7 @@ class LoadingWeatherCard extends StatelessWidget {
       context: context,
       redact: true,
       configuration: RedactedConfiguration(
-        animationDuration: const Duration(milliseconds: 800), //default
+        animationDuration: const Duration(milliseconds: 800),
       ),
     );
   }
