@@ -7,7 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../../../../constants.dart';
-import '../../data/model/SoilDataModel.dart';
 import '../../data/model/SoilLayers.dart';
 import '../../logic/cubit/soilgrids_cubit.dart';
 
@@ -18,6 +17,7 @@ class SoilDataView extends StatelessWidget {
   Widget build(BuildContext context) {
     final LatLng selectedPoint = GoRouterState.of(context).extra as LatLng;
     return Scaffold(
+
     appBar: AppBar(
       title: const Text('Soil Data'),
       titleTextStyle: GoogleFonts.righteous(
@@ -61,7 +61,7 @@ class SoilDataView extends StatelessWidget {
     body: Column(
         children: [
           Row(),
-          Row(),
+          const Row(children: [Text('Date :',style: TextStyle(fontSize: 20),)],),
           BlocBuilder<SoilGridsCubit, SoilGridsState>(
               builder: (context, state) {
                 if (state is SoilGridsLoading) {
@@ -92,18 +92,17 @@ class SoilDataView extends StatelessWidget {
                 }
 
                 if (state is SoilGridsLoaded) {
-                  final SoilDataModel soilModel = state.soilDataModel;
-                  final List<SoilLayers> layers = soilModel.properties
-                      ?.layers ?? [];
+                  
+                  final List<SoilLayers> layers = state.soilDataModel.properties?.layers?? [];
 
                   return Expanded(
                     child: GridView.builder(
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
-                        mainAxisSpacing: 8.0,
+                        mainAxisSpacing: 45.0,
                         crossAxisSpacing: 8.0,
                       ),
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(12.0),
                       itemCount: layers.length,
                       itemBuilder: (context, index) {
                         return SoilDataCard(soilLayer: layers[index]);

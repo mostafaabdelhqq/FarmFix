@@ -15,7 +15,7 @@ class SoilGridsCubit extends Cubit<SoilGridsState> {
     emit(SoilGridsLoading());
     try {
       final response = await dio.get(
-        'https://rest.soilgrids.org/query',
+       'https://rest.isric.org/soilgrids/v2.0/properties/query',
         queryParameters: {
           'lon': point.longitude,
           'lat': point.latitude,
