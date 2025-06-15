@@ -16,21 +16,24 @@ class ChatRepositoryImpl implements ChatRepository {
     return MessageModel.bot(response);
   }
 
-  @override
-  Stream<MessageModel> sendMessageStream(
-      String message, List<Content> history) {
-    return _dataSource
-        .getResponseStream(message, history)
-        .map((text) => MessageModel.bot(
-              '',
-            ));
-  }
+  // ❌ حذفنا sendMessageStream لأنه مش مدعوم حاليًا من Google Generative AI
+  // @override
+  // Stream<MessageModel> sendMessageStream(
+  //     String message, List<Content> history) async* {
+  //   final response = await sendMessage(message, history);
+  //   yield response;
+  // }
 
+  // ✅ بناء تاريخ المحادثة بشكل صحيح
   @override
   List<Content> convertToGeminiHistory(List<MessageModel> messages) {
     return messages
-        .where((message) => !message.isUser)
-        .map((message) => Content.text(message.text))
+        .where((message) => message.text.trim().isNotEmpty)
+        .map(
+          (message) => message.isUser
+              ? Content.text(message.text)
+              : Content.model([TextPart(message.text)]),
+        )
         .toList();
   }
 }

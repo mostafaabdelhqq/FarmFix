@@ -10,30 +10,32 @@ class SettingsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomAppBar(
-          title: S.of(context).settings,
-          fontSize: 40,
-        ),
-        SizedBox(
-          height: 35.h,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Text(S.of(context).general,
-              style: GoogleFonts.roboto(
-                fontSize: 30.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              )),
-        ),
-        SizedBox(
-          height: 35.h,
-        ),
-        const SettingOptions(),
-      ],
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomAppBar(
+            title: S.of(context).settings,
+            fontSize: 40,
+          ),
+          SizedBox(
+            height: 35.h,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(S.of(context).general,
+                style: GoogleFonts.roboto(
+                  fontSize: 30.sp,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                )),
+          ),
+          SizedBox(
+            height: 35.h,
+          ),
+          const SettingOptions(),
+        ],
+      ),
     );
   }
 }
