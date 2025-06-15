@@ -17,6 +17,7 @@ class SoilDataCard extends StatelessWidget {
       height: 200,
       width: 200,
       decoration: BoxDecoration(color:const Color(0xff009951).withOpacity(.5),),
+<<<<<<< HEAD
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -30,6 +31,9 @@ class SoilDataCard extends StatelessWidget {
         Text('${firstDepth?.values?.mean}')
       ],),
 
+=======
+      child:const Column(),
+>>>>>>> 8f5dcff (feat: map screen & soil data)
     );
   }
 }
