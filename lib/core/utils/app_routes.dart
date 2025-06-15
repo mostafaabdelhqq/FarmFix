@@ -4,6 +4,7 @@ import 'package:farmfix/features/forget%20password/presentation/views/forget_pas
 import 'package:farmfix/features/forget%20password/presentation/views/widgets/check_your_email_view.dart';
 import 'package:farmfix/features/home/presentation/views/home_view.dart';
 import 'package:farmfix/features/landscanner/presentation/views/landscanner_view.dart';
+import 'package:farmfix/features/landscanner/presentation/views/soildata_view.dart';
 import 'package:farmfix/features/settings/presentation/settings_view.dart';
 import 'package:farmfix/features/sign%20in/presentation/views/sign_in_view.dart';
 import 'package:farmfix/features/sign%20up/presentation/views/sign_up_view.dart';
@@ -19,6 +20,7 @@ abstract class AppRoutes {
   static const kSettingsView = '/settingsView';
   static const kCamera = '/camera';
   static const kLandScanner='/landScanner';
+  static const kSoilDataView='/soilDataView';
 
   static final router = GoRouter(routes: [
     GoRoute(
@@ -60,5 +62,8 @@ abstract class AppRoutes {
     GoRoute(
         path: kLandScanner,
         builder: (context, state) => const LandScannerView()),
+    GoRoute(
+        path: kSoilDataView,
+        builder: (context, state) => const SoilDataView()),
   ]);
 }
