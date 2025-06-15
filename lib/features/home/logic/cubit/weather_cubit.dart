@@ -4,6 +4,8 @@ import 'package:farmfix/features/home/data/model/weather_model.dart';
 import 'package:location/location.dart'; // استخدم location بدل geolocator
 import 'package:meta/meta.dart';
 
+import '../../../../location_service.dart';
+
 part 'weather_state.dart';
 
 class WeatherCubit extends Cubit<WeatherState> {
@@ -15,7 +17,7 @@ class WeatherCubit extends Cubit<WeatherState> {
   Future<void> fetchWeather() async {
     emit(WeatherLoading());
     try {
-      final locData = await _determineLocation();
+      final locData = await LocationService().getLocation();
 
       final response = await dio.get(
         'https://api.weatherapi.com/v1/forecast.json',
@@ -35,23 +37,4 @@ class WeatherCubit extends Cubit<WeatherState> {
     }
   }
 
-  Future<LocationData> _determineLocation() async {
-    bool serviceEnabled = await location.serviceEnabled();
-    if (!serviceEnabled) {
-      serviceEnabled = await location.requestService();
-      if (!serviceEnabled) {
-        throw Exception('Location services are disabled.');
-      }
-    }
-
-    PermissionStatus permissionGranted = await location.hasPermission();
-    if (permissionGranted == PermissionStatus.denied) {
-      permissionGranted = await location.requestPermission();
-      if (permissionGranted != PermissionStatus.granted) {
-        throw Exception('Location permissions are denied.');
-      }
-    }
-
-    return await location.getLocation();
-  }
 }

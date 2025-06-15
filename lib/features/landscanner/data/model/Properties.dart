@@ -1,0 +1,31 @@
+import 'dart:convert';
+
+import 'SoilLayers.dart';
+
+/// layers : [{"name":"bdod","unit_measure":{"d_factor":100,"mapped_units":"cg/cm³","target_units":"kg/dm³","uncertainty_unit":""},"depths":[{"range":{"top_depth":0,"bottom_depth":5,"unit_depth":"cm"},"label":"0-5cm","values":{"mean":139}},{"range":{"top_depth":5,"bottom_depth":15,"unit_depth":"cm"},"label":"5-15cm","values":{"mean":141}},{"range":{"top_depth":15,"bottom_depth":30,"unit_depth":"cm"},"label":"15-30cm","values":{"mean":147}}]},{"name":"cec","unit_measure":{"d_factor":10,"mapped_units":"mmol(c)/kg","target_units":"cmol(c)/kg","uncertainty_unit":""},"depths":[{"range":{"top_depth":0,"bottom_depth":5,"unit_depth":"cm"},"label":"0-5cm","values":{"mean":147}},{"range":{"top_depth":5,"bottom_depth":15,"unit_depth":"cm"},"label":"5-15cm","values":{"mean":140}},{"range":{"top_depth":15,"bottom_depth":30,"unit_depth":"cm"},"label":"15-30cm","values":{"mean":140}}]},{"name":"cfvo","unit_measure":{"d_factor":10,"mapped_units":"cm³/dm³","target_units":"cm³/100cm³","uncertainty_unit":""},"depths":[{"range":{"top_depth":0,"bottom_depth":5,"unit_depth":"cm"},"label":"0-5cm","values":{"mean":236}},{"range":{"top_depth":5,"bottom_depth":15,"unit_depth":"cm"},"label":"5-15cm","values":{"mean":237}},{"range":{"top_depth":15,"bottom_depth":30,"unit_depth":"cm"},"label":"15-30cm","values":{"mean":250}}]},{"name":"clay","unit_measure":{"d_factor":10,"mapped_units":"g/kg","target_units":"%","uncertainty_unit":""},"depths":[{"range":{"top_depth":0,"bottom_depth":5,"unit_depth":"cm"},"label":"0-5cm","values":{"mean":279}},{"range":{"top_depth":5,"bottom_depth":15,"unit_depth":"cm"},"label":"5-15cm","values":{"mean":287}},{"range":{"top_depth":15,"bottom_depth":30,"unit_depth":"cm"},"label":"15-30cm","values":{"mean":282}}]},{"name":"nitrogen","unit_measure":{"d_factor":100,"mapped_units":"cg/kg","target_units":"g/kg","uncertainty_unit":""},"depths":[{"range":{"top_depth":0,"bottom_depth":5,"unit_depth":"cm"},"label":"0-5cm","values":{"mean":103}},{"range":{"top_depth":5,"bottom_depth":15,"unit_depth":"cm"},"label":"5-15cm","values":{"mean":63}},{"range":{"top_depth":15,"bottom_depth":30,"unit_depth":"cm"},"label":"15-30cm","values":{"mean":46}}]},{"name":"ocd","unit_measure":{"d_factor":10,"mapped_units":"dg/dm³","target_units":"hg/m³","uncertainty_unit":""},"depths":[{"range":{"top_depth":0,"bottom_depth":5,"unit_depth":"cm"},"label":"0-5cm","values":{"mean":136}},{"range":{"top_depth":5,"bottom_depth":15,"unit_depth":"cm"},"label":"5-15cm","values":{"mean":113}},{"range":{"top_depth":15,"bottom_depth":30,"unit_depth":"cm"},"label":"15-30cm","values":{"mean":98}}]},{"name":"phh2o","unit_measure":{"d_factor":10,"mapped_units":"pH*10","target_units":"-","uncertainty_unit":""},"depths":[{"range":{"top_depth":0,"bottom_depth":5,"unit_depth":"cm"},"label":"0-5cm","values":{"mean":80}},{"range":{"top_depth":5,"bottom_depth":15,"unit_depth":"cm"},"label":"5-15cm","values":{"mean":80}},{"range":{"top_depth":15,"bottom_depth":30,"unit_depth":"cm"},"label":"15-30cm","values":{"mean":80}}]},{"name":"sand","unit_measure":{"d_factor":10,"mapped_units":"g/kg","target_units":"%","uncertainty_unit":""},"depths":[{"range":{"top_depth":0,"bottom_depth":5,"unit_depth":"cm"},"label":"0-5cm","values":{"mean":385}},{"range":{"top_depth":5,"bottom_depth":15,"unit_depth":"cm"},"label":"5-15cm","values":{"mean":384}},{"range":{"top_depth":15,"bottom_depth":30,"unit_depth":"cm"},"label":"15-30cm","values":{"mean":384}}]},{"name":"silt","unit_measure":{"d_factor":10,"mapped_units":"g/kg","target_units":"%","uncertainty_unit":""},"depths":[{"range":{"top_depth":0,"bottom_depth":5,"unit_depth":"cm"},"label":"0-5cm","values":{"mean":336}},{"range":{"top_depth":5,"bottom_depth":15,"unit_depth":"cm"},"label":"5-15cm","values":{"mean":329}},{"range":{"top_depth":15,"bottom_depth":30,"unit_depth":"cm"},"label":"15-30cm","values":{"mean":334}}]},{"name":"soc","unit_measure":{"d_factor":10,"mapped_units":"dg/kg","target_units":"g/kg","uncertainty_unit":""},"depths":[{"range":{"top_depth":0,"bottom_depth":5,"unit_depth":"cm"},"label":"0-5cm","values":{"mean":55}},{"range":{"top_depth":5,"bottom_depth":15,"unit_depth":"cm"},"label":"5-15cm","values":{"mean":48}},{"range":{"top_depth":15,"bottom_depth":30,"unit_depth":"cm"},"label":"15-30cm","values":{"mean":37}}]},{"name":"wv0010","unit_measure":{"d_factor":10,"mapped_units":"(10-2 cm³/cm³)*10","target_units":"10-2 cm³/cm³","uncertainty_unit":""},"depths":[{"range":{"top_depth":0,"bottom_depth":5,"unit_depth":"cm"},"label":"0-5cm","values":{"mean":322}},{"range":{"top_depth":5,"bottom_depth":15,"unit_depth":"cm"},"label":"5-15cm","values":{"mean":323}},{"range":{"top_depth":15,"bottom_depth":30,"unit_depth":"cm"},"label":"15-30cm","values":{"mean":327}}]},{"name":"wv0033","unit_measure":{"d_factor":10,"mapped_units":"(10-2 cm³/cm³)*10","target_units":"10-2 cm³/cm³","uncertainty_unit":""},"depths":[{"range":{"top_depth":0,"bottom_depth":5,"unit_depth":"cm"},"label":"0-5cm","values":{"mean":273}},{"range":{"top_depth":5,"bottom_depth":15,"unit_depth":"cm"},"label":"5-15cm","values":{"mean":275}},{"range":{"top_depth":15,"bottom_depth":30,"unit_depth":"cm"},"label":"15-30cm","values":{"mean":285}}]},{"name":"wv1500","unit_measure":{"d_factor":10,"mapped_units":"(10-2 cm³/cm³)*10","target_units":"10-2 cm³/cm³","uncertainty_unit":""},"depths":[{"range":{"top_depth":0,"bottom_depth":5,"unit_depth":"cm"},"label":"0-5cm","values":{"mean":122}},{"range":{"top_depth":5,"bottom_depth":15,"unit_depth":"cm"},"label":"5-15cm","values":{"mean":124}},{"range":{"top_depth":15,"bottom_depth":30,"unit_depth":"cm"},"label":"15-30cm","values":{"mean":122}}]}]
+
+Properties propertiesFromJson(String str) => Properties.fromJson(json.decode(str));
+String propertiesToJson(Properties data) => json.encode(data.toJson());
+class Properties {
+  Properties({
+      this.layers,});
+
+  Properties.fromJson(dynamic json) {
+    if (json['layers'] != null) {
+      layers = [];
+      json['layers'].forEach((v) {
+        layers?.add(SoilLayers.fromJson(v));
+      });
+    }
+  }
+  List<SoilLayers>? layers;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    if (layers != null) {
+      map['layers'] = layers?.map((v) => v.toJson()).toList();
+    }
+    return map;
+  }
+
+}
