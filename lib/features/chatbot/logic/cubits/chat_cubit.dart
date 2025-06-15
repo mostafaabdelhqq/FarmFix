@@ -40,24 +40,13 @@ class ChatCubit extends Cubit<ChatState> {
 
     try {
       final history = _repository.convertToGeminiHistory(_messages);
-      final responseStream = _repository.sendMessageStream(message, history);
+      final response = await _repository.sendMessage(message, history);
 
-      String fullResponse = '';
-      await for (final response in responseStream) {
-        fullResponse += response.text;
-
-        _messages.last = _messages.last.copyWith(
-          text: fullResponse,
-          isTyping: true,
-        );
-        emit(ChatSuccess([..._messages]));
-      }
-
-      _messages.last = _messages.last.copyWith(isTyping: false);
+      _messages[_messages.length - 1] = response.copyWith(isTyping: false);
       emit(ChatSuccess([..._messages]));
     } catch (e) {
-      _messages.last = _messages.last.copyWith(
-        text: 'Error: ${e.toString()}',
+      _messages[_messages.length - 1] = MessageModel.bot(
+        'Error: ${e.toString()}',
         isTyping: false,
       );
       emit(ChatError([..._messages], e.toString()));

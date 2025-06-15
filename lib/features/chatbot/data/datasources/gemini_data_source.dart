@@ -1,10 +1,8 @@
 import 'package:google_generative_ai/google_generative_ai.dart';
 
-// gemini_data_source.dart
 class GeminiDataSource {
-  static const _apiKey = 'AIzaSyAAo6HRSChWLyKXY8WFptBItmafKXA0yhY';
-  static const _modelName =
-      'gemini-1.5-flash'; // Updated to a more capable model
+  static const _apiKey = 'AIzaSyAzHcHZEvgsX3GUw7i8KI2Y5uHL8idkLS4';
+  static const _modelName = 'gemini-1.5-flash';
 
   final GenerativeModel _model;
 
@@ -13,12 +11,11 @@ class GeminiDataSource {
           model: _modelName,
           apiKey: _apiKey,
           generationConfig: GenerationConfig(
-            maxOutputTokens: 2000,
-            temperature: 0.9,
-            topP: 0.9,
+            maxOutputTokens: 1000,
+            temperature: 0.8,
+            topP: 0.95,
           ),
-          systemInstruction: Content.text(
-            '''
+          systemInstruction: Content.text('''
 You are FarmFix Assistant, an expert ONLY in agriculture and climate-related topics.
 
 Language Rules:
@@ -33,10 +30,9 @@ Your expertise includes:
 - Sustainable agriculture practices
 - Climate adaptation strategies
 
-If asked about anything outside agriculture/climate, respond: 
+If asked about anything outside agriculture/climate, respond:
 "I specialize in farming and climate topics. Could you ask about crops, weather impacts, or related subjects?"
-''',
-          ),
+'''),
         );
 
   Future<String> getResponse(String prompt, List<Content> history) async {
@@ -46,16 +42,6 @@ If asked about anything outside agriculture/climate, respond:
       return response.text ?? 'No response';
     } catch (e) {
       throw Exception('Failed to get response: $e');
-    }
-  }
-
-  Stream<String> getResponseStream(
-      String prompt, List<Content> history) async* {
-    final chat = _model.startChat(history: history);
-    final response = chat.sendMessageStream(Content.text(prompt));
-
-    await for (final chunk in response) {
-      yield chunk.text ?? '';
     }
   }
 }

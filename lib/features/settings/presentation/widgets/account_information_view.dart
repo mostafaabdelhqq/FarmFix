@@ -42,70 +42,78 @@ class _AccountInformationViewState extends State<AccountInformationView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kSecondaryColor,
-      body: Column(
-        children: [
-          CustomAppBar(title: S.of(context).accountInfo, fontSize: 32.sp),
-          TransitionBetweenTwoScreen(
-            firstScreen: S.of(context).accountData,
-            secondScreen: S.of(context).personalData,
-            selectedIndex: selectedIndex,
-            onTabTapped: handleTabTapped,
-          ),
-          SizedBox(height: 50.h),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: Intl.getCurrentLocale() == 'en' ? 0.w : 242.w),
-                    child: TextFieldLabel(textField: S.of(context).firstName),
-                  ),
-                  SettingTextField(
-                    controller: _firstNameController,
-                    hintText: S.of(context).firstName,
-                  ),
-                  SizedBox(height: 43.h),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: Intl.getCurrentLocale() == 'en' ? 0.w : 238.w),
-                    child: TextFieldLabel(textField: S.of(context).lastName),
-                  ),
-                  SettingTextField(
-                    controller: _lastNameController,
-                    hintText: S.of(context).lastName,
-                  ),
-                ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: kSecondaryColor,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              CustomAppBar(title: S.of(context).accountInfo, fontSize: 32.sp),
+              TransitionBetweenTwoScreen(
+                firstScreen: S.of(context).accountData,
+                secondScreen: S.of(context).personalData,
+                selectedIndex: selectedIndex,
+                onTabTapped: handleTabTapped,
               ),
-            ),
-          ),
-          SizedBox(
-            height: 200.h,
-          ),
-          Center(
-            child: SettingButton(
-                textButton: S.of(context).save,
-                onPressed: () async {
-                  final FirebaseAuth auth = FirebaseAuth.instance;
-                  String firstName = _firstNameController.text.trim();
-                  String lastName = _lastNameController.text.trim();
-                  if (_formKey.currentState!.validate()) {
-                    await auth.currentUser!
-                        .updateDisplayName("$firstName $lastName");
+              SizedBox(height: 50.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left:
+                                Intl.getCurrentLocale() == 'en' ? 0.w : 242.w),
+                        child:
+                            TextFieldLabel(textField: S.of(context).firstName),
+                      ),
+                      SettingTextField(
+                        controller: _firstNameController,
+                        hintText: S.of(context).firstName,
+                      ),
+                      SizedBox(height: 43.h),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left:
+                                Intl.getCurrentLocale() == 'en' ? 0.w : 238.w),
+                        child:
+                            TextFieldLabel(textField: S.of(context).lastName),
+                      ),
+                      SettingTextField(
+                        controller: _lastNameController,
+                        hintText: S.of(context).lastName,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 200.h,
+              ),
+              Center(
+                child: SettingButton(
+                    textButton: S.of(context).save,
+                    onPressed: () async {
+                      final FirebaseAuth auth = FirebaseAuth.instance;
+                      String firstName = _firstNameController.text.trim();
+                      String lastName = _lastNameController.text.trim();
+                      if (_formKey.currentState!.validate()) {
+                        await auth.currentUser!
+                            .updateDisplayName("$firstName $lastName");
 
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("تم تحديث الاسم بنجاح")));
-                    await auth.currentUser!.reload();
-                    _firstNameController.clear();
-                    _lastNameController.clear();
-                  }
-                }),
-          )
-        ],
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("تم تحديث الاسم بنجاح")));
+                        await auth.currentUser!.reload();
+                        _firstNameController.clear();
+                        _lastNameController.clear();
+                      }
+                    }),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
