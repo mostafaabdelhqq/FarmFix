@@ -30,71 +30,73 @@ class AboutView extends StatelessWidget {
       indent: 10.w,
       endIndent: 10.w,
     );
-    return Scaffold(
-      backgroundColor: kSecondaryColor,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            CustomAppBar(title: S.of(context).about, fontSize: 32.sp),
-            SizedBox(height: 50.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    S.of(context).overview,
-                    style: textStyle22,
-                  ),
-                  sizedBox15,
-                  Text(
-                    S.of(context).overviewDesc,
-                    style: textStyle16,
-                  ),
-                  sizedBox20,
-                  horizontalDivider,
-                  sizedBox20,
-                  Text(
-                    S.of(context).purpose,
-                    style: textStyle22,
-                  ),
-                  sizedBox15,
-                  Text(
-                    S.of(context).purposeDesc,
-                    style: textStyle16,
-                  ),
-                  sizedBox20,
-                  horizontalDivider,
-                  sizedBox20,
-                  Text(
-                    S.of(context).keyFeatures,
-                    style: textStyle22,
-                  ),
-                  sizedBox15,
-                  Text(
-                    S.of(context).keyFeaturesDesc,
-                    style: textStyle16,
-                  ),
-                  sizedBox20,
-                  horizontalDivider,
-                  sizedBox20,
-                  Text(
-                    S.of(context).versionInfo,
-                    style: textStyle22,
-                  ),
-                  sizedBox15,
-                  Text(
-                    S.of(context).versionInfoDesc,
-                    style: textStyle16,
-                  ),
-                  SizedBox(
-                    height: 80.h,
-                  )
-                ],
-              ),
-            )
-          ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: kSecondaryColor,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              CustomAppBar(title: S.of(context).about, fontSize: 32.sp),
+              SizedBox(height: 50.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      S.of(context).overview,
+                      style: textStyle22,
+                    ),
+                    sizedBox15,
+                    Text(
+                      S.of(context).overviewDesc,
+                      style: textStyle16,
+                    ),
+                    sizedBox20,
+                    horizontalDivider,
+                    sizedBox20,
+                    Text(
+                      S.of(context).purpose,
+                      style: textStyle22,
+                    ),
+                    sizedBox15,
+                    Text(
+                      S.of(context).purposeDesc,
+                      style: textStyle16,
+                    ),
+                    sizedBox20,
+                    horizontalDivider,
+                    sizedBox20,
+                    Text(
+                      S.of(context).keyFeatures,
+                      style: textStyle22,
+                    ),
+                    sizedBox15,
+                    Text(
+                      S.of(context).keyFeaturesDesc,
+                      style: textStyle16,
+                    ),
+                    sizedBox20,
+                    horizontalDivider,
+                    sizedBox20,
+                    Text(
+                      S.of(context).versionInfo,
+                      style: textStyle22,
+                    ),
+                    sizedBox15,
+                    Text(
+                      S.of(context).versionInfoDesc,
+                      style: textStyle16,
+                    ),
+                    SizedBox(
+                      height: 80.h,
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

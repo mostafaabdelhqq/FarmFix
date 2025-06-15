@@ -3,8 +3,7 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 // gemini_data_source.dart
 class GeminiDataSource {
   static const _apiKey = 'AIzaSyAAo6HRSChWLyKXY8WFptBItmafKXA0yhY';
-  static const _modelName =
-      'gemini-1.5-flash'; // Updated to a more capable model
+  static const _modelName = 'gemini-1.5-pro'; // Updated to a more capable model
 
   final GenerativeModel _model;
 
